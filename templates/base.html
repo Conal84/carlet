@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     {% block meta %}
     <meta charset="utf-8" />
     <meta
@@ -13,9 +12,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     {% endblock %}
 
-    {% block extra_meta %}
-    {% endblock %}
-
+    {% block extra_meta %} 
+    {% endblock %} 
+    
     {% block corecss %}
     <link
       rel="stylesheet"
@@ -24,7 +23,7 @@
       crossorigin="anonymous"
     />
     {% endblock %}
-
+    
     {% block extra_css %}
     {% endblock %}
 
@@ -52,12 +51,12 @@
     <title>Car-Let</title>
   </head>
   <body>
+    
+    {% block content %}
+    {% endblock %}
 
-  {% block content %}
-  {% endblock %}
 
-  {% block postloadjs %}
-  {% endblock %}
-  
+    {% block postloadjs %}
+    {% endblock %}
   </body>
 </html>
