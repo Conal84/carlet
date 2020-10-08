@@ -28,7 +28,8 @@ Website key features include the following;
 
 
 ### Structure
-
+I wnat to use bright but neutral colors to attract users from a variety of demographics to the website.
+![Color Palette](/static/docs/carlet1.pdf)
 
 ### Surface
 
@@ -76,72 +77,21 @@ Website key features include the following;
 8. [JQuery](https://jquery.com/)
 9. [Popper.js](https://popper.js.org/)
 10. [Python](https://www.python.org/)
-11. [MongoDB](https://www.mongodb.com/)
-12. [EmailJS](https://www.emailjs.com/)
-13. [Inkscape](https://inkscape.org/)
-14. [Imgbb](https://imgbb.com/)
+11. [Inkscape](https://inkscape.org/)
 
 ## Features
 ### Existing features
-* Home page with navbar, hero section, skills section, portfolio section, contact section and footer
-    * Navbar has links with Home, About, Portfolio, Contact and a logo for my portfolio page made in inkscape with a link to the home page
-    * Hero section is a animated canvas. The animation sweeps 2 colored lines across the page and contains colored polygons which are seperated by those lines. The hero section also contains faux code sections which detail some of my coding skills.
-    * About/Skills section contains a paragraph with some of my background information and interests and an animated skills progress bar
-    * Portfolio section contains websites introductory images with brief descriptions. Images are stored on the Imgbb.com website and linked to the MongoDB database.
-    * Contact section contains a message and a Get in touch button which brings up a form modal, this form sends an email to my personal email address
-    * Footer has links to my Github and a dummy Linkedin page
-
-* Portfolio Section - See more
-    * When a visitor clicks on a project see more button they are taken to a project specific page with a link to the Github and dedicated page for that website
-    * The visitor can also see some further images of the project in a carousel
-
-* Contact Section - Get in touch
-    * A visitor can send me a personal email to discuss my work or future projects by completing this contact form and pressing the send button
-
-* Admin page
-    * A page where the admin user can submit username and password
-
-* Home page - Logged in
-    * At the page the admin user can perform CRUD operations on the skills section and portfolio section of the webpage
-    * The admin user can Create, Update or Delete skills or projects from the webpage
-    * Deleting skills or projects displays a modal which ask for user confirmation prior to deleting information
-
-* Edit skill
-    * Displays a form which is prepopulated with the skill data
-    * Skill data can be updated and submitted
-    * Upon submission the user is returned to the Home page where they can see the changes made
-
-* Add skill
-    * Displays a form which contains a placeholder for the skill icon so the user can see the format required for the skill icon
-    * The skill name, skill percentage and skill icon can be added
-
-* Edit project
-    * Displays a form which is prepopulated with the project information
-    * Project information can be updated and submitted
-    * Upon submission the user is returned to the Home page where they can see the changes made
-
-* Add project
-    * Displays a form with empty fields where the user can add new project information and submit
-
-* 404 page
-    * An error 404 page with a link to the home page
 
 ### Information Architecture
-This project uses the NoSQL database MongoDB with the following database design structure and variables
 
 ### Project collection
-![Information architecture](/data/schemas/Database-design.png)
-
-Prior to beginning work on the project the below file structure was laid out to understand how the various webpages would link together
 
 ### File structure
-![File structure](/data/schemas/File-structure.png)
 
 ### Features to implement
-Future features will include additonal skills and more showcase projects as I build more websites.
 
 ## Testing
-Please see the TEST.md file at this link [TEST.md](TEST.md) to understand how the Portfolio website was tested.
+Please see the TEST.md file at this link [TEST.md](TEST.md) to understand how the Car-Let website was tested.
 
 ## Deployment
 This project was developed using the GitPod IDE, version controlled by committing to git and pushing to GitHub via the GitPod IDE.
@@ -152,21 +102,19 @@ The following must be installed on your machine;
 * PIP
 * Python 3
 * GitHub
-* A [MongoDB](https://www.mongodb.com/) account or MongoDB running locally on your machine.
-    * See how to signup for a MongoDB account [here](https://www.mongodb.com/cloud/atlas/signup)
 
 #### instructions
-1. Open the repository located at [https://github.com/Conal84/Portfolio](https://github.com/Conal84/Portfolio)
+1. Open the repository located at
 2. Click on **Clone or Download** and copy the URL
-3. In your IDE enter the command `git clone https://github.com/Conal84/Portfolio`
-4. A virtual environment is recommended for the Python interpreter, I recommend using Pythons built in virtual environment. To do this enter the command `python3 -m .venv venv`
-5. Activate the virtual environment with the command `.venv\Scripts\Activate`
-6. If required upgrade pip locally with the command `pip install --upgrade pip`
-7. Install all required packages from the requirements file with the command `pip -r requirements.txt`
+3. In your IDE enter the command 
+4. A virtual environment is recommended for the Python interpreter, I recommend using Pythons built in virtual environment. To do this enter the command
+5. Activate the virtual environment with the command 
+6. If required upgrade pip locally with the command
+7. Install all required packages from the requirements file with the command
 8. In your local IDE create a file called env.py
 9. Inside this file create a SECRET_KEY variable, a MONGO DBNAME a MONGO_URI and an EMAILJS_KEY.
 10. In MongoDB create a database called Portfolio, with 2 collections called Skills and Projects. You will find example JSON structures for these collections in the data/schemas folder
-11. You can now run the application with the command `python3 app.py`
+11. You can now run the application with the command
 12. The project can be viewed at **Insert http link**
 
 ### Heroku Deployment
