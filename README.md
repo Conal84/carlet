@@ -61,9 +61,9 @@ Website key features include the following;
 ![Checkout Desktop](/static/wireframes/Checkout.png)
 ![Checkout Tablet](/static/wireframes/Checkout_tablet.png)
 ![Checkout Mobile](/static/wireframes/Checkout_phone.png)
-![Logout Desktop](/static/wireframes/Logout.png)
-![Logout Tablet](/static/wireframes/Logout_tablet.png)
-![Logout Mobile](/static/wireframes/Logout_phone.png)
+![Logout Desktop](/static/wireframes/Log_out.png)
+![Logout Tablet](/static/wireframes/Log_out_tablet.png)
+![Logout Mobile](/static/wireframes/Log_out_phone.png)
 
 ### Technologies used
 1. HTML
