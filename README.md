@@ -29,7 +29,7 @@ Website key features include the following;
 
 ### Structure
 I wnat to use bright but neutral colors to attract users from a variety of demographics to the website.
-![Color Palette](/static/docs/carlet1.pdf)
+![Color Palette](/static/docs/Carlet_color_palette.png)
 
 ### Surface
 
