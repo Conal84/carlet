@@ -11,11 +11,11 @@ Visitors can also view their cart and easily checkout a car.
 ![User Stories](/static/docs/project_setup.ods)
 
 ### Strategy
-The Portfolio website will provide users with an easy to access skills and project information about the site adminstrator.
+The Carlet website will provide visitors with an easy to use search facility where they can find cars to hire in their location.
 
-Users will be presented with a strong hero section which will showcase skills in web design and javascript.
+Users will have the ability to upload a car to let / hire out to other site users.
 
-Users will also be presented with an animated skills section with eye catching progress bars.
+Users will 
 
 Users will find projects displayed in tiles with an image of each particular webpage. Each tile will contain a link to another webpage with greater project detail.
 
@@ -28,41 +28,21 @@ Website key features include the following;
 
 
 ### Structure
-I want to keep the site as minimalist and clutter free as possible so that it is easy to use for the wide ranging demographic and so users are not overwhelmed with information.
-Information will be provided to users in a concise, straight forward manner.
 
-The mobile first design will arrange information in single full width columns to allow content to be read easily.
-On larger tablet and desktop display information will be arranged in additional columns using Bootstraps responsive grid design.
-
-Information will be grouped in 4 key areas;
-* Hero - provides an eye catching background image with introductory information about me
-* Skills - provides key skills information via progress bars
-* Projects - provides initial, concise project information with links to more detailed views
-* Contact - provides an easy method to send me a direct email
 
 ### Surface
-I want the colors used on the site to grab the users attention without being too acute.
 
-The primary colours for the website are black #0b0a07, yellow #ffcd24 used to grab the attention of visitors.
-Contrasting white #fff and grey #eaecec are used to display text information and to provide background segregation between key areas.
-A secondary softer blue highlight color #1478a3 has then been used to make key elements stand out on the page and to grab the attention of the user without overwhelming.
-
-I have used Open Sans font throughout the website as it has a simplistic style.
-I have used Raleway font for the headings as this font makes the heading stand out and grabs the users attention.
-I have also used an Inconsolata font as it mimics a faux coding style font in the hero section.
-
-I have used Inkscape to design an svg image which I used for my portfolio logo and favicon.
 
 ### Wireframes
-![Home Desktop](/wireframes/Home.png)
-![Home Tablet](/wireframes/Home-tablet.png)
-![Home Mobile](/wireframes/Home-mobile.png)
-![Contact Desktop](/wireframes/Contact.png)
-![Contact Tablet](/wireframes/Contact-tablet.png)
-![Contact Mobile](/wireframes/Contact-mobile.png)
-![Admin Desktop](/wireframes/Admin.png)
-![Admin Tablet](/wireframes/Admin-tablet.png)
-![Admin Mobile](/wireframes/Admin-mobile.png)
+![Home Desktop](/static/wireframes/Home.png)
+![Home Tablet](/static/wireframes/Home_tablet.png)
+![Home Mobile](/static/wireframes/Home_phone.png)
+![Car details Desktop](/static/wireframes/Car_details.png)
+![Car details Tablet](/static/wireframes/Car_details_tablet.png)
+![Car details Mobile](/static/wireframes/Car_details_phone.png)
+![Sign Up](/static/wireframes/Sign_up_In.png)
+![Sign Up Tablet](/static/wireframes/Sign_up_In_tablet.png)
+![Sign Up Mobile](/static/wireframes/Sign_up_in_phone.png)
 ![Logged in Desktop](/wireframes/Logged-in.png)
 ![Logged in Tablet](/wireframes/Logged-in-tablet.png)
 ![Logged in Mobile](/wireframes/Logged-in-mobile.png)
