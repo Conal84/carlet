@@ -8,7 +8,7 @@ Visitors can also view their cart and easily checkout a car.
 
 ## UX
 ### User Stories
-
+![User Stories](/static/docs/project_setup.ods)
 
 ### Strategy
 The Portfolio website will provide users with an easy to access skills and project information about the site adminstrator.
@@ -25,46 +25,7 @@ As a result of this wide range of users the site must be simple to use and laid 
 ### Scope
 Website key features include the following;
 
-* Hero section - provides users with an eye catching introduction to the portfolio wewbsite
-    * An animated image to grab the attention of the user
-    * Inaugural text to give the user an initial idea of who I admin
-    * Navigation bar to allow simple website exploration
 
-* Skills Section - provides the user with a more detailed explanation of my skills with progress bars
-    * Text section with detail regarding my skills
-    * Skills progress circles with progress bars and percentages representing my competencies in each field
-    * Admin users can Add, Edit or Delete a skill
-
-* Projects Section - provides the user with a brief overview of my projects
-    * Tiled project images with brief project introductions
-    * Links to more detailed project webpages
-    * Admin users can Add, Edit or Delete a project
-
-* Detailed Project Webpages - provides the user with detailed overview of my projects
-    * Project images in carousel format
-    * Detailed explanation of the project
-    * Links to the specific project webpage and GitHub page
-
-* Login Section - provides the admin user with log in functionality
-    * Admin user can enter username and password
-
-* Edit Skill Section - provides the admin user with read and update functionality
-    * Admin user can modify a specific skill and update
-
-* Add Skill Section - provides the admin user with create functionality
-    * Admin user can add a new skill
-
-* Edit Project Section - provides the admin user with read and update functionality
-    * Admin user can modify a specific project and update
-
-* Add Project Section - provides the admin user with create functionality
-    * Admin user can add a new project
-
-* Contact Section - provides the user with the ability to email me about a project
-    * Users can complete the contact form to send me an email
-    * Form is validated to ensure correct entries
-
-* Footer Section - provides links to Linkedin and GitHub pages
 
 ### Structure
 I want to keep the site as minimalist and clutter free as possible so that it is easy to use for the wide ranging demographic and so users are not overwhelmed with information.
