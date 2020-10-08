@@ -8,19 +8,24 @@ Visitors can also view their cart and easily checkout a car.
 
 ## UX
 ### User Stories
-![User Stories](/static/docs/project_setup.ods)
+![User Stories](/static/docs/User_stories.png)
 
 ### Strategy
 The Carlet website will provide visitors with an easy to use search facility where they can find cars to hire in their location.
 
 Users will have the ability to upload a car to let / hire out to other site users.
 
-Users will 
+Users will can create a personal account where they can login to see their current and previous car hires and car lets.
 
-Users will find projects displayed in tiles with an image of each particular webpage. Each tile will contain a link to another webpage with greater project detail.
+Users can easily add products to their cart, view their cart total, cart items and can use a checkout to enter their payment details and confirm their order.
 
-This portfolio website will be aimed at a range of demographics from the field of web development and potential clients interested in working on new projects. 
-As a result of this wide range of users the site must be simple to use and laid out in a concise manner.
+Users orders will be confirmed by a personal email sent to their email account.
+
+Admin users will be able to create, view, update or delete products or users from the website by logging in with admin rights.
+
+This portfolio website will be aimed at a range of demographics, both male and female from 18 years plus.
+As a result of this wide range of users the site must be simple to use and laid out in a concise manner with a simple explanation of how the car hiring process works.
+The color palette of the site must also appeal to these demographics.
 
 ### Scope
 Website key features include the following;
@@ -28,7 +33,7 @@ Website key features include the following;
 
 
 ### Structure
-I wnat to use bright but neutral colors to attract users from a variety of demographics to the website.
+I want to use bright but neutral colors to attract users from a variety of demographics to the website.
 ![Color Palette](/static/docs/Carlet_color_palette.png)
 
 ### Surface
