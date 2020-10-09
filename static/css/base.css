@@ -1,0 +1,28 @@
+/* -------------------------------------- Html */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* -------------------------------------- Body */
+body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+.index-text {
+    color: #dc04b4;
+}
+
+/* -------------------------------------- Footer */
+#footer-container {
+  height: 5rem;
+  background-color: #4059ad;
+}
+
+#footer-list i {
+  font-size: 3rem;
+  margin-top: 1rem;
+  color: #dc04b4;
+}
