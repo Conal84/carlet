@@ -88,12 +88,12 @@ I want to use bright but neutral colors to attract users from a variety of demog
 ### Existing features
 
 ### Information Architecture
-[Database Structure](/static/docs/Database_structure.png)
+![Database Structure](/static/docs/Database_structure.png)
 
 ### Project collection
 
 ### File structure
-[File Structure](/static/docs/File_structure.png)
+![File Structure](/static/docs/File_structure.png)
 
 ### Features to implement
 
