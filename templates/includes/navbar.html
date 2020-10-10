@@ -1,0 +1,65 @@
+<nav class="navbar sticky-top navbar-expand-md">
+  <a class="navbar-brand" href="#">
+    CarLet
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#portfolioNav"
+    aria-controls="portfolioNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"
+      ><i class="fas fa-bars" style="color: #ffcd24; font-size: 28px;"></i
+    ></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="CarletNav">
+    <ul class="navbar-nav align-items-end">
+      {% if 'username' in session %}
+      <li class="nav-item">
+        <a class="nav-link" href="#">Search</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="#">Account Details</a>
+          <a class="dropdown-item" href="#">Car Hires</a>
+          <a class="dropdown-item" href="#">Car Lets</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cart</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Log Out</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >How it Works</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Search</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          >Sign In</a
+        >
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
