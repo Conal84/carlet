@@ -1,20 +1,17 @@
 {% extends "base.html" %} {% block content %}
+{% load crispy_forms_tags %}
 <div class="form-container mx-5 bg-light">
   <form action="" method="GET">
     <div class="row">
       <div class="col-12 col-md-6">
-        <input
-          type="text"
-          class="form-control form-control-lg"
-          name="location"
-          placeholder="Search by location"
-        />
+        {{ search_form.location.errors }}
+        {{ search_form.location|as_crispy_field }}
       </div>
       <div class="col-12 col-md-3">
-        <input type="text" class="form-control form-control-lg" name="date_from" placeholder="Hire from" />
+        {{ search_form.hire_from|as_crispy_field }}
       </div>
       <div class="col-12 col-md-3">
-        <input type="text" class="form-control form-control-lg" name="date_to" placeholder="Hire to" />
+        {{ search_form.hire_to|as_crispy_field }}
       </div>
     </div>
     <div class="d-flex justify-content-center">
