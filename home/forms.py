@@ -3,6 +3,6 @@ import datetime
 
 
 class SearchForm(forms.Form):
-    location = forms.CharField(initial="Search by Location")
+    location = forms.CharField()
     hire_from = forms.DateField(initial=datetime.date.today)
-    hire_to = forms.DateField(initial="Hire To")
+    hire_to = forms.DateField()
