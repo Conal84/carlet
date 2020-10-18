@@ -1,5 +1,24 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <h1 class="index-text">This is the index page!!!</h1>
+{% extends "base.html" %} {% block content %}
+<div class="form-container m-5">
+  <form action="" method="GET">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="Search by location"
+        />
+      </div>
+      <div class="col-12 col-md-3">
+        <input type="text" class="form-control form-control-lg" placeholder="Hire from" />
+      </div>
+      <div class="col-12 col-md-3">
+        <input type="text" class="form-control form-control-lg" placeholder="Hire to" />
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary m-3">Search</button>
+    </div>
+  </form>
+</div>
 {% endblock %}

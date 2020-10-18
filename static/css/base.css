@@ -15,6 +15,11 @@ body {
     color: #dc04b4;
 }
 
+/* -------------------------------------- Navbar */
+.navbar {
+    border-bottom: 2px solid #dc04b4;
+}
+
 /* -------------------------------------- Footer */
 #footer-container {
   height: 5rem;
