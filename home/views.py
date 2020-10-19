@@ -6,8 +6,12 @@ from .forms import SearchForm
 
 def home_view(request):
     """ A view to return the index page """
+    if request.method == 'POST':
+        search_form = SearchForm(request.POST)
+    else:
+        search_form = SearchForm()
+
     template = 'home/index.html'
-    search_form = SearchForm()
     context = {
         'search_form': search_form,
     }
