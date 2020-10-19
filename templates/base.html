@@ -10,26 +10,21 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    {% endblock %}
-
-    {% block extra_meta %} 
-    {% endblock %} 
-    
-    {% block corecss %}
+    {% endblock %} {% block extra_meta %} {% endblock %} {% block corecss %}
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% endblock %}
-    
-    {% block extra_css %}
-    {% endblock %}
-
-    {% block corejs %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% endblock %} {% block extra_css %} {% endblock %} {% block corejs %}
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -45,24 +40,22 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    {% endblock %}
-
-    {% block extra_js %}
-    {% endblock %}
+    {% endblock %} {% block extra_js %} {% endblock %}
 
     <title>CarLet</title>
   </head>
   <body>
-
     {% include 'includes/navbar.html' %}
-    
+
     {% block content %}
     {% endblock %}
 
     {% include 'includes/footer.html' %}
 
-
     {% block postloadjs %}
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXt_Gbtreh_O2-q4JrndPuwAJRdk6a54w&libraries=places&callback=activatePlacesSearch"></script>
     {% endblock %}
   </body>
 </html>
+
