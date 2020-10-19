@@ -7,7 +7,8 @@ class DateInput(forms.DateInput):
 
 
 class SearchForm(forms.Form):
-    location = forms.CharField()
+    location = forms.CharField(
+                    widget=forms.TextInput(attrs={'placeholder': ''}))
     hire_from = forms.DateField(widget=DateInput(attrs={
         'value': datetime.date.today,
     }))
