@@ -4,7 +4,7 @@ from .forms import SearchForm
 # Create your views here.
 
 
-def home_view(request):
+def index(request):
     """ A view to return the index page """
     if request.method == 'POST':
         search_form = SearchForm(request.POST)
