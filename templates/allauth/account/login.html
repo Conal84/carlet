@@ -8,7 +8,7 @@
 
 {% block content %}
 <div class="auth-text">
-<h2 class="logo-font mt-5 mx-5">{% trans "Log In" %}</h2>
+<h2 class="logo-font mt-5">{% trans "Log In" %}</h2>
 
 {% get_providers as socialaccount_providers %}
 
@@ -35,7 +35,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 </div>
 {% endif %}
 
-<div class="auth-form my-3">
+<div class="auth-form">
     <form class="login px-5 py-5" method="POST" action="{% url 'account_login' %}">
     {% csrf_token %}
     {{ form|crispy }}
