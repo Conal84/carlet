@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 /* -------------------------------------- Html */
 html {
   font-size: 62.5%;
@@ -13,6 +15,24 @@ body {
 
 .index-text {
     color: #dc04b4;
+}
+
+/* -------------------------------------- Fonts */
+.logo-font {
+    font-family: 'Roboto', sans-serif;
+    color: #4059ad;
+}
+
+/* -------------------------------------- Buttons */
+.btn-primary {
+    background-color: #4059ad;
+    border-color: #4059ad;
+}
+
+.btn-primary:hover {
+    background-color: #4059ad;
+    border-color: #4059ad;
+    opacity: 0.9;
 }
 
 /* -------------------------------------- Navbar */
@@ -51,3 +71,23 @@ body {
   margin-top: 1rem;
   color: #4059ad;
 }
+
+/* -------------------------------------- Allauth pages */
+.auth-text {
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+}
+
+.auth-form {
+    width: 30vw;
+    border: 2px solid #dc04b4;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* .border-primary {
+    color: #dc04b4;
+} */
