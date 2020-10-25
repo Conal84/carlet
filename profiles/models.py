@@ -9,9 +9,14 @@ class UserProfile(models.Model):
     A user profile model for maintaining default
     delivery information and order history
     """
+    SEX_CHOICES = [
+        ('male', 'male'),
+        ('female', 'female'),
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     dob = models.DateField()
-    sex = models.CharField(max_length=6)
+    sex = models.CharField(max_length=6, choices=SEX_CHOICES)
     address_line1 = models.CharField(max_length=20)
     address_line2 = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
