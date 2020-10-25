@@ -8,7 +8,7 @@ class Car(models.Model):
     make = models.CharField(max_length=30)
     model = models.CharField(max_length=30)
     description = models.TextField(max_length=100)
-    cost_per_day = models.DecimalField(decimal_places=2)
+    cost_per_day = models.DecimalField(max_digits=3, decimal_places=0)
     available = models.BooleanField()
     account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 

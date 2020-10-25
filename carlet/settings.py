@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 
     # custom apps
     'home',
+    'cars',
+    'profiles',
 ]
 
 MIDDLEWARE = [
