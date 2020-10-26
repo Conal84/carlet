@@ -13,7 +13,7 @@ class Car(models.Model):
     account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     def __str__(self):
-        return (self.make, self.model)
+        return f"{self.make}, {self.model}"
 
 
 class CarImage(models.Model):
@@ -21,4 +21,4 @@ class CarImage(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 
     def __str__(self):
-        return (self.car_image.name)
+        return self.car_image.name
