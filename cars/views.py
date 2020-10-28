@@ -9,7 +9,6 @@ def search(request):
     template = 'cars/search.html'
 
     cars = Car.objects.all()
-    images = cars.carimage_set.all()
 
     context = {
         "cars": cars,

@@ -5,9 +5,7 @@
         {% for car in cars %}
         <div class="col-12 col-md-4 car-col">
             <div class="card" style="width: 18rem;">
-                {% for image in car.carimage_set.all %}
-                <img src="{{ image.car_image.path }}" class="card-img-top" alt="...">
-                {% endfor %}
+                <img src="{{ car.carimage_set.first.get_url }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">{{ car.make }}</p>
                 </div>
