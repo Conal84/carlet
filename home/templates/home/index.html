@@ -2,7 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 <div class="form-container mx-5 bg-light">
-  <form action="" method="POST">
+  <form action="{% url 'cars' %}" method="POST">
     {% csrf_token %}
     <div class="row">
       <div class="col-12 col-md-6">

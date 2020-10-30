@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from .models import Car, CarImage
+from .models import Car
 
 # Create your views here.
 
 
-def search(request):
+def cars_all(request):
     """ A view to return the search page """
-    template = 'cars/search.html'
+    template = 'cars/cars-all.html'
 
     cars = Car.objects.all()
 

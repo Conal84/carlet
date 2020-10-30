@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+{% load static %}
+<section class="container-fluid" id="search-results">
+    <div class="row">
+        {% for car in cars %}
+        <div class="col-sm-6 col-lg-4 col-xl-3 car-col">
+            <div class="card text-center" style="width: 18rem;">
+                <img src="{{ car.carimage_set.first.get_url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title">{{ car.make }}</h3>
+                    <h4 class="card-text">{{ car.model }}</h4>
+                    <p class="card-text">£{{ car.cost_per_day }}/day</p>
+                    <a class="btn btn-secondary btn-lg">See more</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 d-sm-none mb-5">
+            <hr>
+        </div>
+
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+
+        {% if forloop.counter|divisibleby:4 %}
+        <div class="col-12 d-none d-xl-block mb-5">
+            <hr>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

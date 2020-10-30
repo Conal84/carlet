@@ -34,6 +34,17 @@ body {
     opacity: 0.9;
 }
 
+.btn-secondary {
+    background-color: #9ad4d6;
+    border-color: #9ad4d6;
+}
+
+.btn-secondary:hover {
+    background-color: #9ad4d6;
+    border-color: #9ad4d6;
+    opacity: 0.9;
+}
+
 /* -------------------------------------- Navbar */
 .navbar-brand{
     font-size: 2rem;
