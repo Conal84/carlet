@@ -10,9 +10,9 @@ class Car(models.Model):
     model = models.CharField(max_length=30)
     description = models.TextField(max_length=100)
     cost_per_day = models.DecimalField(max_digits=3, decimal_places=0)
-    location = models.CharField(max_length=30)
+    location = models.CharField(max_length=30, default='')
     hire_from = models.DateField(default=date.today)
-    hire_to = models.DateField()
+    hire_to = models.DateField(default=date.today)
     account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -24,7 +24,7 @@ class CarImage(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.car_image
+        return self.car_image.name
 
     def get_url(self):
         return self.car_image.url

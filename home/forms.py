@@ -8,13 +8,8 @@ class DateInput(forms.DateInput):
 
 class SearchForm(forms.Form):
     location = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': '',
-                                      'name': 'loc'
-                                      }))
+        widget=forms.TextInput(attrs={'placeholder': ''}))
     hire_from = forms.DateField(
-        widget=DateInput(attrs={'value': datetime.date.today,
-                                'name': 'from'
-                                }))
+        widget=DateInput(attrs={'value': datetime.date.today}))
     hire_to = forms.DateField(
-        widget=DateInput(attrs={'name': 'to'
-                                }))
+        widget=DateInput())
