@@ -7,13 +7,15 @@ from .models import Car
 
 def cars_all(request):
     """ A view to return the search page """
+    location = None
+
     template = 'cars/cars-all.html'
 
-    cars = Car.objects.all()
+    # cars = Car.objects.all()
 
     if request.GET:
-        if 'q' in request.GET:
-            query = request.GET['q']
+        location = request.GET['loc']
+        cars = Car.objects.filter(location__icontains=location)
             
 
 

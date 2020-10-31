@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 from profiles.models import UserProfile
 
@@ -9,7 +10,9 @@ class Car(models.Model):
     model = models.CharField(max_length=30)
     description = models.TextField(max_length=100)
     cost_per_day = models.DecimalField(max_digits=3, decimal_places=0)
-    available = models.BooleanField()
+    location = models.CharField(max_length=30)
+    hire_from = models.DateField(default=date.today)
+    hire_to = models.DateField()
     account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     def __str__(self):
