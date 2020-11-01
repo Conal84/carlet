@@ -28,3 +28,11 @@ class CarImage(models.Model):
 
     def get_url(self):
         return self.car_image.url
+
+
+class Available(models.Model):
+    date = models.DateField()
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.date
