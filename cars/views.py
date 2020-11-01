@@ -7,23 +7,28 @@ from .models import Car, Available
 def cars_all(request):
     """ A view to return the search page """
     location = None
-
     template = 'cars/cars-all.html'
-
-    # cars = Car.objects.all()
 
     if request.GET:
         location = request.GET['location']
         hire_from = request.GET['hire_from']
         hire_to = request.GET['hire_to']
 
+        # cars = Car.objects.filter(
+        #     location__icontains=location
+        #     ).filter(
+        #         available__date__range=[hire_from, hire_to]
+        #         ).distinct()
+
         cars = Car.objects.filter(
             location__icontains=location
             ).filter(
-                available__date__range=[hire_from, hire_to]
-                )
+                hire_from=hire_from
+                ).filter(
+                    hire_to=hire_to
+                    )
 
-    context={
+    context = {
         "cars": cars,
     }
 
