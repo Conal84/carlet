@@ -17,13 +17,11 @@ def cars_all(request):
         hire_from = request.GET['hire_from']
         hire_to = request.GET['hire_to']
 
-        # cars = Car.objects.filter(
-        #     location__icontains=location
-        #     ).filter(caravailable(date__range=[hire_from, hire_to])
-
-        #     )
-
-        cars = Car.objects.filter(available__date__range=[hire_from, hire_to])
+        cars = Car.objects.filter(
+            location__icontains=location
+            ).filter(
+                available__date__range=[hire_from, hire_to]
+                )
 
     context={
         "cars": cars,

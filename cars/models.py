@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime, date
 from django.db import models
 from profiles.models import UserProfile
 
@@ -34,5 +34,9 @@ class Available(models.Model):
     date = models.DateField()
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name_plural = "Available"
+
     def __str__(self):
-        return self.date
+        available_date = self.date.strftime("%d/%m/%Y")
+        return f"{self.car.make}, {self.car.model} - available: {available_date}"
