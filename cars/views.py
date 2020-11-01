@@ -11,21 +11,15 @@ def cars_all(request):
 
     if request.GET:
         location = request.GET['location']
-        hire_from = request.GET['hire_from']
-        hire_to = request.GET['hire_to']
-
-        # cars = Car.objects.filter(
-        #     location__icontains=location
-        #     ).filter(
-        #         available__date__range=[hire_from, hire_to]
-        #         ).distinct()
+        search_from = request.GET['hire_from']
+        search_to = request.GET['hire_to']
 
         cars = Car.objects.filter(
             location__icontains=location
             ).filter(
-                hire_from=hire_from
+                hire_from__lte=search_from
                 ).filter(
-                    hire_to=hire_to
+                    hire_to__gte=search_to
                     )
 
     context = {
