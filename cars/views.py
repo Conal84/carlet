@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Car, Available
+from .models import Car, CarImage, Available
 
 # Create your views here.
 
@@ -34,8 +34,14 @@ def car_detail(request, car_id):
 
     template = 'cars/car-detail.html'
     car = get_object_or_404(Car, pk=car_id)
+    images = CarImage.objects.filter(car__pk=car_id)
+    print(images)
+
+    for image in images:
+        print(image.get_url())
 
     context = {
         "car": car,
+        "images": images,
     }
     return render(request, template, context)
