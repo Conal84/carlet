@@ -103,3 +103,8 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* -------------------------------------- Car-detail */
+.carousel-image {
+    height: 100%;
+}
