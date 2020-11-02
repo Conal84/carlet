@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+{% load static %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12 col-md-6">
+            <div class="image-container my-5">
+                <a href="{{ car.carimage_set.first.get_url }}" target="_blank">
+                    <img class="card-img-top img-fluid" src="{{ car.carimage_set.first.get_url }}" alt="{{ car.name }}">
+                </a>
+            </div>
+		</div>
+		<div class="col-12 col-md-6">
+            <div class="car-details-container">
+                <p>{{ car.make }}</p>
+                <p>{{ car.model }}</p>
+                <p>{{ car.description }}</p>
+                <p>{{ car.location }}</p>
+                <p>£{{ car.cost_per_day }} per day</p>
+            </div>
+		</div>
+	</div>
+</div>
+{% endblock %}
