@@ -15,7 +15,9 @@
                     <div class="carousel-inner">
                         {% for image in images %}
                         <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-                            <img src="{{ image.get_url }}" class="d-block w-100 h-100 carousel-image" alt=""/>
+                            <a href="{{ image.get_url }}" target="_blank">
+                                <img src="{{ image.get_url }}" class="d-block w-100 h-100 carousel-image" alt=""/>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
@@ -38,6 +40,7 @@
                 <p>{{ car.location }}</p>
                 <p>£{{ car.cost_per_day }} per day</p>
             </div>
+            <a href="#" class="btn btn-secondary btn-lg">Checkout</a>
 		</div>
 	</div>
 </div>

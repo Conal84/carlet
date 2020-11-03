@@ -31,7 +31,6 @@ def cars_all(request):
 
 def car_detail(request, car_id):
     """ A view to return individual car detail"""
-
     template = 'cars/car-detail.html'
     car = get_object_or_404(Car, pk=car_id)
     images = CarImage.objects.filter(car__pk=car_id)
