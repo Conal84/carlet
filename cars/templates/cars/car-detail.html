@@ -39,7 +39,14 @@
                 <p>{{ car.location }}</p>
                 <p>£{{ car.cost_per_day }} per day</p>
             </div>
-            <a href="#" class="btn btn-secondary btn-lg">Checkout</a>
+            <form class="form" action="" method="POST">
+                {% csrf_token %}
+                <input type="date">{{ car.hire_from }}
+                <input type="date">{{ car.hire_to }}
+                <input type="submit" class="btn btn-primary" value="Reserve">
+                <p>Total £{{ grand_total }}</p>
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form>
 		</div>
 	</div>
 </div>
