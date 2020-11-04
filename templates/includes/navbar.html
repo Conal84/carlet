@@ -32,7 +32,14 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Cart</a>
+        <a class="nav-link" href="{% url 'bag' %}">
+        {% if grand_total %}
+            £{{ grand_total|floatformat:2 }}
+        {% else %}
+            £0.00
+        {% endif %}
+        <i class="fas fa-car"></i>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
