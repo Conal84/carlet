@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'home',
     'cars',
     'profiles',
+    'bag',
 ]
 
 MIDDLEWARE = [
