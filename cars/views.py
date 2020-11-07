@@ -17,9 +17,9 @@ def cars_all(request):
         cars = Car.objects.filter(
             location__icontains=location
             ).filter(
-                hire_from__lte=search_from
+                available_from__lte=search_from
                 ).filter(
-                    hire_to__gte=search_to
+                    available_to__gte=search_to
                     )
 
     context = {
