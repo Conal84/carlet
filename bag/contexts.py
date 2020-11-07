@@ -8,11 +8,10 @@ def bag_contents(request):
     total = 0
     grand_total = 0
     bag = request.session.get('bag', {})
-    print(bag.items())
 
     for item_id, quantity in bag.items():
         car = get_object_or_404(Car, pk=item_id)
-        total = car.cost_per_day
+        total += car.cost_per_day
         bag_items.append({
             'item_id': item_id,
             'car': car,

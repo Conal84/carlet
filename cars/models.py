@@ -1,4 +1,4 @@
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from django.db import models
 from profiles.models import UserProfile
 
@@ -13,10 +13,23 @@ class Car(models.Model):
     location = models.CharField(max_length=30, default='')
     hire_from = models.DateField(default=date.today)
     hire_to = models.DateField(default=date.today)
+    num_days = models.PositiveSmallIntegerField(default=1)
     account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.make}, {self.model}"
+
+    @property
+    def insurance(self):
+        return self.cost_per_day * 0.0137
+
+    @property
+    def support(self):
+        return self.num_days * 6
+
+    def save(self, *args, **kwargs):
+        tdelta = self.hire_to - self.hire_from
+        self.num_days = (tdelta).days
 
 
 class CarImage(models.Model):
