@@ -17,6 +17,7 @@
                 <tr>
                     <th scope="col">Description</th>
                     <th scope="col">Cost per day</th>
+                    <th scope="col">No. of days</th>
                     <th scope="col">Subtotal</th>
                 </tr>
             </thead>
@@ -28,6 +29,12 @@
                     </td>
                     <td class="py-3">
                         <p>{{item.car.cost_per_day}}</p>
+                    </td>
+                    <td class="py-3">
+                        <p>{{item.car.num_days}}</p>
+                    </td>
+                    <td class="py-3">
+                        <p>{{item.car.num_days}}</p>
                     </td>
                 </tr>
                 {% endfor %}

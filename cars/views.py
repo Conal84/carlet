@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Car, CarImage, Available
+from .models import Car, CarImage
 
 # Create your views here.
 
