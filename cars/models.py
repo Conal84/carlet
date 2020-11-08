@@ -2,6 +2,7 @@ from datetime import datetime, date, timedelta
 from decimal import Decimal
 from django.db import models
 from profiles.models import UserProfile
+import uuid
 
 # Create your models here.
 
@@ -13,28 +14,38 @@ class Car(models.Model):
     location = models.CharField(max_length=30, default='')
     available_from = models.DateField(default=date.today)
     available_to = models.DateField(default=date.today)
+    num_days_on_hire = models.IntegerField(default=0)
     cost_per_day = models.DecimalField(max_digits=3, decimal_places=0)
-    insurance = models.DecimalField(max_digits=3, decimal_places=0, default=0)
-    support = models.DecimalField(max_digits=3, decimal_places=0, default=0)
-    num_days = models.PositiveSmallIntegerField(default=1)
     account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    insurance_per_day = models.IntegerField(default=10)
+    support_per_day = models.IntegerField(default=5)
 
     def __str__(self):
         return f"{self.make}, {self.model}"
 
-    # @property
-    # def insurance(self):
-    #     return self.cost_per_day * Decimal(0.0137) * self.num_days
-
-    # @property
-    # def support(self):
-    #     return self.num_days * 6
-
     def save(self, *args, **kwargs):
-        tdelta = self.hire_to - self.hire_from
-        self.num_days = (tdelta).days
-        self.insurance = self.cost_per_day * self.num_days * 0.05
-        self.support = self.num_days * 6
+        tdelta = self.available_to - self.available_from
+        self.num_days_on_hire = (tdelta).days
+        return super(Car, self).save(*args, **kwargs)
+
+    @property
+    def insurance_total(self):
+        return self.insurance_per_day * self.num_days_on_hire
+
+    @property
+    def support_total(self):
+        return self.support_per_day * self.num_days_on_hire
+
+
+# class Booking(models.Model):
+#     car = models.ForeignKey(Car, on_delete=models.CASCADE)
+#     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+#     hired_from = models.DateField(default=date.today)
+#     hired_to = models.DateField(default=date.today)
+
+
+#     def __str__(self):
+#         return f"Booking no. {self.id}"
 
 
 class CarImage(models.Model):
