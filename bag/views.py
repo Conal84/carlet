@@ -5,7 +5,6 @@ from django.shortcuts import render, redirect, reverse
 
 def view_bag(request):
     """ A view to render the shopping bag """
-
     template = 'bag/bag.html'
     return render(request, template)
 
@@ -20,4 +19,4 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
 
-    return redirect(reverse('car extras'))
+    return redirect(redirect_url)
