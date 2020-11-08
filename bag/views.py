@@ -11,7 +11,7 @@ def view_bag(request):
 
 def add_to_bag(request, item_id):
     """ Add items to the bag """
-    redirect_url = request.POST.get('redirect_url')
+    redirect_url = 'car extras'
 
     bag = request.session.get('bag', {})
 
@@ -19,4 +19,4 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
 
-    return redirect(redirect_url)
+    return redirect(reverse(redirect_url))
