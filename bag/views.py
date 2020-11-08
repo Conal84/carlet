@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse
+from cars.views import car_extras
 
 # Create your views here.
 
@@ -11,8 +12,8 @@ def view_bag(request):
 
 def add_to_bag(request, item_id):
     """ Add items to the bag """
-    # redirect_url = 'cars:car extras'
-    redirect_url = 'bag extra'
+    redirect_url = 'car extras'
+    # redirect_url = 'bag extra'
 
     bag = request.session.get('bag', {})
 
