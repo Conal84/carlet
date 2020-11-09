@@ -1,13 +1,6 @@
 {% extends "base.html" %} {% block content %}
 <div class="container-fluid">
 	<div class="row">
-		<!-- <div class="col-12 col-md-6">
-            <div class="image-container my-5">
-                <a href="{{ car.carimage_set.first.get_url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ car.carimage_set.first.get_url }}" alt="{{ car.name }}">
-                </a>
-            </div>
-		</div> -->
         <div class="col-12 col-md-6">
             <div class="carousel-container">
                 <div id="carousel-car-images" class="carousel slide" data-ride="carousel" data-interval="5000">
@@ -39,6 +32,31 @@
                 <p>{{ car.location }}</p>
                 <p>£{{ car.cost_per_day }} per day</p>
                 <p>Total £{{ grand_total }}</p>
+            </div>
+            <form class="form" action="{% url 'add_to_bag' car.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Reserve">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form>
+		</div>
+        <div class="col-12 col-md-6">
+            <div class="car-details-container">
+                <p>Add car insurance</p>
+                <p>£{{ car.insurance_per_day }} per day</p>
+                <p>{{ car.insurance_total }}</p>
+                <p>{{ car.days_total }} days</p>
+            </div>
+            <form class="form" action="{% url 'add_to_bag' car.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Reserve">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form>
+		</div>
+        <div class="col-12 col-md-6">
+            <div class="car-details-container">
+                <p>Add road side assistance</p>
+                <p>£{{ car.support_per_day }} per day</p>
+                <p>{{ car.support_total }}</p>
             </div>
             <form class="form" action="{% url 'add_to_bag' car.id %}" method="POST">
                 {% csrf_token %}
