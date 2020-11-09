@@ -43,9 +43,9 @@ def car_detail(request, car_id):
     return render(request, template, context)
 
 
-def car_extras(request):
+def car_extra(request):
     """ A view to return individual car extras detail"""
 
-    template = 'cars/car-extras.html'
+    template = 'cars/car-extra.html'
 
     return render(request, template)

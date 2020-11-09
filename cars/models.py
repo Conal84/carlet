@@ -30,17 +30,14 @@ class Car(models.Model):
     #     return super(Car, self).save(*args, **kwargs)
 
     @property
-    def days_total(self):
-        tdelta = self.available_to - self.available_from
-        return tdelta.days
-
-    @property
     def insurance_total(self):
-        return self.insurance_per_day * self.num_days_on_hire
+        tdelta = self.available_to - self.available_from
+        return self.insurance_per_day * tdelta.days
 
     @property
     def support_total(self):
-        return self.support_per_day * self.num_days_on_hire
+        tdelta = self.available_to - self.available_from
+        return self.support_per_day * tdelta.days
 
 
 # class Booking(models.Model):
