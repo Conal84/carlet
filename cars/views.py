@@ -43,9 +43,13 @@ def car_detail(request, car_id):
     return render(request, template, context)
 
 
-def car_extra(request):
-    """ A view to return individual car extras detail"""
+def car_insurance(request):
+    """ A view to return individual car insurance page"""
+    template = 'cars/car-insurance.html'
+    return render(request, template)
 
-    template = 'cars/car-extra.html'
 
+def car_support(request):
+    """ A view to return individual car support page"""
+    template = 'cars/car-support.html'
     return render(request, template)

@@ -36,31 +36,7 @@
             <form class="form" action="{% url 'add_to_bag' car.id %}" method="POST">
                 {% csrf_token %}
                 <input type="submit" class="btn btn-primary" value="Reserve">
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-            </form>
-		</div>
-        <div class="col-12 col-md-6">
-            <div class="car-details-container">
-                <p>Add car insurance</p>
-                <p>£{{ car.insurance_per_day }} per day</p>
-                <p>Total £{{ car.insurance_total }}</p>
-            </div>
-            <form class="form" action="{% url 'add_to_bag' car.id %}" method="POST">
-                {% csrf_token %}
-                <input type="submit" class="btn btn-primary" value="Reserve">
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-            </form>
-		</div>
-        <div class="col-12 col-md-6">
-            <div class="car-details-container">
-                <p>Add road side assistance</p>
-                <p>£{{ car.support_per_day }} per day</p>
-                <p>Total £{{ car.support_total }}</p>
-            </div>
-            <form class="form" action="{% url 'add_to_bag' car.id %}" method="POST">
-                {% csrf_token %}
-                <input type="submit" class="btn btn-primary" value="Reserve">
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <input type="hidden" name="item" value="car">
             </form>
 		</div>
 	</div>
