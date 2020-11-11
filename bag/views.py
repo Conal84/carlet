@@ -15,17 +15,18 @@ def add_to_bag(request, item_id):
     car = get_object_or_404(Car, pk=item_id)
     item = request.POST.get('item')
 
+    context = {
+        "car": car,
+    }
+
     if item == 'car':
-        redirect_url = 'car_insurance'
-        context = {
-            "car": car,
-        }
+        template = 'cars/car-insurance.html'
         bag = request.session.get('bag', {})
         bag[item_id] = 1
         request.session['bag'] = bag
     elif item == 'insurance':
-        redirect_url = 'car_support'
+        template = 'cars/car-support.html'
     else:
-        redirect_url = 'checkout'
+        template = 'checkout/checkout.html'
 
-    return redirect(reverse(redirect_url))
+    return render(request, template, context)
