@@ -23,12 +23,6 @@ class Car(models.Model):
     def __str__(self):
         return f"{self.make}, {self.model}"
 
-    # def save(self, *args, **kwargs):
-    #     # tdelta = self.available_to - self.available_from
-    #     tdelta = 5
-    #     self.num_days_on_hire = tdelta
-    #     return super(Car, self).save(*args, **kwargs)
-
     @property
     def insurance_total(self):
         tdelta = self.available_to - self.available_from
