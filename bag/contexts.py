@@ -21,7 +21,8 @@ def bag_contents(request):
 
     # Total the contents of the bag
     for value in bag.values():
-        grand_total += value
+        if type(value) == int:
+            grand_total += value
 
     context = {
         'bag': bag,

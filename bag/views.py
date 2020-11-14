@@ -22,15 +22,16 @@ def add_to_bag(request, item_id):
 
     if item == 'car':
         template = 'cars/car-insurance.html'
-        bag["car"] = car.car_total
+        bag["car"] = car
+        bag["car_cost"] = car.car_total
         request.session['bag'] = bag
     elif item == 'insurance':
         template = 'cars/car-support.html'
-        bag["insurance"] = car.insurance_total
+        bag["insurance_cost"] = car.insurance_total
         request.session['bag'] = bag
     elif item == 'support':
         template = 'checkout/checkout.html'
-        bag["support"] = car.support_total
+        bag["support_cost"] = car.support_total
         request.session['bag'] = bag
 
     return render(request, template, context)
