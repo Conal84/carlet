@@ -26,16 +26,44 @@
 					<tbody>
 						<tr>
 							<td class="py-3">
-								<p></p>
+								<p>{{make}}, {{model}}</p>
 							</td>
 							<td class="py-3">
-								<p>{{bag.car_cost}}</p>
+								<p>£{{car_cost_per_day}} per day</p>
 							</td>
 							<td class="py-3">
-								<p>{{grand_total}}</p>
+								<p>for {{num_days}} days</p>
 							</td>
 							<td class="py-3">
-								<p>{{bag.support_cost}}</p>
+								<p>£{{car_total}}</p>
+							</td>
+						</tr>
+                        <tr>
+							<td class="py-3">
+								<p>Car insurance</p>
+							</td>
+							<td class="py-3">
+								<p>£{{insurance_per_day}} per day</p>
+							</td>
+							<td class="py-3">
+								<p>for {{num_days}} days</p>
+							</td>
+							<td class="py-3">
+								<p>£{{insurance_total}}</p>
+							</td>
+						</tr>
+                        <tr>
+							<td class="py-3">
+								<p>Road side assistance</p>
+							</td>
+							<td class="py-3">
+								<p>£{{support_per_day}} per day</p>
+							</td>
+							<td class="py-3">
+								<p>for {{num_days}} days</p>
+							</td>
+							<td class="py-3">
+								<p>£{{support_total}}</p>
 							</td>
 						</tr>
 					</tbody>
