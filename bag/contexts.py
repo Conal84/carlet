@@ -24,7 +24,7 @@ def bag_contents(request):
         if type(value) == int:
             grand_total += value
 
-    if bag:
+    if "car_id" in bag:
         id = bag["car_id"]
         car = get_object_or_404(Car, pk=id)
         make = car.make
@@ -37,17 +37,19 @@ def bag_contents(request):
         support_per_day = car.support_per_day
         support_total = car.support_total
 
-    context = {
-        'make': make,
-        'model': model,
-        'car_cost_per_day': car_cost_per_day,
-        'num_days': num_days,
-        'car_total': car_total,
-        'insurance_per_day': insurance_per_day,
-        'insurance_total': insurance_total,
-        'support_per_day': support_per_day,
-        'support_total': support_total,
-        'grand_total': grand_total,
-    }
+        context = {
+            'make': make,
+            'model': model,
+            'car_cost_per_day': car_cost_per_day,
+            'num_days': num_days,
+            'car_total': car_total,
+            'insurance_per_day': insurance_per_day,
+            'insurance_total': insurance_total,
+            'support_per_day': support_per_day,
+            'support_total': support_total,
+            'grand_total': grand_total,
+        }
+    else:
+        context = {}
 
     return context
