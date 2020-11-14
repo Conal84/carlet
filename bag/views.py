@@ -6,8 +6,9 @@ from cars.models import Car
 
 def view_bag(request):
     """ A view to render the shopping bag """
+    bag = request.session.get('bag')
     template = 'bag/bag.html'
-    return render(request, template)
+    return render(request, template, bag)
 
 
 def add_to_bag(request, item_id):
@@ -22,7 +23,7 @@ def add_to_bag(request, item_id):
 
     if item == 'car':
         template = 'cars/car-insurance.html'
-        bag["car"] = car
+        bag["car_id"] = item_id
         bag["car_cost"] = car.car_total
         request.session['bag'] = bag
     elif item == 'insurance':

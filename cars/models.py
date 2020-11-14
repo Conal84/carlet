@@ -31,17 +31,17 @@ class Car(models.Model):
     @property
     def car_total(self):
         tdelta = self.available_to - self.available_from
-        return self.cost_per_day * tdelta.days
+        return self.cost_per_day * tdelta
 
     @property
     def insurance_total(self):
         tdelta = self.available_to - self.available_from
-        return self.insurance_per_day * tdelta.days
+        return self.insurance_per_day * tdelta
 
     @property
     def support_total(self):
         tdelta = self.available_to - self.available_from
-        return self.support_per_day * tdelta.days
+        return self.support_per_day * tdelta
 
 
 # class Booking(models.Model):

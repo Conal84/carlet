@@ -20,9 +20,11 @@ def bag_contents(request):
     # grand_total = total
 
     # Total the contents of the bag
-    for value in bag.values():
-        if type(value) == int:
-            grand_total += value
+    # for value in bag.values():
+    #     if type(value) == int:
+    #         grand_total += value
+
+    grand_total = bag["car_cost"] + bag["insurance_cost"] + bag["support_cost"]
 
     context = {
         'bag': bag,
