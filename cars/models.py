@@ -15,13 +15,23 @@ class Car(models.Model):
     available_from = models.DateField(default=date.today)
     available_to = models.DateField(default=date.today)
     num_days_on_hire = models.IntegerField()
-    cost_per_day = models.DecimalField(max_digits=3, decimal_places=0)
+    cost_per_day = models.IntegerField()
     account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     insurance_per_day = models.IntegerField(default=10)
     support_per_day = models.IntegerField(default=5)
 
     def __str__(self):
         return f"{self.make}, {self.model}"
+
+    @property
+    def num_days(self):
+        tdelta = self.available_to - self.available_from
+        return tdelta.days
+
+    @property
+    def car_total(self):
+        tdelta = self.available_to - self.available_from
+        return self.cost_per_day * tdelta.days
 
     @property
     def insurance_total(self):

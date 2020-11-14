@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from cars.models import Car
 
 # Create your views here.
@@ -22,13 +22,15 @@ def add_to_bag(request, item_id):
 
     if item == 'car':
         template = 'cars/car-insurance.html'
-        bag[item_id] = 1
+        bag["car"] = car.car_total
         request.session['bag'] = bag
     elif item == 'insurance':
         template = 'cars/car-support.html'
-        bag["insurance"] = 1
+        bag["insurance"] = car.insurance_total
+        request.session['bag'] = bag
     elif item == 'support':
         template = 'checkout/checkout.html'
-        bag["support"] = 1
+        bag["support"] = car.support_total
+        request.session['bag'] = bag
 
     return render(request, template, context)
