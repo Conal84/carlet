@@ -6,9 +6,8 @@ from cars.models import Car
 
 def view_bag(request):
     """ A view to render the shopping bag """
-    bag = request.session.get('bag')
     template = 'bag/bag.html'
-    return render(request, template, bag)
+    return render(request, template)
 
 
 def add_to_bag(request, item_id):
