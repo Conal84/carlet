@@ -32,10 +32,10 @@
 								<p>{{make}}, {{model}}</p>
 							</td>
 							<td class="py-3">
-								<p>£{{car_cost_per_day}} per day</p>
+								<p>£{{car_cost_per_day}}</p>
 							</td>
 							<td class="py-3">
-								<p>for {{num_days}} days</p>
+								<p>{{num_days}}</p>
 							</td>
 							<td class="py-3">
 								<p>£{{car_total}}</p>
@@ -46,10 +46,10 @@
 								<p>Car insurance</p>
 							</td>
 							<td class="py-3">
-								<p>£{{insurance_per_day}} per day</p>
+								<p>£{{insurance_per_day}}</p>
 							</td>
 							<td class="py-3">
-								<p>for {{num_days}} days</p>
+								<p>{{num_days}}</p>
 							</td>
 							<td class="py-3">
 								<p>£{{insurance_total}}</p>
@@ -60,10 +60,10 @@
 								<p>Road side assistance</p>
 							</td>
 							<td class="py-3">
-								<p>£{{support_per_day}} per day</p>
+								<p>£{{support_per_day}}</p>
 							</td>
 							<td class="py-3">
-								<p>for {{num_days}} days</p>
+								<p>{{num_days}}</p>
 							</td>
 							<td class="py-3">
 								<p>£{{support_total}}</p>
@@ -72,10 +72,13 @@
 					</tbody>
 				</table>
 			</div>
-            <a class="btn btn-primary" href="{% url 'checkout' %}" role="button">Go To Secure Checkout</a>
+            <div class="mx-3 my-3">
+            <a class="btn btn-primary btn-lg btn-block" href="{% url 'checkout' %}" role="button">Go To Secure Checkout
             <span class="icon">
                 <i class="fas fa-lock"></i>
             </span>
+            </a>
+            </div>
 			{% else %}
 			<p>You don't have any bookings yet</p>
 			{% endif %}

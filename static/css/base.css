@@ -82,13 +82,29 @@ body {
 /* -------------------------------------- Toasts */
 #bag-toast-container {
     position: fixed;
-    top: 5rem;
+    top: 4rem;
     right: 1rem;
     z-index: 999999999;
 }
 
 #bag-toast {
     overflow: visible;
+    font-size: 1.5rem;
+}
+
+.toast-header {
+    height: 5rem;
+}
+
+.close {
+    color: #fff;
+    font-size: 2rem;
+    opacity: 1;
+}
+
+.close:hover {
+    color: #fff;
+    opacity: 0.5;
 }
 
 /* from CSS-tricks.com https://css-tricks.com/snippets/css/css-triangle/ */
@@ -97,11 +113,17 @@ body {
     height: 0; 
     border-left: 4px solid transparent;
     border-right: 4px solid transparent; 
-    border-bottom: 10px solid black;
-    border-bottom-color: black;
+    border-bottom: 10px solid #7510f7;
+    border-bottom-color: #7510f7;
     position: absolute;
-    top: -10px;
-    right: 36px;
+    top: -1rem;
+    right: 4rem;
+}
+
+.bag-toast-body {
+    height: 30rem;
+    /* overflow-x: hidden; */
+    /* overflow-y: auto; */
 }
 
 /* -------------------------------------- index.html */

@@ -31,6 +31,9 @@
           <a class="dropdown-item" href="#">Car Lets</a>
         </div>
       </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
+      </li>
       <li class="nav-item" id="bag-nav">
         <a class="nav-link" href="#">
         {% if grand_total %}
@@ -40,9 +43,6 @@
         {% endif %}
         <i class="fas fa-car"></i>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
       </li>
       {% else %}
       <li class="nav-item">
