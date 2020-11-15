@@ -28,56 +28,63 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td class="py-3">
+							<td class="py-1">
 								<p>{{make}}, {{model}}</p>
 							</td>
-							<td class="py-3">
+							<td class="py-1">
 								<p>£{{car_cost_per_day}}</p>
 							</td>
-							<td class="py-3">
+							<td class="py-1">
 								<p>{{num_days}}</p>
 							</td>
-							<td class="py-3">
+							<td class="py-1">
 								<p>£{{car_total}}</p>
 							</td>
 						</tr>
+                        {% if insurance_total %}
                         <tr>
-							<td class="py-3">
+							<td class="py-1">
 								<p>Car insurance</p>
 							</td>
-							<td class="py-3">
+							<td class="py-1">
 								<p>£{{insurance_per_day}}</p>
 							</td>
-							<td class="py-3">
+							<td class="py-1">
 								<p>{{num_days}}</p>
 							</td>
-							<td class="py-3">
+							<td class="py-1">
 								<p>£{{insurance_total}}</p>
 							</td>
 						</tr>
+                        {% endif %}
+                        {% if support_total %}
                         <tr>
-							<td class="py-3">
+							<td class="py-1">
 								<p>Road side assistance</p>
 							</td>
-							<td class="py-3">
+							<td class="py-1">
 								<p>£{{support_per_day}}</p>
 							</td>
-							<td class="py-3">
+							<td class="py-1">
 								<p>{{num_days}}</p>
 							</td>
-							<td class="py-3">
+							<td class="py-1">
 								<p>£{{support_total}}</p>
 							</td>
 						</tr>
+                        {% endif %}
 					</tbody>
 				</table>
 			</div>
-            <div class="mx-3 my-3">
-            <a class="btn btn-primary btn-lg btn-block" href="{% url 'checkout' %}" role="button">Go To Secure Checkout
-            <span class="icon">
-                <i class="fas fa-lock"></i>
-            </span>
-            </a>
+            <div class="text-center font-weight-bold pb-3">
+                <span class="pr-3">Total to pay</span><span>£{{grand_total}}</span>
+            </div>
+            <div class="mx-3 mb-3">
+                <a class="btn btn-primary btn-lg btn-block" href="{% url 'checkout' %}" role="button">Go To Secure Checkout
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </a>
             </div>
 			{% else %}
 			<p>You don't have any bookings yet</p>
