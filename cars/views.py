@@ -43,14 +43,33 @@ def car_detail(request, car_id):
     return render(request, template, context)
 
 
-def car_insurance(request, car_id):
+def car_insurance(request):
     """ A view to return individual car insurance page"""
     template = 'cars/car-insurance.html'
     return render(request, template)
 
 
-def car_support(request, car_id):
+def car_insurance_skip(request, car_id):
+    """ A view to return individual car insurance page"""
+    car = get_object_or_404(Car, pk=car_id)
+    template = 'cars/car-support.html'
+    context = {
+        "car": car,
+    }
+    return render(request, template, context)
+
+
+def car_support(request):
     """ A view to return individual car support page"""
     template = 'cars/car-support.html'
     return render(request, template)
 
+
+def car_support_skip(request, car_id):
+    """ A view to return individual car support page"""
+    car = get_object_or_404(Car, pk=car_id)
+    template = 'checkout/checkout.html'
+    context = {
+        "car": car,
+    }
+    return render(request, template, context)
