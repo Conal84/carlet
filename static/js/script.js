@@ -15,8 +15,8 @@ $(".delete-link").click(function(e) {
     let csrfToken = "{{ csrf_token }}";
     let itemId = $(this).data('item');
     let name = $(this).data('name');
-    let url = `/bag/remove/${itemId}/`
-    let data = {'csrfmiddlewaretoken': csrfToken, 'name': name};
+    let url = `/bag/remove/${itemId}/${name}`
+    let data = {'csrfmiddlewaretoken': csrfToken};
 
     $.post(url, data)
     .done(function() {

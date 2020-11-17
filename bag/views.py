@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from cars.models import Car
 
 # Create your views here.
@@ -37,7 +38,7 @@ def add_to_bag(request, item_id):
     return render(request, template, context)
 
 
-def remove_from_bag(request, item_id):
+def remove_from_bag(request, item_id, name):
     """ Remove items from the bag """
-    car = get_object_or_404(Car, pk=item_id)
-    return redirect(request.path)
+    # car = get_object_or_404(Car, pk=item_id)
+    return HttpResponse("<h1>This works!!!!</h1>")
