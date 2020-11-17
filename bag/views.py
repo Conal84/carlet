@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from cars.models import Car
 
 # Create your views here.
@@ -35,3 +35,9 @@ def add_to_bag(request, item_id):
         request.session['bag'] = bag
 
     return render(request, template, context)
+
+
+def remove_from_bag(request, item_id):
+    """ Remove items from the bag """
+    car = get_object_or_404(Car, pk=item_id)
+    return redirect(request.path)

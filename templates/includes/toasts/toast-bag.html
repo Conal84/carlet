@@ -40,6 +40,9 @@
 							<td class="py-1">
 								<p>£{{car_total}}</p>
 							</td>
+                            <td class="py-1">
+								<a class="delete-link" data-name="del_car" data-item="{{ car.id }}"><i class="far fa-minus-square"></i></a>
+							</td>
 						</tr>
                         {% if insurance_total %}
                         <tr>
@@ -54,6 +57,9 @@
 							</td>
 							<td class="py-1">
 								<p>£{{insurance_total}}</p>
+							</td>
+                            <td class="py-1">
+								<a class="delete-link" data-name="del_insurance" data-item="{{ car.id }}"><i class="far fa-minus-square"></i></a>
 							</td>
 						</tr>
                         {% endif %}
@@ -70,6 +76,9 @@
 							</td>
 							<td class="py-1">
 								<p>£{{support_total}}</p>
+							</td>
+                            <td class="py-1">
+								<a class="delete-link" data-name="del_support" data-item="{{ car.id }}"><i class="far fa-minus-square"></i></a>
 							</td>
 						</tr>
                         {% endif %}
