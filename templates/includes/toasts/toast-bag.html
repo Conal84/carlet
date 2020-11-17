@@ -103,3 +103,22 @@
     </div>
   </div>
 </div>
+{% block postloadjs %}
+
+<script type="text/javascript">
+    // Remove item and reload on click
+    $(".delete-link").click(function(e) {
+        let csrfToken = "{{ csrf_token }}";
+        // let csrfToken = document.querySelector("#csrf input").value;
+        let itemId = $(this).data('item');
+        let name = $(this).data('name');
+        let url = `/bag/remove/`
+        let data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+        // .done(function() {
+        //     location.reload();
+        // }) 
+    })
+</script>
+{% endblock %}

@@ -38,7 +38,7 @@ def add_to_bag(request, item_id):
     return render(request, template, context)
 
 
-def remove_from_bag(request, item_id, name):
+def remove_from_bag(request):
     """ Remove items from the bag """
     # car = get_object_or_404(Car, pk=item_id)
     return HttpResponse("<h1>This works!!!!</h1>")
