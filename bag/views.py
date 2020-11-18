@@ -43,13 +43,17 @@ def remove_from_bag(request, item_id):
     remove_type = request.POST['name']
     bag = request.session.get('bag')
 
-    if remove_type == "del_car":
-        bag.pop("car_id")
-        bag.pop("car_cost")
-    elif remove_type == "del_insurance":
-        bag.pop("insurance_cost")
-    elif remove_type == "del_support":
-        bag.pop("support_cost")
+    try:
+        if remove_type == "del_car":
+            bag = {}
+        elif remove_type == "del_insurance":
+            bag.pop("insurance_cost")
+        elif remove_type == "del_support":
+            bag.pop("support_cost")
 
-    request.session['bag'] = bag
-    return HttpResponse(status=200)
+        request.session['bag'] = bag
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        print(e)
+        return HttpResponse(status=500)

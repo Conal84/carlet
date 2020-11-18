@@ -41,7 +41,7 @@
 								<p>£{{car_total}}</p>
 							</td>
                             <td class="py-1">
-								<a class="delete-link" data-item="{{ id }}" data-name="del_car"><i class="far fa-minus-square"></i></a>
+								<a class="delete-link" data-item="{{ id }}" data-name="del_car"><i class="far fa-trash-alt"></i></a>
 							</td>
 						</tr>
                         {% if insurance_total %}
@@ -59,7 +59,7 @@
 								<p>£{{insurance_total}}</p>
 							</td>
                             <td class="py-1">
-								<a class="delete-link" data-item="{{ id }}" data-name="del_insurance"><i class="far fa-minus-square"></i></a>
+								<a class="delete-link" data-item="{{ id }}" data-name="del_insurance"><i class="far fa-trash-alt"></i></a>
 							</td>
 						</tr>
                         {% endif %}
@@ -78,7 +78,7 @@
 								<p>£{{support_total}}</p>
 							</td>
                             <td class="py-1">
-								<a class="delete-link" data-item="{{ id }}" data-name="del_support"><i class="far fa-minus-square"></i></a>
+								<a class="delete-link" data-item="{{ id }}" data-name="del_support"><i class="far fa-trash-alt"></i></a>
 							</td>
 						</tr>
                         {% endif %}
@@ -104,7 +104,6 @@
   </div>
 </div>
 {% block postloadjs %}
-
 <script type="text/javascript">
     // Remove item and reload on click
     $(".delete-link").click(function(e) {
