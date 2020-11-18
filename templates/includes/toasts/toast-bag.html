@@ -41,7 +41,7 @@
 								<p>£{{car_total}}</p>
 							</td>
                             <td class="py-1">
-								<a class="delete-link" data-name="del_car" data-item="{{ car.id }}"><i class="far fa-minus-square"></i></a>
+								<a class="delete-link" data-item="{{ id }}" data-name="del_car"><i class="far fa-minus-square"></i></a>
 							</td>
 						</tr>
                         {% if insurance_total %}
@@ -59,7 +59,7 @@
 								<p>£{{insurance_total}}</p>
 							</td>
                             <td class="py-1">
-								<a class="delete-link" data-name="del_insurance" data-item="{{ car.id }}"><i class="far fa-minus-square"></i></a>
+								<a class="delete-link" data-item="{{ id }}" data-name="del_insurance"><i class="far fa-minus-square"></i></a>
 							</td>
 						</tr>
                         {% endif %}
@@ -78,7 +78,7 @@
 								<p>£{{support_total}}</p>
 							</td>
                             <td class="py-1">
-								<a class="delete-link" data-name="del_support" data-item="{{ car.id }}"><i class="far fa-minus-square"></i></a>
+								<a class="delete-link" data-item="{{ id }}" data-name="del_support"><i class="far fa-minus-square"></i></a>
 							</td>
 						</tr>
                         {% endif %}
@@ -109,16 +109,15 @@
     // Remove item and reload on click
     $(".delete-link").click(function(e) {
         let csrfToken = "{{ csrf_token }}";
-        // let csrfToken = document.querySelector("#csrf input").value;
         let itemId = $(this).data('item');
         let name = $(this).data('name');
-        let url = `/bag/remove/`
-        let data = {'csrfmiddlewaretoken': csrfToken};
+        let url = `/bag/remove/${itemId}/`
+        let data = {'csrfmiddlewaretoken': csrfToken, 'name': name};
 
         $.post(url, data)
-        // .done(function() {
-        //     location.reload();
-        // }) 
+        .done(function() {
+            location.reload();
+        });
     })
 </script>
 {% endblock %}

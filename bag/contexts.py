@@ -22,6 +22,7 @@ def bag_contents(request):
         car_total = car.car_total
 
         context = {
+            'id': car.id,
             'make': make,
             'model': model,
             'car_cost_per_day': car_cost_per_day,

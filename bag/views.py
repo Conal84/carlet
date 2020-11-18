@@ -38,7 +38,18 @@ def add_to_bag(request, item_id):
     return render(request, template, context)
 
 
-def remove_from_bag(request):
+def remove_from_bag(request, item_id):
     """ Remove items from the bag """
-    # car = get_object_or_404(Car, pk=item_id)
-    return HttpResponse("<h1>This works!!!!</h1>")
+    remove_type = request.POST['name']
+    bag = request.session.get('bag')
+
+    if remove_type == "del_car":
+        bag.pop("car_id")
+        bag.pop("car_cost")
+    elif remove_type == "del_insurance":
+        bag.pop("insurance_cost")
+    elif remove_type == "del_support":
+        bag.pop("support_cost")
+
+    request.session['bag'] = bag
+    return HttpResponse(status=200)
