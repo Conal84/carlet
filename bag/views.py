@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import HttpResponse
 from cars.models import Car
 
@@ -31,9 +31,10 @@ def add_to_bag(request, item_id):
         bag["insurance_cost"] = car.insurance_total
         request.session['bag'] = bag
     elif item == 'support':
-        template = 'checkout/checkout.html'
+        # template = 'checkout/checkout.html'
         bag["support_cost"] = car.support_total
         request.session['bag'] = bag
+        return redirect(reverse("checkout"))
 
     return render(request, template, context)
 
