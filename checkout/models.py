@@ -12,7 +12,7 @@ from cars.models import Car
 class Order(models.Model):
     """ Handle all orders across the site """
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    full_name = models.CharField(max_length=32, null=False, editable=False)
+    full_name = models.CharField(max_length=32, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = models.CharField(max_length=40, null=False, blank=False)
@@ -51,9 +51,9 @@ class OrderLineItem(models.Model):
                                          editable=False)
 
     def save(self, *args, **kwargs):
-        """ Override the save method to set the unique order number """
-        self.lineitem_total = 
+        """ Override the save method to set the lineitem total """
+        self.lineitem_total = self.car.car_total
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.order_number
+        return f'{self.car.make}, {self.car.model}'
