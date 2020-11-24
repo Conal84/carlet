@@ -17,31 +17,36 @@ class Car(models.Model):
     num_days_on_hire = models.IntegerField()
     cost_per_day = models.IntegerField()
     account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    insurance_per_day = models.IntegerField(default=10)
-    support_per_day = models.IntegerField(default=5)
+    # insurance_per_day = models.IntegerField(default=10)
+    # support_per_day = models.IntegerField(default=5)
+
+    def save(self, *args, **kwargs):
+        tdelta = self.available_to - self.available_from
+        self.num_days_on_hire = tdelta.days
+        super().save(*args, **kwargs)
+
+    @property
+    def car_total(self):
+        # tdelta = self.available_to - self.available_from
+        return self.cost_per_day * self.num_days_on_hire
 
     def __str__(self):
         return f"{self.make}, {self.model}"
 
-    @property
-    def num_days(self):
-        tdelta = self.available_to - self.available_from
-        return tdelta.days
+    # @property
+    # def num_days(self):
+    #     tdelta = self.available_to - self.available_from
+    #     return tdelta.days
 
-    @property
-    def car_total(self):
-        tdelta = self.available_to - self.available_from
-        return self.cost_per_day * tdelta.days
+    # @property
+    # def insurance_total(self):
+    #     tdelta = self.available_to - self.available_from
+    #     return self.insurance_per_day * tdelta.days
 
-    @property
-    def insurance_total(self):
-        tdelta = self.available_to - self.available_from
-        return self.insurance_per_day * tdelta.days
-
-    @property
-    def support_total(self):
-        tdelta = self.available_to - self.available_from
-        return self.support_per_day * tdelta.days
+    # @property
+    # def support_total(self):
+    #     tdelta = self.available_to - self.available_from
+    #     return self.support_per_day * tdelta.days
 
 
 # class Booking(models.Model):
@@ -53,6 +58,32 @@ class Car(models.Model):
 
 #     def __str__(self):
 #         return f"Booking no. {self.id}"
+
+
+class Insurance(models.Model):
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    cost_per_day = models.IntegerField(default=10)
+
+    @property
+    def insurance_total(self):
+        # tdelta = self.available_to - self.available_from
+        return self.cost_per_day * self.car.num_days_on_hire
+
+    def __str__(self):
+        return self.cost_per_day
+
+
+class Support(models.Model):
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    cost_per_day = models.IntegerField(default=5)
+
+    @property
+    def support_total(self):
+        # tdelta = self.available_to - self.available_from
+        return self.cost_per_day * self.car.num_days_on_hire
+
+    def __str__(self):
+        return self.cost_per_day
 
 
 class CarImage(models.Model):
