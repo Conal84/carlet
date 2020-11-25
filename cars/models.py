@@ -14,7 +14,7 @@ class Car(models.Model):
     location = models.CharField(max_length=30, default='')
     available_from = models.DateField(default=date.today)
     available_to = models.DateField(default=date.today)
-    num_days_on_hire = models.IntegerField()
+    num_days = models.IntegerField()
     cost_per_day = models.IntegerField()
     account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     # insurance_per_day = models.IntegerField(default=10)
@@ -22,13 +22,13 @@ class Car(models.Model):
 
     def save(self, *args, **kwargs):
         tdelta = self.available_to - self.available_from
-        self.num_days_on_hire = tdelta.days
+        self.num_days = tdelta.days
         super().save(*args, **kwargs)
 
     @property
     def car_total(self):
         # tdelta = self.available_to - self.available_from
-        return self.cost_per_day * self.num_days_on_hire
+        return self.cost_per_day * self.num_days
 
     def __str__(self):
         return f"{self.make}, {self.model}"
@@ -52,9 +52,9 @@ class Car(models.Model):
 # class Booking(models.Model):
 #     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 #     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-#     hired_from = models.DateField(default=date.today)
-#     hired_to = models.DateField(default=date.today)
-
+#     booked_from = models.DateField()
+#     booked_to = models.DateField()
+#     num_days = models.IntegerField()
 
 #     def __str__(self):
 #         return f"Booking no. {self.id}"
@@ -65,9 +65,9 @@ class Insurance(models.Model):
     cost_per_day = models.IntegerField(default=10)
 
     @property
-    def insurance_total(self):
+    def total(self):
         # tdelta = self.available_to - self.available_from
-        return self.cost_per_day * self.car.num_days_on_hire
+        return self.cost_per_day * self.car.num_days
 
     def __str__(self):
         return self.cost_per_day
@@ -78,9 +78,9 @@ class Support(models.Model):
     cost_per_day = models.IntegerField(default=5)
 
     @property
-    def support_total(self):
+    def total(self):
         # tdelta = self.available_to - self.available_from
-        return self.cost_per_day * self.car.num_days_on_hire
+        return self.cost_per_day * self.car.num_days
 
     def __str__(self):
         return self.cost_per_day

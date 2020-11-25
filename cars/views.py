@@ -5,14 +5,14 @@ from .models import Car, CarImage
 
 
 def cars_all(request):
-    """ A view to return the search page """
+    """ A view to return the search page with results for cars searched """
     location = None
     template = 'cars/cars-all.html'
 
     if request.GET:
         location = request.GET['location']
-        search_from = request.GET['hire_from']
-        search_to = request.GET['hire_to']
+        search_from = request.GET['search_from']
+        search_to = request.GET['search_to']
 
         cars = Car.objects.filter(
             location__icontains=location

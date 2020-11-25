@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import HttpResponse
-from cars.models import Car
+from cars.models import Car, Insurance, Support
 
 # Create your views here.
 
@@ -14,25 +14,30 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """ Add items to the bag """
     car = get_object_or_404(Car, pk=item_id)
+    insurance = get_object_or_404(Insurance, car__pk=item_id)
+    support = get_object_or_404(Support, car__pk=item_id)
+
     item = request.POST.get('item')
     bag = request.session.get('bag', {})
 
     context = {
         "car": car,
+        "insurance": insurance,
+        "support": support
     }
 
     if item == 'car':
         template = 'cars/car-insurance.html'
         bag["car_id"] = item_id
-        bag["car_cost"] = car.car_total
+        bag["car"] = car
         request.session['bag'] = bag
     elif item == 'insurance':
         template = 'cars/car-support.html'
-        bag["insurance_cost"] = car.insurance_total
+        bag["insurance"] = insurance
         request.session['bag'] = bag
     elif item == 'support':
         # template = 'checkout/checkout.html'
-        bag["support_cost"] = car.support_total
+        bag["support"] = support
         request.session['bag'] = bag
         return redirect(reverse("checkout"))
 
