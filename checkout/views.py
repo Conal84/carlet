@@ -36,11 +36,11 @@ def checkout(request):
         }
 
         order_form = OrderForm(form_data)
-        if order_form.is_valid():
-            order_form.safe()
-            for item_id,
+    #     if order_form.is_valid():
+    #         order_form.safe()
+    #         for item_id,
 
-    else:
+    # else:
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "Your bag is empty at the moment")
