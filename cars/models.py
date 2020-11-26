@@ -70,7 +70,7 @@ class Insurance(models.Model):
         return self.cost_per_day * self.car.num_days
 
     def __str__(self):
-        return self.cost_per_day
+        return f"Insurance for {self.car.make}, {self.car.model}"
 
 
 class Support(models.Model):
@@ -83,7 +83,7 @@ class Support(models.Model):
         return self.cost_per_day * self.car.num_days
 
     def __str__(self):
-        return self.cost_per_day
+        return f"Roadside assist for {self.car.make}, {self.car.model}"
 
 
 class CarImage(models.Model):

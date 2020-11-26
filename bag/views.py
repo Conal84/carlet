@@ -23,21 +23,20 @@ def add_to_bag(request, item_id):
     context = {
         "car": car,
         "insurance": insurance,
-        "support": support
+        "support": support,
     }
 
     if item == 'car':
         template = 'cars/car-insurance.html'
         bag["car_id"] = item_id
-        bag["car"] = car
         request.session['bag'] = bag
     elif item == 'insurance':
         template = 'cars/car-support.html'
-        bag["insurance"] = insurance
+        bag["insurance_id"] = insurance.id
         request.session['bag'] = bag
     elif item == 'support':
         # template = 'checkout/checkout.html'
-        bag["support"] = support
+        bag["support_id"] = support.id
         request.session['bag'] = bag
         return redirect(reverse("checkout"))
 
@@ -53,9 +52,9 @@ def remove_from_bag(request, item_id):
         if remove_type == "del_car":
             bag = {}
         elif remove_type == "del_insurance":
-            bag.pop("insurance_cost")
+            bag.pop("insurance_id")
         elif remove_type == "del_support":
-            bag.pop("support_cost")
+            bag.pop("support_id")
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
