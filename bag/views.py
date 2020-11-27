@@ -35,7 +35,6 @@ def add_to_bag(request, item_id):
         bag["insurance_id"] = insurance.id
         request.session['bag'] = bag
     elif item == 'support':
-        # template = 'checkout/checkout.html'
         bag["support_id"] = support.id
         request.session['bag'] = bag
         return redirect(reverse("checkout"))

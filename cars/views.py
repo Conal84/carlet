@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Car, CarImage, Support
+from .utils import calc_days
 
 # Create your views here.
 
@@ -13,6 +14,8 @@ def cars_all(request):
         location = request.GET['location']
         search_from = request.GET['search_from']
         search_to = request.GET['search_to']
+
+        calc_days(request, search_from, search_to)
 
         cars = Car.objects.filter(
             location__icontains=location
@@ -65,13 +68,3 @@ def car_support(request):
     """ A view to return individual car support page"""
     template = 'cars/car-support.html'
     return render(request, template)
-
-
-# def car_support_skip(request, car_id):
-#     """ A view to return individual car support page"""
-#     car = get_object_or_404(Car, pk=car_id)
-#     template = 'checkout/checkout.html'
-#     context = {
-#         "car": car,
-#     }
-#     return render(request, template, context)
