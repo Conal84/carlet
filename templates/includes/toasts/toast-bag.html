@@ -29,53 +29,53 @@
 					<tbody>
 						<tr>
 							<td class="py-1">
-								<p>{{make}}, {{model}}</p>
+								<p>{{bag_car.make}}, {{bag_car.model}}</p>
 							</td>
 							<td class="py-1">
-								<p>£{{car_cost_per_day}}</p>
+								<p>£{{bag_car.cost_per_day}}</p>
 							</td>
 							<td class="py-1">
-								<p>{{num_days}}</p>
+								<p>{{bag_car.num_days}}</p>
 							</td>
 							<td class="py-1">
-								<p>£{{car_total}}</p>
+								<p>£{{bag_car.total}}</p>
 							</td>
                             <td class="py-1">
 								<a class="delete-link" data-item="{{ car_id }}" data-name="del_car"><i class="far fa-trash-alt"></i></a>
 							</td>
 						</tr>
-                        {% if insurance_total %}
+                        {% if bag_insurance %}
                         <tr>
 							<td class="py-1">
 								<p>Car insurance</p>
 							</td>
 							<td class="py-1">
-								<p>£{{insurance_cost_per_day}}</p>
+								<p>£{{bag_insurance.cost_per_day}}</p>
 							</td>
 							<td class="py-1">
-								<p>{{num_days}}</p>
+								<p>{{bag_car.num_days}}</p>
 							</td>
 							<td class="py-1">
-								<p>£{{insurance_total}}</p>
+								<p>£{{bag_insurance.total}}</p>
 							</td>
                             <td class="py-1">
 								<a class="delete-link" data-item="{{ insurance_id }}" data-name="del_insurance"><i class="far fa-trash-alt"></i></a>
 							</td>
 						</tr>
                         {% endif %}
-                        {% if support_total %}
+                        {% if bag_support %}
                         <tr>
 							<td class="py-1">
 								<p>Road side assistance</p>
 							</td>
 							<td class="py-1">
-								<p>£{{support_cost_per_day}}</p>
+								<p>£{{bag_support.cost_per_day}}</p>
 							</td>
 							<td class="py-1">
-								<p>{{num_days}}</p>
+								<p>{{bag_car.num_days}}</p>
 							</td>
 							<td class="py-1">
-								<p>£{{support_total}}</p>
+								<p>£{{bag_support.total}}</p>
 							</td>
                             <td class="py-1">
 								<a class="delete-link" data-item="{{ support_id }}" data-name="del_support"><i class="far fa-trash-alt"></i></a>

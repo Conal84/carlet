@@ -10,15 +10,11 @@ def bag_contents(request):
     if "car_id" in bag:
         car_id = bag["car_id"]
         car = get_object_or_404(Car, pk=car_id)
-        grand_total = car.car_total
+        grand_total = car.total
 
         context = {
             "car_id": car.id,
-            "make": car.make,
-            "model": car.model,
-            "num_days": car.num_days,
-            "car_cost_per_day": car.cost_per_day,
-            "car_total": car.car_total,
+            "bag_car": car,
             "grand_total": grand_total,
         }
 
@@ -28,8 +24,7 @@ def bag_contents(request):
             grand_total = grand_total + insurance.total
 
             context["insurance_id"] = insurance.id
-            context["insurance_cost_per_day"] = insurance.cost_per_day
-            context["insurance_total"] = insurance.total
+            context["bag_insurance"] = insurance
             context["grand_total"] = grand_total
 
         if "support_id" in bag:
@@ -38,8 +33,7 @@ def bag_contents(request):
             grand_total = grand_total + support.total
 
             context["support_id"] = support.id
-            context["support_cost_per_day"] = support.cost_per_day
-            context["support_total"] = support.total
+            context["bag_support"] = support
             context["grand_total"] = grand_total
 
     else:

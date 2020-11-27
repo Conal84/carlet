@@ -26,7 +26,7 @@ class Car(models.Model):
         super(Car, self).save(*args, **kwargs)
 
     @property
-    def car_total(self):
+    def total(self):
         # tdelta = self.available_to - self.available_from
         return self.cost_per_day * self.num_days
 
