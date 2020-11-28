@@ -29,7 +29,7 @@ def checkout(request):
             'phone_number': request.POST['phone_number'],
             'country': request.POST['country'],
             'postcode': request.POST['postcode'],
-            'town_or_city': request.POST['toen_or_city'],
+            'town_or_city': request.POST['town_or_city'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
@@ -37,32 +37,36 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         current_bag = bag_contents(request)
+        print(current_bag)
 
         if order_form.is_valid():
             order = order_form.save()
-            if bag_car in current_bag:
+            if "bag_car" in current_bag:
+                car = current_bag["bag_car"]
                 order_line_item = OrderLineItem(
                     order = order,
-                    description = current_bag.bag_car.make + current_bag.bag_car.model,
-                    cost_per_day = current_bag.bag_car.cost_per_day,
-                    days = current_bag.num_days,
-                    lineitem_total = current_bag.bag_car_total
+                    description = car.make + car.model,
+                    cost_per_day = car.cost_per_day,
+                    days = current_bag["num_days"],
+                    lineitem_total = current_bag["bag_car_total"]
                 )
-            if bag_insurance in current_bag:
+            if "bag_insurance" in current_bag:
+                insurance = current_bag["bag_insurance"]
                 order_line_item = OrderLineItem(
                     order = order,
-                    description = current_bag.bag_insurance.make + current_bag.bag_insurance.model,
-                    cost_per_day = current_bag.bag_insurance.cost_per_day,
-                    days = current_bag.num_days,
-                    lineitem_total = current_bag.bag_insurance_total
+                    description = "Car insurance",
+                    cost_per_day = insurance.cost_per_day,
+                    days = current_bag["num_days"],
+                    lineitem_total = current_bag["bag_insurance_total"]
                 )
-            if bag_support in current_bag:
+            if "bag_support" in current_bag:
+                support = current_bag["bag_support"]
                 order_line_item = OrderLineItem(
                     order = order,
-                    description = current_bag.bag_support.make + current_bag.bag_support.model,
-                    cost_per_day = current_bag.bag_support.cost_per_day,
-                    days = current_bag.num_days,
-                    lineitem_total = current_bag.bag_support_total
+                    description = "Car roadside assistance",
+                    cost_per_day = support.cost_per_day,
+                    days = current_bag["num_days"],
+                    lineitem_total = current_bag["bag_support_total"]
                 )
 
             request.session['save_info'] = 'save-info' in request.POST
