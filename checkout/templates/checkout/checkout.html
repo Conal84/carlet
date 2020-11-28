@@ -39,12 +39,13 @@
 								<p>£{{bag_car.cost_per_day}} per day</p>
 							</td>
 							<td class="py-3">
-								<p>for {{bag_car.num_days}} days</p>
+								<p>for {{num_days}} days</p>
 							</td>
 							<td class="py-3">
-								<p>£{{bag_car.total}}</p>
+								<p>£{{bag_car_total}}</p>
 							</td>
 						</tr>
+                        {% if bag_insurance %}
 						<tr>
 							<td class="py-3">
 								<p>Car insurance</p>
@@ -53,12 +54,14 @@
 								<p>£{{bag_insurance.cost_per_day}} per day</p>
 							</td>
 							<td class="py-3">
-								<p>for {{bag_car.num_days}} days</p>
+								<p>for {{num_days}} days</p>
 							</td>
 							<td class="py-3">
-								<p>£{{bag_insurance.total}}</p>
+								<p>£{{bag_insurance_total}}</p>
 							</td>
 						</tr>
+                        {% endif %}
+                        {% if bag_support %}
 						<tr>
 							<td class="py-3">
 								<p>Road side assistance</p>
@@ -67,12 +70,13 @@
 								<p>£{{bag_support.cost_per_day}} per day</p>
 							</td>
 							<td class="py-3">
-								<p>for {{bag_car.num_days}} days</p>
+								<p>for {{num_days}} days</p>
 							</td>
 							<td class="py-3">
-								<p>£{{bag_support.total}}</p>
+								<p>£{{bag_support_total}}</p>
 							</td>
 						</tr>
+                        {% endif %}
 					</tbody>
 				</table>
 			</div>

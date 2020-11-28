@@ -27,13 +27,15 @@ def add_to_bag(request, item_id):
     }
 
     if item == 'car':
-        template = 'cars/car-insurance.html'
         bag["car_id"] = item_id
         request.session['bag'] = bag
+        return redirect(reverse("car_insurance", kwargs={"id": car.id}))
+
     elif item == 'insurance':
-        template = 'cars/car-support.html'
         bag["insurance_id"] = insurance.id
         request.session['bag'] = bag
+        return redirect(reverse("car_support", kwargs={"id": car.id}))
+
     elif item == 'support':
         bag["support_id"] = support.id
         request.session['bag'] = bag

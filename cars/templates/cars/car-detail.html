@@ -31,7 +31,7 @@
                 <p>{{ car.description }}</p>
                 <p>{{ car.location }}</p>
                 <p>£{{ car.cost_per_day }} per day</p>
-                <p>Total £{{ car.total }}</p>
+                <p>Total £{{ car_total }}</p>
             </div>
             <form class="form" action="{% url 'add_to_bag' car.id %}" method="POST">
                 {% csrf_token %}

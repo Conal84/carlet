@@ -9,7 +9,7 @@ def calc_days(request, day1, day2):
     num_days = dt.days
     print(num_days)
 
-    days = request.session.get('days', {})
+    bag = request.session.get('bag', {})
 
-    days["num_days"] = num_days
-    request.session['days'] = days
+    bag["num_days"] = num_days
+    request.session['bag'] = bag
