@@ -37,7 +37,6 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         current_bag = bag_contents(request)
-        print(current_bag)
 
         if order_form.is_valid():
             order = order_form.save()
@@ -45,31 +44,31 @@ def checkout(request):
                 car = current_bag["bag_car"]
                 desc = car.make + " " + car.model
                 order_line_item = OrderLineItem(
-                    order = order,
-                    description = desc,
-                    cost_per_day = car.cost_per_day,
-                    days = current_bag["num_days"],
-                    lineitem_total = current_bag["bag_car_total"]
+                    order=order,
+                    description=desc,
+                    cost_per_day=car.cost_per_day,
+                    days=current_bag["num_days"],
+                    lineitem_total=current_bag["bag_car_total"]
                 )
                 order_line_item.save()
             if "bag_insurance" in current_bag:
                 insurance = current_bag["bag_insurance"]
                 order_line_item = OrderLineItem(
-                    order = order,
-                    description = "Car insurance",
-                    cost_per_day = insurance.cost_per_day,
-                    days = current_bag["num_days"],
-                    lineitem_total = current_bag["bag_insurance_total"]
+                    order=order,
+                    description="Car insurance",
+                    cost_per_day=insurance.cost_per_day,
+                    days=current_bag["num_days"],
+                    lineitem_total=current_bag["bag_insurance_total"]
                 )
                 order_line_item.save()
             if "bag_support" in current_bag:
                 support = current_bag["bag_support"]
                 order_line_item = OrderLineItem(
-                    order = order,
-                    description = "Car roadside assistance",
-                    cost_per_day = support.cost_per_day,
-                    days = current_bag["num_days"],
-                    lineitem_total = current_bag["bag_support_total"]
+                    order=order,
+                    description="Car roadside assistance",
+                    cost_per_day=support.cost_per_day,
+                    days=current_bag["num_days"],
+                    lineitem_total=current_bag["bag_support_total"]
                 )
                 order_line_item.save()
 
