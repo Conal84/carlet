@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 from pathlib import os
 
 from .forms import OrderForm
+from .models import Order, OrderLineItem
 from bag.contexts import bag_contents
 
 import stripe
@@ -21,7 +22,6 @@ def checkout(request):
     stripe_secret_key = os.environ.get('STRIPE_SECRET_KEY')
 
     if request.method == "POST":
-        bag = request.session.get('bag', {})
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -36,9 +36,40 @@ def checkout(request):
         }
 
         order_form = OrderForm(form_data)
-    #     if order_form.is_valid():
-    #         order_form.safe()
-    #         for item_id,
+        current_bag = bag_contents(request)
+
+        if order_form.is_valid():
+            order = order_form.save()
+            if bag_car in current_bag:
+                order_line_item = OrderLineItem(
+                    order = order,
+                    description = current_bag.bag_car.make + current_bag.bag_car.model,
+                    cost_per_day = current_bag.bag_car.cost_per_day,
+                    days = current_bag.num_days,
+                    lineitem_total = current_bag.bag_car_total
+                )
+            if bag_insurance in current_bag:
+                order_line_item = OrderLineItem(
+                    order = order,
+                    description = current_bag.bag_insurance.make + current_bag.bag_insurance.model,
+                    cost_per_day = current_bag.bag_insurance.cost_per_day,
+                    days = current_bag.num_days,
+                    lineitem_total = current_bag.bag_insurance_total
+                )
+            if bag_support in current_bag:
+                order_line_item = OrderLineItem(
+                    order = order,
+                    description = current_bag.bag_support.make + current_bag.bag_support.model,
+                    cost_per_day = current_bag.bag_support.cost_per_day,
+                    days = current_bag.num_days,
+                    lineitem_total = current_bag.bag_support_total
+                )
+
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success', args=[order.order_number]))
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information.')
 
     else:
         bag = request.session.get('bag', {})
@@ -56,14 +87,34 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        print(intent)
-
         order_form = OrderForm()
-        template = 'checkout/checkout.html'
-        context = {
-            'order_form': order_form,
-            'stripe_public_key': stripe_public_key,
-            'client_secret': intent.client_secret,
-        }
+
+    template = 'checkout/checkout.html'
+    context = {
+        'order_form': order_form,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
+    }
+
+    return render(request, template, context)
+
+
+def checkout_success(request, order_number):
+    """
+    Handle successful checkouts
+    """
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
+
+    if 'bag' in request.session:
+        del request.session['bag']
+
+    template = 'checkout/checkout-success.html'
+    context = {
+        'order': order,
+    }
 
     return render(request, template, context)

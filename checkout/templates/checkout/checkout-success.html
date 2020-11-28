@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<hr>
+			<h2>Thank You</h2>
+			<hr>
+            <p>Your order information is below. An order confirmation has been sent to {{ order.email }}</p>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<hr>
+			<h2>Order Summary</h2>
+			<hr>
+		</div>
+		<div class="col-12">
+			{% if grand_total %}
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Description</th>
+							<th scope="col">Cost per day</th>
+							<th scope="col">No. of days</th>
+							<th scope="col">Subtotal</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="py-3">
+								<p>{{bag_car.make}}, {{bag_car.model}}</p>
+							</td>
+							<td class="py-3">
+								<p>£{{bag_car.cost_per_day}} per day</p>
+							</td>
+							<td class="py-3">
+								<p>for {{num_days}} days</p>
+							</td>
+							<td class="py-3">
+								<p>£{{bag_car_total}}</p>
+							</td>
+						</tr>
+                        {% if bag_insurance %}
+						<tr>
+							<td class="py-3">
+								<p>Car insurance</p>
+							</td>
+							<td class="py-3">
+								<p>£{{bag_insurance.cost_per_day}} per day</p>
+							</td>
+							<td class="py-3">
+								<p>for {{num_days}} days</p>
+							</td>
+							<td class="py-3">
+								<p>£{{bag_insurance_total}}</p>
+							</td>
+						</tr>
+                        {% endif %}
+                        {% if bag_support %}
+						<tr>
+							<td class="py-3">
+								<p>Road side assistance</p>
+							</td>
+							<td class="py-3">
+								<p>£{{bag_support.cost_per_day}} per day</p>
+							</td>
+							<td class="py-3">
+								<p>for {{num_days}} days</p>
+							</td>
+							<td class="py-3">
+								<p>£{{bag_support_total}}</p>
+							</td>
+						</tr>
+                        {% endif %}
+					</tbody>
+				</table>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

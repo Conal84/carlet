@@ -29,6 +29,13 @@ class Order(models.Model):
         """ Generate random unique order number """
         return uuid.uuid4().hex.upper()
 
+    def update_total(self):
+        """
+        Update grand total every time a new line item is added to the order
+        """
+        self.grand_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.save()
+
     def save(self, *args, **kwargs):
         """ Override the save method to set the unique order number """
         if not self.order_number:
@@ -44,16 +51,14 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')
-    car = models.ForeignKey(Car, null=False, blank=False,
-                            on_delete=models.CASCADE)
+    # car = models.ForeignKey(Car, null=False, blank=False,
+    #                         on_delete=models.CASCADE)
+    description = models.CharField(max_length=40, null=False, blank=False)
+    cost_per_day = models.IntegerField(null=False, blank=False)
+    days = models.IntegerField(null=False, blank=False)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
 
-    def save(self, *args, **kwargs):
-        """ Override the save method to set the lineitem total """
-        self.lineitem_total = self.car.car_total
-        super().save(*args, **kwargs)
-
     def __str__(self):
-        return f'{self.car.make}, {self.car.model}'
+        return f'Order for {self.car.make}, {self.car.model} with order number {self.order.order_number}'
