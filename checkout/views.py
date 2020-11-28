@@ -43,13 +43,15 @@ def checkout(request):
             order = order_form.save()
             if "bag_car" in current_bag:
                 car = current_bag["bag_car"]
+                desc = car.make + " " + car.model
                 order_line_item = OrderLineItem(
                     order = order,
-                    description = car.make + car.model,
+                    description = desc,
                     cost_per_day = car.cost_per_day,
                     days = current_bag["num_days"],
                     lineitem_total = current_bag["bag_car_total"]
                 )
+                order_line_item.save()
             if "bag_insurance" in current_bag:
                 insurance = current_bag["bag_insurance"]
                 order_line_item = OrderLineItem(
@@ -59,6 +61,7 @@ def checkout(request):
                     days = current_bag["num_days"],
                     lineitem_total = current_bag["bag_insurance_total"]
                 )
+                order_line_item.save()
             if "bag_support" in current_bag:
                 support = current_bag["bag_support"]
                 order_line_item = OrderLineItem(
@@ -68,6 +71,7 @@ def checkout(request):
                     days = current_bag["num_days"],
                     lineitem_total = current_bag["bag_support_total"]
                 )
+                order_line_item.save()
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))

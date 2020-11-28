@@ -51,14 +51,12 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')
-    # car = models.ForeignKey(Car, null=False, blank=False,
-    #                         on_delete=models.CASCADE)
-    description = models.CharField(max_length=40, null=False, blank=False)
-    cost_per_day = models.IntegerField(null=False, blank=False)
-    days = models.IntegerField(null=False, blank=False)
+    description = models.CharField(max_length=40, null=False, blank=False, default="")
+    cost_per_day = models.IntegerField(null=False, blank=False, default=0)
+    days = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
 
     def __str__(self):
-        return f'Order for {self.car.make}, {self.car.model} with order number {self.order.order_number}'
+        return f'{self.description} order num: {self.order.order_number}'
