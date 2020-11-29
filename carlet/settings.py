@@ -174,4 +174,3 @@ MEDIA_ROOT = (os.path.join(BASE_DIR, 'media'))
 
 # Stripe
 STRIPE_CURRENCY = 'gbp'
-STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
