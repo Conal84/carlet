@@ -21,7 +21,6 @@ if path.exists("env.py"):
 @require_POST
 def cache_checkout_data(request):
     try:
-        print("Cache data function called")
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
         stripe.PaymentIntent.modify(pid, metadata={
