@@ -23,8 +23,14 @@ def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+        bag = request.session.get('bag')
+        # bag_contains = bag_contents(request)
         stripe.PaymentIntent.modify(pid, metadata={
-            'bag': json.dumps(request.session.get('bag', {})),
+            'bag': json.dumps(bag),
+            # 'days': bag_contains.num_days,
+            # 'bag_car_total': bag_contains.bag_car_total,
+            # 'bag_insurance_total': bag_contains.bag_insurance_total,
+            # 'bag_support_total': bag_contains.bag_support_total,
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })

@@ -1,4 +1,11 @@
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+
+from .models import Order, OrderLineItem
+from cars.models import Car, Insurance, Support
+
+import json
+import time
 
 
 class StripeWH_Handler:
@@ -18,8 +25,14 @@ class StripeWH_Handler:
         """Handle the payment_intent.succeeded webhook from Stripe"""
 
         intent = event.data.object
+        print(intent)
+
         pid = intent.id
         bag = intent.metadata.bag
+        days = intent.metadata.days
+        bag_car_total = intent.metadata.bag_contents.bag_car_total,
+        bag_insurance_total = intent.metadata.bag_contents.bag_insurance_total,
+        bag_support_total = intent.metadata.bag_contents.bag_support_total,
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
@@ -31,22 +44,89 @@ class StripeWH_Handler:
                 billing_details.address[field] = None
 
         order_exists = False
-        order = Order.objects.get(
-            full_name__iexact=billing_details.name,
-            email__iexact=billing_details.email,
-            phone_number__iexact=billing_details.phone,
-            street_address1__iexact=billing_details.address.line1,
-            street_address2__iexact=billing_details.address.line2,
-            town_or_city=billing_details.address.city,
-            county=billing_details.address.county,
-            postcode=billing_details.address.postal_code,
-            country=billing_details.address.country,
-            grand_total=grand_total,
-        )
-        order_exists = True
-
+        attempt = 1
+        while attempt <= 5:
+            try:
+                order = Order.objects.get(
+                    full_name__iexact=billing_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=billing_details.phone,
+                    street_address1__iexact=billing_details.address.line1,
+                    street_address2__iexact=billing_details.address.line2,
+                    town_or_city=billing_details.address.city,
+                    county=billing_details.address.county,
+                    postcode=billing_details.address.postal_code,
+                    country=billing_details.address.country,
+                    grand_total=grand_total,
+                    stripe_pid=pid,
+                )
+                order_exists = True
+                break
+            except Order.DoesNotExist:
+                attempt += 1
+                time.sleep(1)
+        if order_exists:
+            return HttpResponse(
+                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already exists in database',
+                status=200)
+        else:
+            order = None
+            try:
+                order = Order.objects.create(
+                    full_name__iexact=billing_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=billing_details.phone,
+                    street_address1__iexact=billing_details.address.line1,
+                    street_address2__iexact=billing_details.address.line2,
+                    town_or_city=billing_details.address.city,
+                    county=billing_details.address.county,
+                    postcode=billing_details.address.postal_code,
+                    country=billing_details.address.country,
+                    stripe_pid=pid,
+                )
+                bag = json.loads(bag)
+                if "car_id" in bag:
+                    id = bag['car_id']
+                    car = get_object_or_404(Car, pk=id)
+                    desc = car.make + " " + car.model
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        description=desc,
+                        cost_per_day=car.cost_per_day,
+                        days=days,
+                        lineitem_total=bag_car_total
+                    )
+                    order_line_item.save()
+                if "bag_insurance" in bag:
+                    id = bag['insurance_id']
+                    insurance = get_object_or_404(Insurance, pk=id)
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        description="Car insurance",
+                        cost_per_day=insurance.cost_per_day,
+                        days=days,
+                        lineitem_total=bag_insurance_total
+                    )
+                    order_line_item.save()
+                if "bag_support" in bag:
+                    id = bag['support_id']
+                    support = get_object_or_404(Support, pk=id)
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        description="Car roadside assistance",
+                        cost_per_day=support.cost_per_day,
+                        days=days,
+                        lineitem_total=bag_support_total
+                    )
+                    order_line_item.save()
+            except Exception as e:
+                if order:
+                    order.delete()
+                return HttpResponse(
+                    content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                    status=500)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}',
+            content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already exists in database',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
