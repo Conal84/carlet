@@ -7,8 +7,6 @@ def calc_days(request, day1, day2):
     dt = date2 - date1
 
     num_days = dt.days
-    print(num_days)
-
     bag = request.session.get('bag', {})
 
     bag["num_days"] = num_days

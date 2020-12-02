@@ -30,9 +30,9 @@ class StripeWH_Handler:
         pid = intent.id
         bag = intent.metadata.bag
         days = intent.metadata.days
-        bag_car_total = intent.metadata.bag_contents.bag_car_total,
-        bag_insurance_total = intent.metadata.bag_contents.bag_insurance_total,
-        bag_support_total = intent.metadata.bag_contents.bag_support_total,
+        bag_car_total = intent.metadata.bag_car_total,
+        bag_insurance_total = intent.metadata.bag_insurance_total,
+        bag_support_total = intent.metadata.bag_support_total,
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
@@ -54,9 +54,9 @@ class StripeWH_Handler:
                     street_address1__iexact=billing_details.address.line1,
                     street_address2__iexact=billing_details.address.line2,
                     town_or_city=billing_details.address.city,
-                    county=billing_details.address.county,
-                    postcode=billing_details.address.postal_code,
                     country=billing_details.address.country,
+                    postcode=billing_details.address.postal_code,
+                    county=billing_details.address.state,
                     grand_total=grand_total,
                     stripe_pid=pid,
                 )
@@ -73,13 +73,13 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
-                    full_name__iexact=billing_details.name,
-                    email__iexact=billing_details.email,
-                    phone_number__iexact=billing_details.phone,
-                    street_address1__iexact=billing_details.address.line1,
-                    street_address2__iexact=billing_details.address.line2,
+                    full_name=billing_details.name,
+                    email=billing_details.email,
+                    phone_number=billing_details.phone,
+                    street_address1=billing_details.address.line1,
+                    street_address2=billing_details.address.line2,
                     town_or_city=billing_details.address.city,
-                    county=billing_details.address.county,
+                    county=billing_details.address.state,
                     postcode=billing_details.address.postal_code,
                     country=billing_details.address.country,
                     stripe_pid=pid,
@@ -126,7 +126,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already exists in database',
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook!!',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):

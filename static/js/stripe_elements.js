@@ -66,9 +66,10 @@ form.addEventListener('submit', function(ev) {
                     address:{
                         line1: $.trim(form.street_address1.value),
                         line2: $.trim(form.street_address2.value),
-                        county: $.trim(form.county.value),
                         city: $.trim(form.town_or_city.value),
-                        postcode: $.trim(form.postcode.value),
+                        state: $.trim(form.county.value),
+                        postal_code: $.trim(form.postcode.value),
+                        country: $.trim(form.country.value),
                     }
                 }
             },
@@ -87,7 +88,7 @@ form.addEventListener('submit', function(ev) {
                 $('#submit-button').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
-                    form.submit();
+                    // form.submit();
                 }
             }
         });
