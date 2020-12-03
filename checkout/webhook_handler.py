@@ -97,7 +97,7 @@ class StripeWH_Handler:
                         lineitem_total=bag_car_total
                     )
                     order_line_item.save()
-                if "bag_insurance" in bag:
+                if "insurance_id" in bag:
                     id = bag['insurance_id']
                     insurance = get_object_or_404(Insurance, pk=id)
                     order_line_item = OrderLineItem(
@@ -108,7 +108,7 @@ class StripeWH_Handler:
                         lineitem_total=bag_insurance_total
                     )
                     order_line_item.save()
-                if "bag_support" in bag:
+                if "support_id" in bag:
                     id = bag['support_id']
                     support = get_object_or_404(Support, pk=id)
                     order_line_item = OrderLineItem(
