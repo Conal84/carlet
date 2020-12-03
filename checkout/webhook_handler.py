@@ -30,9 +30,9 @@ class StripeWH_Handler:
         pid = intent.id
         bag = intent.metadata.bag
         days = intent.metadata.days
-        bag_car_total = intent.metadata.bag_car_total,
-        bag_insurance_total = intent.metadata.bag_insurance_total,
-        bag_support_total = intent.metadata.bag_support_total,
+        bag_car_total = intent.metadata.bag_car_total
+        bag_insurance_total = intent.metadata.bag_insurance_total
+        bag_support_total = intent.metadata.bag_support_total
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
