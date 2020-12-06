@@ -19,52 +19,30 @@
     <ul class="navbar-nav align-items-end">
       {% if request.user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="#">Search</a>
+        <a class="nav-link" href="{% url 'home' %}">Search</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Account
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="#">Account Details</a>
-          <a class="dropdown-item" href="#">Car Hires</a>
-          <a class="dropdown-item" href="#">Car Lets</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
       </li>
-        <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
       </li>
       <li class="nav-item" id="bag-nav">
         <a class="nav-link" href="#">
-        {% if grand_total %}
-            £{{ grand_total|floatformat:2 }}
-        {% else %}
-            £0.00
-        {% endif %}
-        <i class="fas fa-car"></i>
+          {% if grand_total %} £{{ grand_total|floatformat:2 }} {% else %} £0.00
+          {% endif %}
+          <i class="fas fa-car"></i>
         </a>
       </li>
       {% else %}
       <li class="nav-item">
-        <a
-          class="nav-link"
-          href="#"
-          >How it Works</a
-        >
+        <a class="nav-link" href="#">How it Works</a>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link"
-          href="#"
-          >Search</a
-        >
+        <a class="nav-link" href="{% url 'home' %}">Search</a>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link"
-          href="{% url 'account_login' %}"
-          >Log In</a
-        >
+        <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
       </li>
       {% endif %}
     </ul>
