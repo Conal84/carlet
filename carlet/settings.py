@@ -174,3 +174,4 @@ MEDIA_ROOT = (os.path.join(BASE_DIR, 'media'))
 
 # Stripe
 STRIPE_CURRENCY = 'gbp'
+DEFAULT_FROM_EMAIL = 'carletteam@madeupemail.com'
