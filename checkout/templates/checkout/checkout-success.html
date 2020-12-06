@@ -134,5 +134,11 @@
             </div>
 	    </div>
 	</div>
+    {% if from_profile %}
+    <div class="row">
+        <div class="col">
+            <a href="{% url 'profile' %}" class="btn btn-primary btn-lg">Return to Profile</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

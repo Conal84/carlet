@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm
 
+from checkout.models import Order
+
 # Create your views here.
 
 
@@ -24,6 +26,19 @@ def profile(request):
     context = {
         'form': form,
         'orders': orders,
+    }
+
+    return render(request, template, context)
+
+
+def order_history(request, order_number):
+    """A view to show individual historical orders"""
+    order = get_object_or_404(Order, order_number=order_number)
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+        'from_profile': True,
     }
 
     return render(request, template, context)
