@@ -43,7 +43,7 @@
                                         <ul class="list-unstyled">
                                             {% for item in order.lineitems.all %}
                                                 <li class="small">
-                                                    {% item.description %} - £{% item.lineitem_total %}
+                                                    {{ item.description }} - £{{ item.lineitem_total }}
                                                 </li>
                                             {% endfor %}
                                         </ul>
