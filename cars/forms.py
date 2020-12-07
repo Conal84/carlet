@@ -6,7 +6,7 @@ class CarForm(forms.ModelForm):
 
     class Meta:
         model = Car
-        exclude = ['account']
+        exclude = ['user']
 
     # image1 = forms.ImageField(label="Car Image 1 *")
     # image2 = forms.ImageField(label="Car Image 2", required=False)

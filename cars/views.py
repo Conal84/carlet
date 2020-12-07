@@ -134,11 +134,13 @@ def add_car(request):
     CarFormset = inlineformset_factory(Car, CarImage, fields=('car_image',))
 
     if request.method == 'POST':
+        form = CarForm(request.POST)
         formset = CarFormset(request.POST, request.FILES)
-        if formset.is_valid():
-            instance = formset.save(commit=False)
-            instance.user = request.user
-            instance.save()
+        if form.is_valid() and formset.is_valid():
+            car_instance = form.save(commit=False)
+            car_instance.user = request.user
+            car_instance.save()
+            formset.save()
             messages.success(request, 'Successfully added this car!')
             return redirect(reverse('add_car'))
     else:
