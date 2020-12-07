@@ -112,46 +112,52 @@ def car_support(request, id):
 
 def add_car(request):
     """Add a car to the database"""
-    # if request.method == 'POST':
-    #     form = CarForm(request.POST, request.FILES)
-    #     if form.is_valid():
-    #         instance = form.save(commit=False)
-    #         instance.user = request.user
-    #         instance.save()
-    #         messages.success(request, 'Successfully added this car!')
-    #         return redirect(reverse('add_car'))
-    #     else:
-    #         messages.error(request, 'Failed to add this car, Please check that the form is valid!')
-    # else:
-    #     form = CarForm()
-
-    # template = 'cars/add-car.html'
-    # context = {
-    #     'form': form,
-    # }
-
-    # return render(request, template, context)
-    CarFormset = inlineformset_factory(Car, CarImage, fields=('car_image',))
-
     if request.method == 'POST':
-        form = CarForm(request.POST)
-        formset = CarFormset(request.POST, request.FILES)
-        if form.is_valid() and formset.is_valid():
-            car_instance = form.save(commit=False)
-            car_instance.user = request.user
-            car_instance.save()
-            formset.save()
+        form = CarForm(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            for image in request.FILES.values():
+                img = instance.carimage_set.create(
+                    car_image=image,
+                    car=instance)
             messages.success(request, 'Successfully added this car!')
             return redirect(reverse('add_car'))
+        else:
+            messages.error(request, 'Failed to add this car, Please check that the form is valid!')
     else:
         form = CarForm()
-        car = Car()
-        formset = CarFormset(instance=car)
 
     template = 'cars/add-car.html'
     context = {
         'form': form,
-        'formset': formset,
     }
 
     return render(request, template, context)
+    # CarFormset = inlineformset_factory(Car, CarImage, fields=('car_image',))
+
+    # if request.method == 'POST':
+    #     form = CarForm(request.POST)
+    #     formset = CarFormset(request.POST, request.FILES)
+    #     if form.is_valid() and formset.is_valid():
+    #         car_instance = form.save(commit=False)
+    #         car_instance.user = request.user
+    #         car_instance.save()
+
+    #     if formset.is_valid():
+    #         formset.save()
+    #         messages.success(request, 'Successfully added this car!')
+    #         return redirect(reverse('add_car'))
+    # else:
+    #     form = CarForm()
+    #     car = Car()
+    #     formset = CarFormset(instance=car)
+
+    # template = 'cars/add-car.html'
+    # context = {
+    #     'form': form,
+    #     'formset': formset,
+    # }
+
+    # return render(request, template, context)
