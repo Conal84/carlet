@@ -1,7 +1,7 @@
 from datetime import date
 from decimal import Decimal
 from django.db import models
-from profiles.models import UserProfile
+from django.contrib.auth.models import User
 import uuid
 
 # Create your models here.
@@ -15,7 +15,7 @@ class Car(models.Model):
     available_from = models.DateField(default=date.today)
     available_to = models.DateField(default=date.today)
     cost_per_day = models.IntegerField()
-    account = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.make}, {self.model}"
