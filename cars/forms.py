@@ -7,6 +7,7 @@ class CarForm(forms.ModelForm):
     class Meta:
         model = Car
         exclude = ['account']
+        image = model.car_image
 
 
 class ImageForm(forms.ModelForm):

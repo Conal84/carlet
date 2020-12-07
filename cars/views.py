@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.contrib import messages
+
 from .models import Car, CarImage, Insurance, Support
 from .forms import CarForm, ImageForm
 from .utils import calc_days
@@ -108,10 +110,22 @@ def car_support(request, id):
 
 def add_car(request):
     """Add a car to the database"""
-    car_form = CarForm()
-    image_form = ImageForm()
-    template = 'cars/add-car.html'
+    if request.method == 'POST':
+        car_form = CarForm(request.POST)
+        image_form = ImageForm(request.FILES)
+        if car_form.is_valid() and image_form.is_valid():
+            car_form.save()
+            image_form.save()
+            messages.success(request, 'Successfully added this car!')
+            return redirect(reverse('add_car'))
+        else:
+            messages.error(request, 'Failed to add this car, Please check that the form is valid!')
 
+    else:
+        car_form = CarForm()
+        image_form = ImageForm()
+
+    template = 'cars/add-car.html'
     context = {
         'car_form': car_form,
         'image_form': image_form,
