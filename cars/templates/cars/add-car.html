@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<hr>
+			<h2 class="logo-font">Car Management</h2>
+			<hr>
+		</div>
+	</div>
+    <div class="row">
+        <div class="col-12">
+            <hr>
+            <h3>Add Your Car</h3>
+            <p class="text-muted">Simply add your car details below to hire your car out to people in your area</p>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-4">
+            <form method="POST" action="{% url 'add_car' %}" class="auth-form p-4" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ car_form | crispy }}
+                {{ image_form | crispy }}
+                <a href="{% url 'all_cars' %}" class="btn btn-primary btn-lg">Cancel</a>
+                <button class="btn btn-primary btn-lg">Add Car</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

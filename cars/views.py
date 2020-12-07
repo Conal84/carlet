@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Car, CarImage, Insurance, Support
+from .forms import CarForm, ImageForm
 from .utils import calc_days
 
 # Create your views here.
@@ -102,4 +103,18 @@ def car_support(request, id):
         "support": support,
         "support_total": support_total,
     }
+    return render(request, template, context)
+
+
+def add_car(request):
+    """Add a car to the database"""
+    car_form = CarForm()
+    image_form = ImageForm()
+    template = 'cars/add-car.html'
+
+    context = {
+        'car_form': car_form,
+        'image_form': image_form,
+    }
+
     return render(request, template, context)
