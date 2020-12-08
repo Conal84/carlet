@@ -16,6 +16,9 @@ class Car(models.Model):
     available_to = models.DateField(default=date.today)
     cost_per_day = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    image1 = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.make}, {self.model}"
@@ -48,12 +51,12 @@ class Support(models.Model):
         return f"Roadside assist for {self.car.make}, {self.car.model}"
 
 
-class CarImage(models.Model):
-    car_image = models.ImageField()
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+# class CarImage(models.Model):
+#     car_image = models.ImageField()
+#     car = models.ForeignKey(Car, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.car_image.name
+#     def __str__(self):
+#         return self.car_image.name
 
-    def get_url(self):
-        return self.car_image.url
+#     def get_url(self):
+#         return self.car_image.url
