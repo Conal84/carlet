@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import Car, CarImage, Insurance, Support
 from .forms import CarForm
@@ -110,12 +111,14 @@ def car_support(request, id):
     return render(request, template, context)
 
 
+@login_required
 def car_dashboard(request):
     template = 'cars/car-dashboard.html'
 
     return render(request, template)
 
 
+@login_required
 def add_car(request):
     """Add a car to the database"""
     if request.method == 'POST':
@@ -143,6 +146,7 @@ def add_car(request):
     return render(request, template, context)
 
 
+@login_required
 def display_cars(request):
     """Display a users cars in the database for editing"""
     user = request.user
@@ -156,18 +160,39 @@ def display_cars(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_car(request, car_id):
     """Edit an individual car details"""
     car = get_object_or_404(Car, pk=car_id)
+    car_images = car.carimage_set.all()
+
+    if request.method == 'POST':
+        form = CarForm(request.POST, request.FILES, instance=car)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.carimage_set.delete()
+            instance.save()
+            for image in request.FILES.values():
+                img = instance.carimage_set.create(
+                    car_image=image,
+                    car=instance)
+            messages.success(request, 'Successfully added this car!')
+            return redirect(reverse('display_cars'))
+        else:
+            messages.error(request, 'Failed to add this car, Please check that the form is valid!')
+    else:
+        form = CarForm(instance=car, image1=car_images[0])
 
     template = 'cars/edit-car.html'
     context = {
-        'car': car,
+        'form': form,
     }
 
     return render(request, template, context)
 
 
+@login_required
 def delete_car(request, car_id):
     """Delete an individual car from the database"""
     car = get_object_or_404(Car, pk=car_id)

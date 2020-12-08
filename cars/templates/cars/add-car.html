@@ -23,9 +23,8 @@
             <form method="POST" action="{% url 'add_car' %}" class="auth-form p-4" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                {{ formset | crispy }}
                 <div class="d-flex justify-content-center">
-                    <a href="{% url 'all_cars' %}" class="btn btn-primary btn-lg mx-2">Cancel</a>
+                    <a href="{% url 'car_dashboard' %}" class="btn btn-primary btn-lg mx-2">Cancel</a>
                     <button class="btn btn-primary btn-lg">Add Car</button>
                 </div>
             </form>

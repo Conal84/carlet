@@ -14,7 +14,7 @@
         <div class="col-12">
             <hr>
             <h3>Edit Your Car</h3>
-            <p class="text-muted">Select a car to edit or remove</p>
+            <p class="text-muted">Edit and update your car details</p>
             <hr>
         </div>
     </div>
@@ -23,10 +23,9 @@
             <form method="POST" action="{% url 'add_car' %}" class="auth-form p-4" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                {{ formset | crispy }}
                 <div class="d-flex justify-content-center">
-                    <a href="{% url 'all_cars' %}" class="btn btn-primary btn-lg mx-2">Cancel</a>
-                    <button class="btn btn-primary btn-lg">Add Car</button>
+                    <a href="{% url 'display_cars' %}" class="btn btn-primary btn-lg mx-2">Cancel</a>
+                    <button class="btn btn-primary btn-lg">Update</button>
                 </div>
             </form>
         </div>
