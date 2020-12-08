@@ -110,6 +110,12 @@ def car_support(request, id):
     return render(request, template, context)
 
 
+def car_dashboard(request):
+    template = 'cars/car-dashboard.html'
+
+    return render(request, template)
+
+
 def add_car(request):
     """Add a car to the database"""
     if request.method == 'POST':
@@ -135,29 +141,36 @@ def add_car(request):
     }
 
     return render(request, template, context)
-    # CarFormset = inlineformset_factory(Car, CarImage, fields=('car_image',))
 
-    # if request.method == 'POST':
-    #     form = CarForm(request.POST)
-    #     formset = CarFormset(request.POST, request.FILES)
-    #     if form.is_valid() and formset.is_valid():
-    #         car_instance = form.save(commit=False)
-    #         car_instance.user = request.user
-    #         car_instance.save()
 
-    #     if formset.is_valid():
-    #         formset.save()
-    #         messages.success(request, 'Successfully added this car!')
-    #         return redirect(reverse('add_car'))
-    # else:
-    #     form = CarForm()
-    #     car = Car()
-    #     formset = CarFormset(instance=car)
+def display_cars(request):
+    """Display a users cars in the database for editing"""
+    user = request.user
+    cars = Car.objects.filter(user=user)
 
-    # template = 'cars/add-car.html'
-    # context = {
-    #     'form': form,
-    #     'formset': formset,
-    # }
+    template = 'cars/display-cars.html'
+    context = {
+        'cars': cars,
+    }
 
-    # return render(request, template, context)
+    return render(request, template, context)
+
+
+def edit_car(request, car_id):
+    """Edit an individual car details"""
+    car = get_object_or_404(Car, pk=car_id)
+
+    template = 'cars/edit-car.html'
+    context = {
+        'car': car,
+    }
+
+    return render(request, template, context)
+
+
+def delete_car(request, car_id):
+    """Delete an individual car from the database"""
+    car = get_object_or_404(Car, pk=car_id)
+    car.delete()
+
+    return redirect(reverse('display_cars'))
