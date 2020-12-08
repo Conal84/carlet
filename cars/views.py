@@ -42,10 +42,11 @@ def car_detail(request, car_id):
     """ A view to return individual car detail"""
     template = 'cars/car-detail.html'
     car = get_object_or_404(Car, pk=car_id)
+
     images = {
-        'image1': car.image1,
-        'image2': car.image2,
-        'image3': car.image3,
+        'image1': car.image1.url,
+        'image2': car.image2.url,
+        'image3': car.image3.url,
     }
 
     bag = request.session.get('bag')
@@ -164,33 +165,19 @@ def display_cars(request):
 def edit_car(request, car_id):
     """Edit an individual car details"""
     car = get_object_or_404(Car, pk=car_id)
-    car_images = car.carimage_set.all()
-    image_urls = []
-    for car_image in car_images:
-        image_url = car_image.get_url()
-        image_urls.append(image_url)
-    print(f'car images are: {car_images}')
-    print(f'car image 1 is: {car_images[0]}')
-    print(f'image urls are: {image_urls[0]}')
 
     if request.method == 'POST':
         form = CarForm(request.POST, request.FILES, instance=car)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user = request.user
-            instance.carimage_set.delete()
             instance.save()
-            for image in request.FILES.values():
-                img = instance.carimage_set.create(
-                    car_image=image,
-                    car=instance)
             messages.success(request, 'Successfully added this car!')
             return redirect(reverse('display_cars'))
         else:
             messages.error(request, 'Failed to add this car, Please check that the form is valid!')
     else:
         form = CarForm(instance=car)
-        form.fields['image1'].initial = image_urls[0]
 
     template = 'cars/edit-car.html'
     context = {

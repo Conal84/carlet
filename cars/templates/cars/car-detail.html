@@ -5,10 +5,10 @@
             <div class="carousel-container">
                 <div id="carousel-car-images" class="carousel slide" data-ride="carousel" data-interval="5000">
                     <div class="carousel-inner">
-                        {% for image in images %}
+                        {% for image in images.values %}
                         <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-                            <a href="{{ image.get_url }}" target="_blank">
-                                <img src="{{ image.get_url }}" class="d-block w-100 h-100 carousel-image" alt=""/>
+                            <a href="{{ image }}" target="_blank">
+                                <img src="{{ image }}" class="d-block w-100 h-100 carousel-image" alt=""/>
                             </a>
                         </div>
                         {% endfor %}
