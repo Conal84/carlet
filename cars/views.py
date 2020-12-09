@@ -18,8 +18,8 @@ def cars_all(request):
 
     if request.GET:
         location = request.GET['location']
-        search_from = request.GET['search_from']
-        search_to = request.GET['search_to']
+        search_from = request.GET['search-from']
+        search_to = request.GET['search-to']
 
         calc_days(request, search_from, search_to)
 

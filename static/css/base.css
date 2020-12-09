@@ -193,6 +193,15 @@ body {
     margin-right: auto;
 }
 
+/* -------------------------------------- Search */
+.form-col{
+    position: relative;
+}
+
+.datepicker{
+    font-size: 14px;
+}
+
 /* -------------------------------------- Car-detail */
 .carousel-image {
     height: 100%;
