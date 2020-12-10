@@ -32,9 +32,12 @@
       </li>
       <li class="nav-item" id="bag-nav">
         <a class="nav-link" href="#">
-          {% if grand_total %} £{{ grand_total|floatformat:2 }} {% else %} £0.00
-          {% endif %}
+          {% if grand_total %} £{{ grand_total|floatformat:2 }}
+          <img src="/media/car-solid1.svg" alt="car icon">
+          {% else %}
+          £0.00
           <i class="fas fa-car"></i>
+          {% endif %}
         </a>
       </li>
       {% else %}
