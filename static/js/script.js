@@ -12,7 +12,7 @@ function activatePlacesSearch() {
     types: ["(cities)"],
   };
 
-  let input = document.getElementById("id_location");
+  let input = document.getElementById("search-location");
   let autocomplete = new google.maps.places.Autocomplete(input, options);
 }
 

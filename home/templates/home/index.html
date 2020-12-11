@@ -4,17 +4,16 @@
     <form action="{% url 'all_cars' %}" method="GET" autocomplete="off">
         <div class="row">
         <div class="col-12 col-md-6 p-1">
-            {{ search_form.location.errors }}
-            {{ search_form.location|as_crispy_field }}
+            <input type="text" class="form-control" id="search-location" name="search-location" placeholder="Search by location" aria-label="Search location">
         </div>
         <div class="col-12 col-md-3 p-1">
-            <div class="input-group date form-col">
+            <div class="input-group date">
                 <input type="text" class="form-control datepicker" id="search-from" name="search-from" onkeydown="return false" aria-label="Date from">
             </div>
         </div>
         <div class="col-12 col-md-3 p-1">
-            <div class="input-group date form-col">
-                <input type="text" class="form-control datepicker" id="search-to" name="search-to" placeholder="Date to" onkeydown="return false" aria-label="Date to">
+            <div class="input-group date">
+                <input type="text" class="form-control datepicker" id="search-to" name="search-to" placeholder="Hire to" onkeydown="return false" aria-label="Date to">
             </div>
         </div>
         </div>

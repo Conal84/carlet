@@ -17,7 +17,7 @@ def cars_all(request):
     template = 'cars/cars-all.html'
 
     if request.GET:
-        location = request.GET['location']
+        location = request.GET['search-location']
         search_from = request.GET['search-from']
         search_to = request.GET['search-to']
 
