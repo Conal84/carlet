@@ -25,6 +25,13 @@ $(document).ready(function () {
     }
 
     /**
+     * A click event to how the toast
+     */
+    $("#bag-nav").click(function () {
+          $(".toast").toast("show");
+        });
+
+    /**
      * Create check in datepicker at html element date-from
      */
     let checkinDiv = $('#search-from').datepicker({

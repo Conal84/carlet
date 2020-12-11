@@ -140,8 +140,14 @@ body {
 }
 
 /* -------------------------------------- index.html */
-.form-container {
-    margin-top: 8rem;
+.content-container{
+    min-height: calc(100vh - 10rem);
+}
+
+#search-form-container {
+    margin: 0 5rem;
+    position: relative;
+    top: 20vh;
 }
 
 .asteriskField {
@@ -151,13 +157,8 @@ body {
 .form-control {
     padding: 2rem;
     font-size: 1.6rem;
-    /* border: 1px solid #4059ad; */
     border-radius: 1rem;
     box-shadow:0 0 15px 10px rgba(0,0,0,0.1);
-}
-
-.home-search {
-    margin: 30rem 5rem;
 }
 
 /* -------------------------------------- Footer */

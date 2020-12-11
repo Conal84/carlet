@@ -1,5 +1,5 @@
 <div id="bag-toast-container">
-  <div class="toast" id="bag-toast" data-autohide="false">
+  <div class="toast hide" id="bag-toast" data-autohide="false">
   <div class="arrow-up"></div>
     <div class="toast-header text-light bg-purple">
       <strong class="mr-auto">Your Booking</strong>
@@ -106,7 +106,6 @@
     </div>
   </div>
 </div>
-{% block postloadjs %}
 <script type="text/javascript">
     // Remove item and reload on click
     $(".delete-link").click(function(e) {
@@ -122,4 +121,3 @@
         });
     })
 </script>
-{% endblock %}
