@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
     <div id="background-container">
-        <div id="search-form-container">
+        <div id="search-form-container" class="mx-auto rounded-lg">
             <form action="{% url 'all_cars' %}" method="GET" autocomplete="off">
-            <div class="row">
+            <div class="row m-0 p-3">
                 <div class="col-12 col-md-6 p-1">
                 <input
                     type="text"
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary btn-lg m-3">Search</button>
+                <button type="submit" class="btn btn-primary btn-xl m-3">Search Carlet</button>
             </div>
             </form>
         </div>

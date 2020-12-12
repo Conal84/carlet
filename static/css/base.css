@@ -42,13 +42,13 @@ body {
 
 /* -------------------------------------- Buttons */
 .btn-primary {
-    background-color: #4059ad;
-    border-color: #4059ad;
+    background-color: #7510F7;
+    border-color: #7510F7;
 }
 
 .btn-primary:hover {
-    background-color: #4059ad;
-    border-color: #4059ad;
+    background-color: #7510F7;
+    border-color: #7510F7;
     opacity: 0.9;
 }
 
@@ -63,15 +63,22 @@ body {
     opacity: 0.9;
 }
 
+.btn-xl{
+    padding: 1rem 2rem;
+    font-size: 1.75rem;
+    line-height: 1.5;
+    border-radius: .5rem;
+}
+
 /* -------------------------------------- Navbar */
 .navbar-brand{
     font-size: 2rem;
     font-weight: bold;
-    color: #4059ad;
+    color: #7510F7;
 }
 
 .nav-link {
-    color: #4059ad;
+    color: #7510F7;
 }
 
 .navbar {
@@ -118,8 +125,8 @@ body {
     height: 0; 
     border-left: 4px solid transparent;
     border-right: 4px solid transparent; 
-    border-bottom: 10px solid #7510f7;
-    border-bottom-color: #7510f7;
+    border-bottom: 10px solid #7510F7;
+    border-bottom-color: #7510F7;
     position: absolute;
     top: -1rem;
     right: 4rem;
@@ -152,9 +159,10 @@ body {
 }
 
 #search-form-container {
-    margin: 0 5rem;
     position: relative;
-    top: 5vh;
+    top: 10vh;
+    width: 50vw;
+    background-color: rgba(207, 191, 247, 0.5);
 }
 
 .asteriskField {
@@ -177,7 +185,7 @@ body {
 #footer-list i {
   font-size: 3rem;
   margin-top: 1rem;
-  color: #4059ad;
+  color: #7510F7;
 }
 
 /* -------------------------------------- Allauth pages */
