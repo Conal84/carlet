@@ -1,6 +1,53 @@
 {% extends "base.html" %} {% block content %}
-
-    <a href="{% url 'add_car' %}" class="btn btn-secondary btn-lg" >Add a Car</a>
-    <a href="{% url 'display_cars' %}" class="btn btn-secondary btn-lg" >Edit or Delete a Car</a>
+<div class="row">
+  <div class="col-12 col-sm-2 col-md-6 p-5">
+    <div class="card dashboard-card text-center">
+      <i class="fas fa-plus fa-card-img card-img-top"></i>
+      <div class="card-body">
+        <h2 class="card-title">Add</h2>
+        <p class="card-text">
+          Add your car to Carlet so others can hire it
+        </p>
+        <a href="{% url 'add_car' %}" class="btn btn-secondary btn-lg">Add a Car</a>
+      </div>
+    </div>
+  </div>
+    <div class="col-12 col-sm-2 col-md-6 p-5">
+    <div class="card dashboard-card text-center">
+      <i class="fas fa-minus fa-card-img card-img-top"></i>
+      <div class="card-body">
+        <h2 class="card-title">Edit / Delete</h2>
+        <p class="card-text">
+          Edit or Delete your car from Carlet
+        </p>
+        <a href="{% url 'display_cars' %}" class="btn btn-secondary btn-lg">Edit or Delete a Car</a>
+      </div>
+    </div>
+  </div>
+    <div class="col-12 col-sm-2 col-md-6 p-5">
+    <div class="card dashboard-card text-center">
+      <i class="fas fa-minus fa-card-img card-img-top"></i>
+      <div class="card-body">
+        <h2 class="card-title">Hires</h2>
+        <p class="card-text">
+          See your current and previous hired cars
+        </p>
+        <a href="#" class="btn btn-secondary btn-lg">Car Hires</a>
+      </div>
+    </div>
+  </div>
+    <div class="col-12 col-sm-2 col-md-6 p-5">
+    <div class="card dashboard-card text-center">
+      <i class="fas fa-minus fa-card-img card-img-top"></i>
+      <div class="card-body">
+        <h2 class="card-title">Car Lettings</h2>
+        <p class="card-text">
+          See your current and previous car lettings
+        </p>
+        <a href="#" class="btn btn-secondary btn-lg">Car Lettings</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

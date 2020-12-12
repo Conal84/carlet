@@ -192,7 +192,10 @@ body {
 }
 
 /* -------------------------------------- car-dashboard.html */
-
+.fa-card-img{
+    font-size: 10rem;
+    color: #7510F7;
+}
 
 /* -------------------------------------- Footer */
 #footer-container {
