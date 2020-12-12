@@ -3,6 +3,7 @@
 /* -------------------------------------- Html */
 html {
   font-size: 62.5%;
+  height: 100%;
   scroll-behavior: smooth;
 }
 
@@ -144,10 +145,16 @@ body {
     min-height: calc(100vh - 10rem);
 }
 
+#background-container{
+    min-height: calc(100vh - 10rem);
+    background: url(/media/main_bg.svg) no-repeat center center fixed;
+    background-size: contain;
+}
+
 #search-form-container {
     margin: 0 5rem;
     position: relative;
-    top: 20vh;
+    top: 5vh;
 }
 
 .asteriskField {
