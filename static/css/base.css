@@ -53,13 +53,13 @@ body {
 }
 
 .btn-secondary {
-    background-color: #9ad4d6;
-    border-color: #9ad4d6;
+    background-color: #6cd4ff;
+    border-color: #6cd4ff;
 }
 
 .btn-secondary:hover {
-    background-color: #9ad4d6;
-    border-color: #9ad4d6;
+    background-color: #6cd4ff;
+    border-color: #6cd4ff;
     opacity: 0.9;
 }
 
@@ -175,6 +175,24 @@ body {
     border-radius: 1rem;
     box-shadow:0 0 15px 10px rgba(0,0,0,0.1);
 }
+
+/* -------------------------------------- cars-all.html */
+.responsive{
+    max-width: 100%;
+    height: auto;
+}
+
+/* -------------------------------------- car-insurance.html */
+.choice-row{
+    height: calc(100vh - 10rem);
+}
+
+.choice-col{
+    width: 50vw;
+}
+
+/* -------------------------------------- car-dashboard.html */
+
 
 /* -------------------------------------- Footer */
 #footer-container {

@@ -1,17 +1,26 @@
 {% extends "base.html" %} {% block content %}
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-12 col-md-6">
-            <div class="car-details-container">
+	<div class="row choice-row">
+        <div class="col-12 col-md-6 choice-col my-auto">
+            <img src="/media/AA_logo.gif" id="support-logo" class="responsive" alt="Roadside assistance logo">
+        </div>
+		<div class="col-12 col-md-6 my-auto">
+            <div class="car-details-container px-5">
+                <h1 class="text-center">Roadside Assistance</h1>
+                <hr>
+                <p>Add AA Roadside assistance to your Carlet package for added peace of mind while you travel</p>
                 <p>£{{ support.cost_per_day }} per day</p>
-                <p>Total £{{ support_total }}</p>
+                <p class="font-weight-bold">Total £{{ support_total }}</p>
+                <hr>
             </div>
-            <form class="form" action="{% url 'add_to_bag' car.id %}" method="POST">
-                {% csrf_token %}
-                <input type="submit" class="btn btn-primary" value="Reserve">
-                <input type="hidden" name="item" value="support">
-            </form>
-            <a class="btn btn-primary" href="{% url 'checkout' %}" role="button">Go To Checkout</a>
+            <div class="text-center">
+                <form class="form d-inline-block" action="{% url 'add_to_bag' car.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-primary btn-lg" value="Reserve">
+                    <input type="hidden" name="item" value="support">
+                </form>
+                <a class="btn btn-primary btn-lg" href="{% url 'checkout' %}" role="button">Go To Checkout</a>
+            </div>
 		</div>
 	</div>
 </div>

@@ -1,17 +1,27 @@
 {% extends "base.html" %} {% block content %}
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-12 col-md-6">
-            <div class="car-details-container">
+	<div class="row choice-row">
+        <div class="col-12 col-md-6 choice-col my-auto">
+            <img src="/media/axa-logo.jpg" class="responsive" alt="Insurance logo">
+        </div>
+		<div class="col-12 col-md-6 my-auto">
+            <div class="car-details-container px-5">
+                <h1 class="text-center">Insure Your Hire Car With Us</h1>
+                <hr>
+                <p>We have partnered with AXA Insurance so you can easily add car insurance for your hire period</p>
+                <p>If you choose to use your own insurance company you must provide the insurance details to the car owner when collecting the vehicle</p>
                 <p>£{{ insurance.cost_per_day }} per day</p>
-                <p>Total £{{ insurance_total }}</p>
+                <p class="font-weight-bold">Total £{{ insurance_total }}</p>
+                <hr>
             </div>
-            <form class="form" action="{% url 'add_to_bag' car.id %}" method="POST">
-                {% csrf_token %}
-                <input type="submit" class="btn btn-primary" value="Reserve">
-                <input type="hidden" name="item" value="insurance">
-            </form>
-            <a class="btn btn-primary" href="{% url 'car_insurance_skip' car.id %}" role="button">Skip</a>
+            <div class="text-center">
+                <form class="form d-inline-block" action="{% url 'add_to_bag' car.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-primary btn-lg" value="Reserve">
+                    <input type="hidden" name="item" value="insurance">
+                </form>
+                <a class="btn btn-primary btn-lg" href="{% url 'car_insurance_skip' car.id %}" role="button">Skip</a>
+            </div>
 		</div>
 	</div>
 </div>

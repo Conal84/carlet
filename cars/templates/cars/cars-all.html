@@ -1,15 +1,21 @@
 {% extends "base.html" %} {% block content %}
-<section class="container-fluid" id="search-results">
-    <div class="row">
+<section class="container-fluid p-0" id="search-results">
+    <div class="row m-0 p-5">
         {% for car in cars %}
-        <div class="col-sm-6 col-lg-4 col-xl-3 car-col">
-            <div class="card text-center" style="width: 18rem;">
-                <img src="{{ car.image1.url }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h3 class="card-title">{{ car.make }}</h3>
-                    <h4 class="card-text">{{ car.model }}</h4>
-                    <p class="card-text">£{{ car.cost_per_day }}/day</p>
-                    <a href="{% url 'car_detail' car.id %}" class="btn btn-secondary btn-lg" >See more</a>
+        <div class="col-12 col-md-3 col-lg-4">
+            <div class="card text-center all-cars-card">
+                <div class="row no-gutters">
+                    <div class="col-8">
+                        <img src="{{ car.image1.url }}" class="card-img-top responsive" alt="Car Image">
+                    </div>
+                    <div class="col-4">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ car.make }}</h3>
+                            <h4 class="card-text">{{ car.model }}</h4>
+                            <p class="card-text">£{{ car.cost_per_day }}/day</p>
+                            <a href="{% url 'car_detail' car.id %}" class="btn btn-secondary btn-lg" >See more</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
