@@ -311,3 +311,46 @@ select option[value=""] {
     border-color: #dc3545;
     border-radius: 0;
 }
+
+/* -------------------------------------- Media Queries */
+/* Large devices */
+@media screen and (min-width: 1170px) {
+}
+
+/*Tablet and above Landscape View*/
+@media screen and (min-width: 940px) {
+
+}
+
+/*Tablet and above Portrait View*/
+@media screen and (min-width: 768px) {
+    .fa-card-img{
+        font-size: 5rem;
+    }
+
+    .dashboard-card{
+        width: 20rem;
+        height: 20rem;
+    }
+
+    #dashboard-add{
+        padding-top: 10rem;
+        padding-left: 10rem;
+    }
+
+    #dashboard-edit{
+        padding-top: 10rem;
+        padding-right: 10rem;
+    }
+
+    #dashboard-hire{
+        padding-bottom: 10rem;
+        padding-left: 10rem;
+    }
+
+    #dashboard-let{
+        padding-bottom: 10rem;
+        padding-right: 10rem;
+    }
+}
+
