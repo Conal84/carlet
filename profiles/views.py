@@ -24,12 +24,10 @@ def profile(request):
             messages.error(request, 'Profile update failed, Please ensure the form is valid')
     else:
         form = UserProfileForm(instance=profile)
-    orders = profile.orders.all()
 
     template = 'profiles/profile.html'
     context = {
         'form': form,
-        'orders': orders,
     }
 
     return render(request, template, context)
@@ -43,6 +41,19 @@ def order_history(request, order_number):
     context = {
         'order': order,
         'from_profile': True,
+    }
+
+    return render(request, template, context)
+
+
+def all_orders(request):
+    """A view to show all orders for a particular user"""
+    profile = get_object_or_404(UserProfile, user=request.user)
+    orders = profile.orders.all()
+
+    template = 'profiles/all-orders.html'
+    context = {
+        'orders': orders,
     }
 
     return render(request, template, context)

@@ -334,23 +334,23 @@ select option[value=""] {
     }
 
     #dashboard-add{
-        padding-top: 10rem;
-        padding-left: 10rem;
+        padding-top: 5rem;
+        padding-left: 30rem;
     }
 
     #dashboard-edit{
-        padding-top: 10rem;
-        padding-right: 10rem;
+        padding-top: 5rem;
+        padding-right: 30rem;
     }
 
     #dashboard-hire{
-        padding-bottom: 10rem;
-        padding-left: 10rem;
+        padding-bottom: 5rem;
+        padding-left: 30rem;
     }
 
     #dashboard-let{
-        padding-bottom: 10rem;
-        padding-right: 10rem;
+        padding-bottom: 5rem;
+        padding-right: 30rem;
     }
 }
 

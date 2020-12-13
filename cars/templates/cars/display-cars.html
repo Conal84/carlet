@@ -1,6 +1,14 @@
 {% extends "base.html" %} {% block content %}
 <section class="container-fluid" id="search-results">
     <div class="row">
+        <div class="col-12">
+            <hr>
+            <h3>Edit or Delete Your Car</h3>
+            <p class="text-muted">Choose a car below to Edit or Delete</p>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
         {% if cars %}
             {% for car in cars %}
             <div class="col-sm-6 col-lg-4 col-xl-3 car-col">
