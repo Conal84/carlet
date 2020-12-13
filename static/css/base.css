@@ -4,12 +4,15 @@
 html {
   font-size: 62.5%;
   height: 100%;
+  margin: 0;
   scroll-behavior: smooth;
 }
 
 /* -------------------------------------- Body */
 body {
   font-size: 1.6rem;
+  height: 100%;
+  margin: 0;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -161,18 +164,18 @@ body {
 }
 
 #background-container{
-    /* min-height: calc(100vh - 10rem); */
-    height: 40vh;
     background: url(/media/main_bg.svg) no-repeat center center fixed;
     background-size: contain;
+    height: calc(100vh - 20rem);
 }
 
 #search-form-container {
     /* position: relative;
     top: 10vh; */
-    height: 10vh;
+    padding: 5px;
     width: 75vw;
     background-color: rgba(207, 191, 247, 0.5);
+    border-radius: 10px;
 }
 
 .asteriskField {
@@ -203,7 +206,7 @@ body {
 
 /* -------------------------------------- car-dashboard.html */
 .fa-card-img{
-    font-size: 10rem;
+    font-size: 5rem;
     color: #7510F7;
 }
 
@@ -334,33 +337,6 @@ select option[value=""] {
 
 /*Tablet and above Portrait View*/
 @media screen and (min-width: 768px) {
-    .fa-card-img{
-        font-size: 5rem;
-    }
-
-    .dashboard-card{
-        width: 20rem;
-        height: 20rem;
-    }
-
-    #dashboard-add{
-        padding-top: 5rem;
-        padding-left: 30rem;
-    }
-
-    #dashboard-edit{
-        padding-top: 5rem;
-        padding-right: 30rem;
-    }
-
-    #dashboard-hire{
-        padding-bottom: 5rem;
-        padding-left: 30rem;
-    }
-
-    #dashboard-let{
-        padding-bottom: 5rem;
-        padding-right: 30rem;
-    }
+    
 }
 
