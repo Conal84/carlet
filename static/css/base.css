@@ -70,6 +70,14 @@ body {
     border-radius: .5rem;
 }
 
+.btn-search{
+    padding: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    border-radius: 1rem;
+    height: calc(1.5em + .75rem + 2px)
+}
+
 /* -------------------------------------- Navbar */
 .navbar-brand{
     font-size: 2rem;
@@ -153,15 +161,17 @@ body {
 }
 
 #background-container{
-    min-height: calc(100vh - 10rem);
+    /* min-height: calc(100vh - 10rem); */
+    height: 40vh;
     background: url(/media/main_bg.svg) no-repeat center center fixed;
     background-size: contain;
 }
 
 #search-form-container {
-    position: relative;
-    top: 10vh;
-    width: 50vw;
+    /* position: relative;
+    top: 10vh; */
+    height: 10vh;
+    width: 75vw;
     background-color: rgba(207, 191, 247, 0.5);
 }
 
