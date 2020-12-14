@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Order, OrderLineItem, Booking
+from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInLine(admin.TabularInline):
@@ -28,4 +28,3 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
-admin.site.register(Booking)
