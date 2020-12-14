@@ -24,17 +24,6 @@ class Car(models.Model):
         return f"{self.make}, {self.model}"
 
 
-# class Booking(models.Model):
-#     car = models.ForeignKey(Car, on_delete=models.CASCADE)
-#     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-#     booked_from = models.DateField()
-#     booked_to = models.DateField()
-#     num_days = models.IntegerField()
-
-#     def __str__(self):
-#         return f"Booking no. {self.id}"
-
-
 class Insurance(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     cost_per_day = models.IntegerField(default=10)
@@ -49,14 +38,3 @@ class Support(models.Model):
 
     def __str__(self):
         return f"Roadside assist for {self.car.make}, {self.car.model}"
-
-
-# class CarImage(models.Model):
-#     car_image = models.ImageField()
-#     car = models.ForeignKey(Car, on_delete=models.CASCADE)
-
-#     def __str__(self):
-#         return self.car_image.name
-
-#     def get_url(self):
-#         return self.car_image.url

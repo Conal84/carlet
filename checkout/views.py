@@ -5,7 +5,7 @@ from django.conf import settings
 from pathlib import os
 
 from .forms import OrderForm
-from .models import Order, OrderLineItem
+from .models import Order, OrderLineItem, Booking
 from bag.contexts import bag_contents
 
 from profiles.models import UserProfile
@@ -75,6 +75,8 @@ def checkout(request):
             order = order_form.save()
             if "bag_car" in current_bag:
                 car = current_bag["bag_car"]
+                start_date = current_bag["start_date"]
+                end_date = current_bag["end_date"]
                 desc = car.make + " " + car.model
                 order_line_item = OrderLineItem(
                     order=order,
@@ -84,6 +86,12 @@ def checkout(request):
                     lineitem_total=current_bag["bag_car_total"]
                 )
                 order_line_item.save()
+                booking = Booking(
+                    car=car,
+                    start_date=start_date,
+                    end_date=end_date
+                )
+                booking.save()
             if "bag_insurance" in current_bag:
                 insurance = current_bag["bag_insurance"]
                 order_line_item = OrderLineItem(

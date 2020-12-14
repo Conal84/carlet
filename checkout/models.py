@@ -67,3 +67,13 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'{self.description} order num: {self.order.order_number}'
+
+
+class Booking(models.Model):
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='bookings')
+    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    def __str__(self):
+        return f"Booking no. {self.id}"

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Car, Insurance, Support
 from .forms import CarForm
-from .utils import calc_days
+from .utils import calc_days, check_available
 
 from django.forms import inlineformset_factory
 
@@ -23,13 +23,20 @@ def cars_all(request):
 
         calc_days(request, search_from, search_to)
 
+        # cars = Car.objects.filter(
+        #     location__icontains=location
+        #     ).filter(
+        #         available_from__lte=search_from
+        #         ).filter(
+        #             available_to__gte=search_to
+        #             )
+
         cars = Car.objects.filter(
             location__icontains=location
-            ).filter(
-                available_from__lte=search_from
-                ).filter(
-                    available_to__gte=search_to
-                    )
+        )
+
+        for car in cars:
+            print(check_available(request, car, search_from, search_to))
 
     context = {
         "cars": cars,
