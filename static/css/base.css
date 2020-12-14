@@ -74,11 +74,13 @@ body {
 }
 
 .btn-search{
-    padding: 2rem;
+    padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+    width: 100%;
     font-size: 1.6rem;
     line-height: 1.5;
     border-radius: 1rem;
-    height: calc(1.5em + .75rem + 2px)
+    position: relative;
+    top: 5px;;
 }
 
 /* -------------------------------------- Navbar */
@@ -208,6 +210,16 @@ body {
 .fa-card-img{
     font-size: 5rem;
     color: #7510F7;
+    padding-top: 5px;
+}
+
+.dashboard-card{
+    min-height: 220px;
+}
+
+#profile-card-btn{
+    position: relative;
+    top: 22px;
 }
 
 /* -------------------------------------- Footer */

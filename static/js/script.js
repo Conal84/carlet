@@ -10,6 +10,7 @@ let checkoutDp;
 function activatePlacesSearch() {
   const options = {
     types: ["(cities)"],
+    componentRestrictions: {country: 'gb'}
   };
 
   let input = document.getElementById("search-location");
