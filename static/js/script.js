@@ -17,12 +17,6 @@ function activatePlacesSearch() {
 }
 
 $(document).ready(function () {
-    /**
-     * A function to act as a back button
-     */
-    function goBack() {
-        window.history.back()
-    }
 
     /**
      * A click event to how the toast

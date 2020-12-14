@@ -44,3 +44,14 @@
 	</div>
 </div>
 {% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    /**
+     * A function to act as a back button
+     */
+    function goBack() {
+        window.history.back()
+    }
+</script>
+{% endblock %}
