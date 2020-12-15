@@ -13,7 +13,7 @@ function activatePlacesSearch() {
     componentRestrictions: {country: 'gb'}
   };
 
-  let input = document.getElementById("search-location");
+  let input = document.getElementById("id_location");
   let autocomplete = new google.maps.places.Autocomplete(input, options);
 }
 

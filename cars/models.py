@@ -23,18 +23,28 @@ class Car(models.Model):
     def __str__(self):
         return f"{self.make}, {self.model}"
 
+    @property
+    def insurance(self):
+        "Returns the insurance cost per day for this Car"
+        return self.cost_per_day / 10
 
-class Insurance(models.Model):
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)
-    cost_per_day = models.IntegerField(default=10)
-
-    def __str__(self):
-        return f"Insurance for {self.car.make}, {self.car.model}"
+    @property
+    def support(self):
+        "Returns the support cost per day for this Car"
+        return Decimal(5)
 
 
-class Support(models.Model):
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)
-    cost_per_day = models.IntegerField(default=5)
+# class Insurance(models.Model):
+#     car = models.ForeignKey(Car, on_delete=models.CASCADE)
+#     cost_per_day = models.IntegerField(default=10)
 
-    def __str__(self):
-        return f"Roadside assist for {self.car.make}, {self.car.model}"
+#     def __str__(self):
+#         return f"Insurance for {self.car.make}, {self.car.model}"
+
+
+# class Support(models.Model):
+#     car = models.ForeignKey(Car, on_delete=models.CASCADE)
+#     cost_per_day = models.IntegerField(default=5)
+
+#     def __str__(self):
+#         return f"Roadside assist for {self.car.make}, {self.car.model}"

@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Car, Insurance, Support
+# from .models import Car, Insurance, Support
+from .models import Car
 from .forms import CarForm
 from .utils import calc_days
 
@@ -15,9 +16,9 @@ def cars_all(request):
     template = 'cars/cars-all.html'
 
     if request.GET:
-        location = request.GET['search-location']
-        search_from = request.GET['search-from']
-        search_to = request.GET['search-to']
+        location = request.GET['location']
+        search_from = request.GET['search_from']
+        search_to = request.GET['search_to']
 
         calc_days(request, search_from, search_to)
 
@@ -63,11 +64,13 @@ def car_insurance(request, id):
     """ A view to return individual car insurance page"""
     template = 'cars/car-insurance.html'
     car = get_object_or_404(Car, pk=id)
-    insurance = get_object_or_404(Insurance, car__pk=id)
+    # insurance = get_object_or_404(Insurance, car__pk=id)
+    insurance = car.insurance
 
     bag = request.session.get('bag')
     num_days = bag["num_days"]
-    insurance_total = insurance.cost_per_day * num_days
+    # insurance_total = insurance.cost_per_day * num_days
+    insurance_total = insurance * num_days
 
     context = {
         "car": car,
@@ -82,11 +85,13 @@ def car_insurance_skip(request, car_id):
     """ A view to return individual car insurance page"""
     template = 'cars/car-support.html'
     car = get_object_or_404(Support, pk=car_id)
-    support = get_object_or_404(Support, car__pk=car_id)
+    # support = get_object_or_404(Support, car__pk=car_id)
+    support = car.support
 
     bag = request.session.get('bag')
     num_days = bag["num_days"]
-    support_total = support.cost_per_day * num_days
+    # support_total = support.cost_per_day * num_days
+    support_total = support * num_days
 
     context = {
         "car": car,
@@ -100,11 +105,13 @@ def car_support(request, id):
     """ A view to return individual car support page"""
     template = 'cars/car-support.html'
     car = get_object_or_404(Car, pk=id)
-    support = get_object_or_404(Support, car__pk=id)
+    # support = get_object_or_404(Support, car__pk=id)
+    support = car.support
 
     bag = request.session.get('bag')
     num_days = bag["num_days"]
-    support_total = support.cost_per_day * num_days
+    # support_total = support.cost_per_day * num_days
+    support_total = support * num_days
 
     context = {
         "car": car,

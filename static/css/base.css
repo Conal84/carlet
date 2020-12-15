@@ -74,13 +74,11 @@ body {
 }
 
 .btn-search{
-    padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+    padding: 0.6rem;
     width: 100%;
     font-size: 1.6rem;
     line-height: 1.5;
     border-radius: 1rem;
-    position: relative;
-    top: 5px;;
 }
 
 /* -------------------------------------- Navbar */

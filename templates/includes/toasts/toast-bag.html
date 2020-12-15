@@ -41,7 +41,7 @@
 								<p>£{{bag_car_total}}</p>
 							</td>
                             <td class="py-1">
-								<a class="delete-link" data-item="{{ car_id }}" data-name="del_car"><i class="far fa-trash-alt"></i></a>
+								<a class="delete-link" data-name="del_car"><i class="far fa-trash-alt"></i></a>
 							</td>
 						</tr>
                         {% if bag_insurance %}
@@ -59,7 +59,7 @@
 								<p>£{{bag_insurance_total}}</p>
 							</td>
                             <td class="py-1">
-								<a class="delete-link" data-item="{{ insurance_id }}" data-name="del_insurance"><i class="far fa-trash-alt"></i></a>
+								<a class="delete-link" data-name="del_insurance"><i class="far fa-trash-alt"></i></a>
 							</td>
 						</tr>
                         {% endif %}
@@ -78,7 +78,7 @@
 								<p>£{{bag_support_total}}</p>
 							</td>
                             <td class="py-1">
-								<a class="delete-link" data-item="{{ support_id }}" data-name="del_support"><i class="far fa-trash-alt"></i></a>
+								<a class="delete-link" data-name="del_support"><i class="far fa-trash-alt"></i></a>
 							</td>
 						</tr>
                         {% endif %}
@@ -110,9 +110,8 @@
     // Remove item and reload on click
     $(".delete-link").click(function(e) {
         let csrfToken = "{{ csrf_token }}";
-        let itemId = $(this).data('item');
         let name = $(this).data('name');
-        let url = `/bag/remove/${itemId}/`
+        let url = `/bag/remove/`
         let data = {'csrfmiddlewaretoken': csrfToken, 'name': name};
 
         $.post(url, data)

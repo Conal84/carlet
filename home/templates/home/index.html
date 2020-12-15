@@ -1,57 +1,28 @@
-{% extends "base.html" %} {% block content %}
-<div class="row m-0">
-  <div class="col-12">
-    <div id="search-form-container" class="mx-auto mt-5 mb-2">
-      <form action="{% url 'all_cars' %}" method="GET" autocomplete="off">
-        <div class="row m-0 p-3">
-          <div class="col-12 col-md-6 p-1">
-            <input
-              type="text"
-              class="form-control"
-              id="search-location"
-              name="search-location"
-              placeholder="Search by location"
-              aria-label="Search location"
-            />
-          </div>
-          <div class="col-12 col-md-2 p-1">
-            <div class="input-group date">
-              <input
-                type="text"
-                class="form-control datepicker"
-                id="search-from"
-                name="search-from"
-                onkeydown="return false"
-                aria-label="Date from"
-              />
-            </div>
-          </div>
-          <div class="col-12 col-md-2 p-1">
-            <div class="input-group date">
-              <input
-                type="text"
-                class="form-control datepicker"
-                id="search-to"
-                name="search-to"
-                placeholder="Hire to"
-                onkeydown="return false"
-                aria-label="Date to"
-              />
-            </div>
-          </div>
-          <div class="col-12 col-md-2 p-0">
-            <button type="submit" class="btn btn-primary btn-search">
-              Search
-            </button>
-          </div>
-        </div>
-      </form>
+{% extends "base.html" %}
+{% block content %}
+{{ search_form.media }}
+<div class="mx-auto mt-5 mb-2" id="search-form-container">
+  <form action="{% url 'all_cars' %}" method="GET" autocomplete="off">
+    <div class="row m-0 p-3">
+      <div class="col-12 col-md-6 p-1">
+        {{ search_form.location.errors }} 
+        {{ search_form.location|as_crispy_field }}
+      </div>
+      <div class="col-12 col-md-2 p-1">
+        {{ search_form.search_from|as_crispy_field }}
+      </div>
+      <div class="col-12 col-md-2 p-1">
+        {{ search_form.search_to|as_crispy_field }}
+      </div>
+      <div class="col-12 col-md-2 p-1">
+        <button type="submit" class="btn btn-primary btn-search">Search</button>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
-<div class="row m-0">
-  <div class="col-12">
-    <div id="background-container"></div>
+<div class="row">
+  <div class="col">
+    <div class="background-container"></div>
   </div>
 </div>
 {% endblock %}
