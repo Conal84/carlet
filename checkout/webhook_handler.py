@@ -5,7 +5,6 @@ from django.template.loader import render_to_string
 from django.conf import settings
 
 from .models import Order, OrderLineItem
-# from cars.models import Car, Insurance, Support
 from cars.models import Car
 
 import json
@@ -124,12 +123,10 @@ class StripeWH_Handler:
                 if "insurance" in bag:
                     id = bag['car_id']
                     car = get_object_or_404(Car, pk=id)
-                    # insurance = get_object_or_404(Insurance, pk=id)
                     insurance = car.insurance
                     order_line_item = OrderLineItem(
                         order=order,
                         description="Car insurance",
-                        # cost_per_day=insurance.cost_per_day,
                         cost_per_day=insurance,
                         days=days,
                         lineitem_total=bag_insurance_total
@@ -142,7 +139,6 @@ class StripeWH_Handler:
                     order_line_item = OrderLineItem(
                         order=order,
                         description="Car roadside assistance",
-                        # cost_per_day=support.cost_per_day,
                         cost_per_day=support,
                         days=days,
                         lineitem_total=bag_support_total

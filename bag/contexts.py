@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-# from cars.models import Car, Insurance, Support
 from cars.models import Car
 
 
@@ -24,22 +23,18 @@ def bag_contents(request):
 
         if "insurance" in bag:
             insurance = bag["insurance"]
-            # insurance = get_object_or_404(Insurance, pk=insurance_id)
             insurance_total = bag["num_days"] * insurance
             grand_total = grand_total + insurance_total
 
-            # context["insurance_id"] = insurance.id
             context["bag_insurance"] = insurance
             context["bag_insurance_total"] = insurance_total
             context["grand_total"] = grand_total
 
         if "support" in bag:
             support = bag["support"]
-            # support = get_object_or_404(Support, pk=support_id)
             support_total = bag["num_days"] * support
             grand_total = grand_total + support_total
 
-            # context["support_id"] = support.id
             context["bag_support"] = support
             context["bag_support_total"] = support_total
             context["grand_total"] = grand_total

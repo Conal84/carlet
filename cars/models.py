@@ -1,8 +1,6 @@
 from datetime import date
-from decimal import Decimal
 from django.db import models
 from django.contrib.auth.models import User
-import uuid
 
 # Create your models here.
 
@@ -31,20 +29,4 @@ class Car(models.Model):
     @property
     def support(self):
         "Returns the support cost per day for this Car"
-        return Decimal(5)
-
-
-# class Insurance(models.Model):
-#     car = models.ForeignKey(Car, on_delete=models.CASCADE)
-#     cost_per_day = models.IntegerField(default=10)
-
-#     def __str__(self):
-#         return f"Insurance for {self.car.make}, {self.car.model}"
-
-
-# class Support(models.Model):
-#     car = models.ForeignKey(Car, on_delete=models.CASCADE)
-#     cost_per_day = models.IntegerField(default=5)
-
-#     def __str__(self):
-#         return f"Roadside assist for {self.car.make}, {self.car.model}"
+        return 5

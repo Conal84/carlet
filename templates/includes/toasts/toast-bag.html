@@ -112,11 +112,17 @@
         let csrfToken = "{{ csrf_token }}";
         let name = $(this).data('name');
         let url = `/bag/remove/`
+        let home = `/`
         let data = {'csrfmiddlewaretoken': csrfToken, 'name': name};
 
         $.post(url, data)
         .done(function() {
-            location.reload();
+            if(name==="del_car"){
+                window.location.replace(home);
+            }else{
+                location.reload();
+            }
+            
         });
     })
 </script>

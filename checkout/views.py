@@ -85,20 +85,17 @@ def checkout(request):
                 )
                 order_line_item.save()
             if "bag_insurance" in current_bag:
-                # insurance = current_bag["bag_insurance"]
                 car = current_bag["bag_car"]
                 insurance = car.insurance
                 order_line_item = OrderLineItem(
                     order=order,
                     description="Car insurance",
-                    # cost_per_day=insurance.cost_per_day,
                     cost_per_day=insurance,
                     days=current_bag["num_days"],
                     lineitem_total=current_bag["bag_insurance_total"]
                 )
                 order_line_item.save()
             if "bag_support" in current_bag:
-                # support = current_bag["bag_support"]
                 car = current_bag["bag_car"]
                 support = car.support
                 order_line_item = OrderLineItem(
@@ -120,7 +117,7 @@ def checkout(request):
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "Your bag is empty at the moment")
-            return redirect(reverse('all cars'))
+            return redirect(reverse('all_cars'))
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
