@@ -163,18 +163,26 @@ body {
     min-height: calc(100vh - 10rem);
 }
 
+.index-wrapper{
+    height: calc(100vh - 10rem);
+}
+
 #background-container{
-    background: url(/media/index_bg.png) no-repeat center center fixed;
-    background-size: cover;
-    height: 75vh;
+    background: url(/media/index_bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 40%;
 }
 
 #search-form-container {
-    /* position: relative;
-    top: 10vh; */
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+#search-form{
     padding: 5px;
     width: 75vw;
-    height: 25vh;
     background-color: rgba(207, 191, 247, 0.5);
     border-radius: 10px;
 }
@@ -348,6 +356,8 @@ select option[value=""] {
 
 /*Tablet and above Portrait View*/
 @media screen and (min-width: 768px) {
-    
+        #background-container{
+        height: 60%;
+    }
 }
 
