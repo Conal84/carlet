@@ -23,11 +23,11 @@ def cars_all(request):
 
         cars = Car.objects.filter(
             location__icontains=location
-            ).filter(
-                available_from__lte=search_from
-                ).filter(
-                    available_to__gte=search_to
-                    )
+        ).filter(
+            available_from__lte=search_from
+        ).filter(
+            available_to__gte=search_to
+        )
 
     context = {
         "cars": cars,
@@ -133,7 +133,8 @@ def add_car(request):
             messages.success(request, 'Successfully added this car!')
             return redirect(reverse('add_car'))
         else:
-            messages.error(request, 'Failed to add this car, Please check that the form is valid!')
+            messages.error(request,
+                           'Failed to add this car!')
     else:
         form = CarForm()
 
@@ -173,7 +174,8 @@ def edit_car(request, car_id):
             messages.success(request, 'Successfully added this car!')
             return redirect(reverse('display_cars'))
         else:
-            messages.error(request, 'Failed to add this car, Please check that the form is valid!')
+            messages.error(
+                request, 'Failed to add this car!')
     else:
         form = CarForm(instance=car)
 
