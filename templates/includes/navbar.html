@@ -29,20 +29,24 @@
       </li>
       <li class="nav-item d-md-none" id="mobile-bag-nav">
         <a class="nav-link" href="{% url 'bag' %}">
-          {% if grand_total %} £{{ grand_total|floatformat:2 }}
+          {% if grand_total %}
+          £{{ grand_total|floatformat:2 }}
+          <img src="/media/car_icon2.png" class="car-basket-icon2" alt="car icon">
           {% else %}
           £0.00
+          <img src="/media/car_icon.png" class="car-basket-icon" alt="car icon">
           {% endif %}
-          <i class="fas fa-car"></i>
         </a>
       </li>
       <li class="nav-item d-none d-md-block" id="bag-nav">
         <a class="nav-link" href="#">
-          {% if grand_total %} £{{ grand_total|floatformat:2 }}
+          {% if grand_total %}
+          £{{ grand_total|floatformat:2 }}
+          <img src="/media/car_icon2.png" class="car-basket-icon2" alt="car icon">
           {% else %}
           £0.00
+          <img src="/media/car_icon.png" class="car-basket-icon" alt="car icon">
           {% endif %}
-          <i class="fas fa-car"></i>
         </a>
       </li>
       {% else %}

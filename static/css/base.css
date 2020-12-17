@@ -114,6 +114,16 @@ body {
     background-color: rgba(250,250,250,0.5);
 }
 
+.car-basket-icon{
+    position: relative;
+    bottom: 3px;
+}
+
+.car-basket-icon2{
+    position: relative;
+    bottom: 4px;
+}
+
 
 /* -------------------------------------- Toasts */
 #bag-toast-container {
