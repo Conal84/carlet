@@ -15,9 +15,9 @@ def cars_all(request):
     template = 'cars/cars-all.html'
 
     if request.GET:
-        location = request.GET['location']
-        search_from = request.GET['search_from']
-        search_to = request.GET['search_to']
+        location = request.GET['search-location']
+        search_from = request.GET['search-from']
+        search_to = request.GET['search-to']
 
         calc_days(request, search_from, search_to)
 

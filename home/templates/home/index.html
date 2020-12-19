@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-{% block content %}
-{{ search_form.media }}
+{% extends "base.html" %} {% block content %}
 <div class="index-wrapper">
   <div id="search-form-container">
     <form
@@ -12,14 +10,42 @@
     >
       <div class="row m-0 p-3">
         <div class="col-12 col-md-6 p-1">
-          {{ search_form.location.errors }}
-          {{ search_form.location|as_crispy_field }}
+          <input
+              type="text"
+              class="form-control"
+              id="search-location"
+              name="search-location"
+              placeholder="Search by location"
+              aria-label="Search location"
+              required
+            />
         </div>
         <div class="col-12 col-md-2 p-1">
-          {{ search_form.search_from|as_crispy_field }}
+          <div class="input-group date form-col">
+            <input
+              type="text"
+              class="form-control datepicker search-font"
+              id="search-from"
+              name="search-from"
+              aria-label="Hire from"
+              onkeydown="return false"
+              required
+            />
+          </div>
         </div>
         <div class="col-12 col-md-2 p-1">
-          {{ search_form.search_to|as_crispy_field }}
+          <div class="input-group date form-col">
+            <input
+              type="text"
+              class="form-control datepicker search-font"
+              id="search-to"
+              name="search-to"
+              placeholder="Hire to"
+              aria-label="Hire to"
+              onkeydown="return false"
+              required
+            />
+          </div>
         </div>
         <div class="col-12 col-md-2 p-1">
           <button type="submit" class="btn btn-primary btn-search">
