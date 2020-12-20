@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Car
 from .forms import CarForm
 from .utils import calc_days, check_available
+from bag.contexts import bag_contents
 
 from decimal import getcontext, Decimal
 getcontext().prec = 3
@@ -24,6 +25,8 @@ def cars_all(request):
 
         calc_days(request, search_from, search_to)
 
+        bag_contents(request, hire_from=search_from, hire_to=search_to)
+
         # cars = Car.objects.filter(
         #     location__icontains=location
         # ).filter(
@@ -38,7 +41,8 @@ def cars_all(request):
         for car in cars:
             if check_available(car, search_from, search_to):
                 car_available_list.append(car)
-                print(car_available_list)
+        
+        print(f"Cars available are: {car_available_list}")
 
     context = {
         "cars": cars,
