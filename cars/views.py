@@ -45,7 +45,7 @@ def cars_all(request):
         print(f"Cars available are: {car_available_list}")
 
     context = {
-        "cars": cars,
+        "cars": car_available_list,
     }
 
     return render(request, template, context)

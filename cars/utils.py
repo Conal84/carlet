@@ -30,12 +30,19 @@ def check_available(car, hire_from, hire_to):
 
     # If there are no current bookings for this car
     if not booking_list:
+        print(f"Hey Im returning True for this car: {car}")
         return True
     else:
         # Check each booking against hire dates
         for booking in booking_list:
             print(f"Hey, Im a booking: {booking}")
             print(f"Start date is: {booking.start_date}, End date is {booking.end_date}")
-            if booking.start_date > hire_start.date() or booking.end_date < hire_end.date():
+            print(f"Hire Start date is: {hire_start.date()}, Hire End date is {hire_end.date()}")
+            if booking.start_date > hire_end.date() or booking.end_date < hire_start.date():
+                print(f"Adding True to available list")
                 available_list.append(True)
-            return all(available_list)
+                print(f"Available list is {available_list}")
+            else:
+                available_list.append(False)
+                print(f"This car is FALSE")
+        return all(available_list)
