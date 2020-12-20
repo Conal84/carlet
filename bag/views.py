@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import HttpResponse
 from cars.models import Car
 
+
 # Create your views here.
 
 

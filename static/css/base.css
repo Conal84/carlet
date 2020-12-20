@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&display=swap');
 
 /* -------------------------------------- Html */
 html {
@@ -13,7 +13,7 @@ body {
   font-size: 1.6rem;
   height: 100%;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .index-text {
@@ -24,6 +24,10 @@ body {
 .logo-font {
     font-family: 'Roboto', sans-serif;
     color: #4059ad;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Roboto', sans-serif;
 }
 
 /* -------------------------------------- Colors */
@@ -85,6 +89,7 @@ body {
 .navbar-brand{
     font-size: 2rem;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
     color: #7510F7;
 }
 
@@ -95,6 +100,7 @@ body {
 
 .nav-link {
     color: #7510F7;
+    font-family: 'Roboto', sans-serif;
 }
 
 .nav-link:hover {
@@ -238,6 +244,10 @@ body {
 
 .choice-col{
     width: 50vw;
+}
+
+.font-size-muted {
+    font-size: 1.3rem;
 }
 
 /* -------------------------------------- car-dashboard.html */
