@@ -5,7 +5,7 @@ from decimal import getcontext, Decimal
 getcontext().prec = 3
 
 
-def bag_contents(request):
+def bag_contents(request, *args, **kwargs):
 
     grand_total = 0
     bag = request.session.get('bag', {})

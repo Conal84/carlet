@@ -30,3 +30,24 @@ class Car(models.Model):
     def support(self):
         "Returns the support cost per day for this Car"
         return 5
+
+
+class Booking(models.Model):
+    car = models.ForeignKey(
+                            Car,
+                            on_delete=models.CASCADE,
+                            null=False, blank=False,
+                            related_name='bookings'
+                            )
+    user = models.ForeignKey(
+                             User,
+                             on_delete=models.CASCADE,
+                             null=False,
+                             blank=False,
+                             related_name='bookings'
+                             )
+    start_date = models.DateField(default=None)
+    end_date = models.DateField(default=None)
+
+    def __str__(self):
+        return f"Booking for: {self.car}"

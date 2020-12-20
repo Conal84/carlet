@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .btn-search{
-    padding: 0.6rem;
+    padding: 0.6rem 0.6rem 0.8rem 0.6rem;
     width: 100%;
     font-size: 1.6rem;
     line-height: 1.5;
@@ -173,11 +173,11 @@ h1, h2, h3, h4, h5 {
     border-bottom-color: #7510F7;
     position: absolute;
     top: -1rem;
-    right: 4rem;
+    right: 2rem;
 }
 
 .bag-toast-body {
-    height: 20rem;
+    height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
 }
