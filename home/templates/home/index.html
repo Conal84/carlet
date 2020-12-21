@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <div class="index-wrapper">
   <div id="search-form-container">
     <form
@@ -13,14 +11,14 @@
       <div class="row m-0 p-3">
         <div class="col-12 col-md-6 p-1">
           <input
-              type="text"
-              class="form-control"
-              id="search-location"
-              name="search-location"
-              placeholder="Search by location"
-              aria-label="Search location"
-              required
-            />
+            type="text"
+            class="form-control"
+            id="search-location"
+            name="search-location"
+            placeholder="Search by location"
+            aria-label="Search location"
+            required
+          />
         </div>
         <div class="col-12 col-md-2 p-1">
           <div class="input-group date form-col">
@@ -59,8 +57,14 @@
   </div>
   <div id="background-container"></div>
 </div>
-{% endblock %}
-{% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'js/daterange_picker.js' %}"></script>
+{% endblock %} {% block postloadjs %} {{ block.super }}
+<script
+  type="text/javascript"
+  src="{% static 'js/daterange_picker.js' %}"
+></script>
+<script
+  type="text/javascript"
+  src="{% static 'js/google_places.js' %}"
+></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXt_Gbtreh_O2-q4JrndPuwAJRdk6a54w&libraries=places&callback=activatePlacesSearch"></script>
 {% endblock %}
