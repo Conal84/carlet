@@ -30,8 +30,8 @@ def cache_checkout_data(request):
         current_bag = bag_contents(request)
         days = current_bag['num_days']
         bag_car_total = current_bag['bag_car_total']
-        bag_insurance_total = current_bag['bag_insurance_total']
-        bag_support_total = current_bag['bag_support_total']
+        bag_insurance_total = current_bag['bag_insurance_total'] or 0
+        bag_support_total = current_bag['bag_support_total'] or 0
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(bag),
             'days': days,
@@ -55,7 +55,6 @@ def checkout(request):
     stripe_secret_key = os.environ.get('STRIPE_SECRET_KEY')
 
     if request.method == "POST":
-        print("Order form POST!!!!")
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -72,6 +71,7 @@ def checkout(request):
         order_form = OrderForm(form_data)
         current_bag = bag_contents(request)
 
+        # Create the related order in the database
         if order_form.is_valid():
             order = order_form.save()
             if "bag_car" in current_bag:
@@ -110,9 +110,9 @@ def checkout(request):
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse(
-                                    'checkout_success',
-                                    args=[order.order_number]
-                                    ))
+                'checkout_success',
+                args=[order.order_number]
+            ))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -133,9 +133,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        print(f"Payment Intent is: {intent}")
-
-         # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
