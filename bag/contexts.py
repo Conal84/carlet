@@ -25,7 +25,6 @@ def bag_contents(request, hire_from="", hire_to=""):
             "hire_from": hire_from,
             "hire_to": hire_to,
         }
-        print(context["hire_from"])
 
         if "insurance" in bag:
             insurance = Decimal(bag["insurance"])
