@@ -23,6 +23,10 @@ if path.exists("env.py"):
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    A view to cache the checkout data and
+    update the stripe payment intent
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
@@ -30,8 +34,14 @@ def cache_checkout_data(request):
         current_bag = bag_contents(request)
         days = current_bag['num_days']
         bag_car_total = current_bag['bag_car_total']
-        bag_insurance_total = current_bag['bag_insurance_total'] or 0
-        bag_support_total = current_bag['bag_support_total'] or 0
+        if 'bag_insurance_total' in current_bag.keys():
+            bag_insurance_total = current_bag['bag_insurance_total']
+        else:
+            bag_insurance_total = 0
+        if 'bag_support_total' in current_bag.keys():
+            bag_support_total = current_bag['bag_support_total']
+        else:
+            bag_support_total = 0
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(bag),
             'days': days,
@@ -73,7 +83,10 @@ def checkout(request):
 
         # Create the related order in the database
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.save()
             if "bag_car" in current_bag:
                 car = current_bag["bag_car"]
                 desc = car.make + " " + car.model

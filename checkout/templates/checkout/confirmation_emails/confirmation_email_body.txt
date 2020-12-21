@@ -2,7 +2,7 @@ Hi {{ order.full_name }}
 
 Your order {{ order.order_number }} on {{ order.date }} has been confirmed.
 
-Order Total: £{{ order.order_total }}
+Order Total: £{{ order.grand_total }}
 
 If needed you can contact us by email at {{ contact_email }}
 

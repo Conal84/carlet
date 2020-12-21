@@ -44,11 +44,11 @@ class StripeWH_Handler:
             status=200)
 
     def handle_payment_intent_succeeded(self, event):
-        """Handle the payment_intent.succeeded webhook from Stripe"""
+        """Handle the payment_intent succeeded webhook from Stripe"""
 
         intent = event.data.object
-        print(intent)
 
+        # Get the payment intent data
         pid = intent.id
         bag = intent.metadata.bag
         days = intent.metadata.days
@@ -69,6 +69,7 @@ class StripeWH_Handler:
         attempt = 1
         while attempt <= 5:
             try:
+                # Check if order already exists in the database
                 order = Order.objects.get(
                     full_name__iexact=billing_details.name,
                     email__iexact=billing_details.email,

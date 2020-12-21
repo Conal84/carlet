@@ -92,6 +92,7 @@ form.addEventListener('submit', function(ev) {
                 $('#submit-button').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
+                    // Submit the form to checkout view
                     form.submit();
                 }
             }
