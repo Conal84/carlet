@@ -17,15 +17,16 @@ def cars_all(request):
     """ A view to return the search page with results for cars searched """
     location = None
     template = 'cars/cars-all.html'
+    search_dates = request.session.get('search_dates', {})
 
     if request.GET:
         location = request.GET['search-location']
         search_from = request.GET['search-from']
         search_to = request.GET['search-to']
+        search_dates["search_from"] = search_from
+        search_dates["search_to"] = search_to
 
         calc_days(request, search_from, search_to)
-
-        bag_contents(request, hire_from=search_from, hire_to=search_to)
 
         # cars = Car.objects.filter(
         #     location__icontains=location

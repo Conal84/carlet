@@ -5,7 +5,7 @@ from decimal import getcontext, Decimal
 getcontext().prec = 3
 
 
-def bag_contents(request, hire_from="", hire_to=""):
+def bag_contents(request):
 
     grand_total = 0
     bag = request.session.get('bag', {})
@@ -22,8 +22,6 @@ def bag_contents(request, hire_from="", hire_to=""):
             "num_days": bag["num_days"],
             "bag_car_total": car_total,
             "grand_total": grand_total,
-            "hire_from": hire_from,
-            "hire_to": hire_to,
         }
 
         if "insurance" in bag:
