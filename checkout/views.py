@@ -43,7 +43,7 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
     except Exception as e:
-        print("Cache data function exception rasied")
+        print("Cache data function exception raised")
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
@@ -55,6 +55,7 @@ def checkout(request):
     stripe_secret_key = os.environ.get('STRIPE_SECRET_KEY')
 
     if request.method == "POST":
+        print("Order form POST!!!!")
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -108,12 +109,15 @@ def checkout(request):
                 order_line_item.save()
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse(
+                                    'checkout_success',
+                                    args=[order.order_number]
+                                    ))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
 
-    else:
+    elif request.method == "GET":
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "Your bag is empty at the moment")
@@ -128,6 +132,8 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+
+        print(f"Payment Intent is: {intent}")
 
          # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
