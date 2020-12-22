@@ -8,7 +8,7 @@ $(document).ready(function () {
 });
 // Toast Bag - Remove item and reload on click
 $(".delete-link").click(function(e) {
-    let csrfToken = { csrf_token };
+    var csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
     let name = $(this).data('name');
     let url = `/bag/remove/`
     let home = `/`
