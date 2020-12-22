@@ -3,9 +3,11 @@ from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
+from datetime import datetime
 
 from .models import Order, OrderLineItem
 from cars.models import Car
+from cars.models import Booking
 
 import json
 import time
@@ -47,6 +49,11 @@ class StripeWH_Handler:
         """Handle the payment_intent succeeded webhook from Stripe"""
 
         intent = event.data.object
+        search_dates = self.request.session.get('search_dates')
+        start_string = search_dates["search_from"]
+        end_string = search_dates["search_to"]
+        start_date = datetime.strptime(start_string, '%Y-%m-%d')
+        end_date = datetime.strptime(end_string, '%Y-%m-%d')
 
         # Get the payment intent data
         pid = intent.id
@@ -145,9 +152,17 @@ class StripeWH_Handler:
                         lineitem_total=bag_support_total
                     )
                     order_line_item.save()
+
+                     # Create the related Booking in the database
+                    booking = Booking(car=car,
+                                      user=self.request.user,                   start_date=start_date,
+                                      end_date=end_date)
+                    booking.save()
             except Exception as e:
                 if order:
                     order.delete()
+                if booking:
+                    booking.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)

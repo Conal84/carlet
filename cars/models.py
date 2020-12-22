@@ -46,8 +46,8 @@ class Booking(models.Model):
                              blank=False,
                              related_name='bookings'
                              )
-    start_date = models.DateField(default=None)
-    end_date = models.DateField(default=None)
+    start_date = models.DateField()
+    end_date = models.DateField()
 
     def __str__(self):
         return f"Booking for: {self.car}"

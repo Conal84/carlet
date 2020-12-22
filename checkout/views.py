@@ -1,18 +1,19 @@
+import stripe
+import json
+import sweetify
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.conf import settings
 from pathlib import os
+from datetime import datetime
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from bag.contexts import bag_contents
-
+from cars.models import Booking
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
-
-import stripe
-import json
-import sweetify
 
 from os import path
 if path.exists("env.py"):
@@ -82,6 +83,12 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         current_bag = bag_contents(request)
+        car = current_bag["bag_car"]
+        search_dates = request.session.get('search_dates')
+        start_string = search_dates["search_from"]
+        end_string = search_dates["search_to"]
+        start_date = datetime.strptime(start_string, '%Y-%m-%d')
+        end_date = datetime.strptime(end_string, '%Y-%m-%d')
 
         # Create the related order in the database
         if order_form.is_valid():
@@ -90,7 +97,6 @@ def checkout(request):
             order.stripe_pid = pid
             order.save()
             if "bag_car" in current_bag:
-                car = current_bag["bag_car"]
                 desc = car.make + " " + car.model
                 order_line_item = OrderLineItem(
                     order=order,
@@ -101,7 +107,6 @@ def checkout(request):
                 )
                 order_line_item.save()
             if "bag_insurance" in current_bag:
-                car = current_bag["bag_car"]
                 insurance = car.insurance
                 order_line_item = OrderLineItem(
                     order=order,
@@ -112,7 +117,6 @@ def checkout(request):
                 )
                 order_line_item.save()
             if "bag_support" in current_bag:
-                car = current_bag["bag_car"]
                 support = car.support
                 order_line_item = OrderLineItem(
                     order=order,
@@ -124,6 +128,13 @@ def checkout(request):
                 order_line_item.save()
 
             request.session['save_info'] = 'save-info' in request.POST
+
+            # Create the related Booking in the database
+            booking = Booking(car=car,
+                              user=request.user,
+                              start_date=start_date,
+                              end_date=end_date)
+            booking.save()
             return redirect(reverse(
                 'checkout_success',
                 args=[order.order_number]
@@ -138,10 +149,6 @@ def checkout(request):
     elif request.method == "GET":
         bag = request.session.get('bag', {})
         if not bag:
-            sweetify.warning(request, title='Warning!',
-                             icon='warning',
-                             text='Your bag is empty at the moment',
-                             timer=4000)
             return redirect(reverse('all_cars'))
 
         current_bag = bag_contents(request)

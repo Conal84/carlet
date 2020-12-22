@@ -1,15 +1,14 @@
+import sweetify
+
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Car
 from .forms import CarForm
 from .utils import calc_days, check_available
-from bag.contexts import bag_contents
 
 from decimal import getcontext, Decimal
 getcontext().prec = 3
-
-import sweetify
 
 # Create your views here.
 
@@ -24,26 +23,30 @@ def cars_all(request):
         location = request.GET['search-location']
         search_from = request.GET['search-from']
         search_to = request.GET['search-to']
+
+        # Add search dates to the session
         search_dates["search_from"] = search_from
         search_dates["search_to"] = search_to
+        request.session['search_dates'] = search_dates
 
+        # Calc the days between search days
         calc_days(request, search_from, search_to)
 
-        # cars = Car.objects.filter(
-        #     location__icontains=location
-        # ).filter(
-        #     available_from__lte=search_from
-        # ).filter(
-        #     available_to__gte=search_to
-        # )
         cars = Car.objects.filter(
             location__icontains=location
+        ).filter(
+            available_from__lte=search_from
+        ).filter(
+            available_to__gte=search_to
         )
+        # cars = Car.objects.filter(
+        #     location__icontains=location
+        # )
         car_available_list = []
         for car in cars:
             if check_available(car, search_from, search_to):
                 car_available_list.append(car)
-        
+
         print(f"Cars available are: {car_available_list}")
 
     context = {
