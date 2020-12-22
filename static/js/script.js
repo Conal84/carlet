@@ -6,3 +6,23 @@ $(document).ready(function () {
     $(".toast").toast("show");
   });
 });
+// Toast Bag - Remove item and reload on click
+$(".delete-link").click(function(e) {
+    let csrfToken = { csrf_token };
+    let name = $(this).data('name');
+    let url = `/bag/remove/`
+    let home = `/`
+    let data = {'csrfmiddlewaretoken': csrfToken, 'name': name};
+
+    $.post(url, data)
+    .done(function() {
+        // If user deletes the car redirect to the home page
+        if(name==="del_car"){
+            window.location.replace(home);
+        }else{
+            // Else reload the current page
+            location.reload();
+        }
+        
+    });
+})

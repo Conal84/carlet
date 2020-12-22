@@ -32,16 +32,17 @@ def cars_all(request):
         # Calc the days between search days
         calc_days(request, search_from, search_to)
 
-        cars = Car.objects.filter(
-            location__icontains=location
-        ).filter(
-            available_from__lte=search_from
-        ).filter(
-            available_to__gte=search_to
-        )
         # cars = Car.objects.filter(
         #     location__icontains=location
+        # ).filter(
+        #     available_from__lte=search_from
+        # ).filter(
+        #     available_to__gte=search_to
         # )
+        cars = Car.objects.filter(
+            location__icontains=location
+        )
+        print(f"Cars by location are: {cars}")
         car_available_list = []
         for car in cars:
             if check_available(car, search_from, search_to):

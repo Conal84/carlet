@@ -25,3 +25,15 @@
     </div>
 </div>
 {% endblock %}
+{% block postloadjs %} 
+{{ block.super }}
+    <script
+    type="text/javascript"
+    src="{% static 'js/daterange_picker.js' %}"
+    ></script>
+    <script
+    type="text/javascript"
+    src="{% static 'js/google_places.js' %}"
+    ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXt_Gbtreh_O2-q4JrndPuwAJRdk6a54w&libraries=places&callback=activatePlacesSearch"></script>
+{% endblock %}
