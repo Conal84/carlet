@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
-from django.contrib import messages
 from django.conf import settings
 from pathlib import os
 
@@ -13,6 +12,7 @@ from profiles.forms import UserProfileForm
 
 import stripe
 import json
+import sweetify
 
 from os import path
 if path.exists("env.py"):
@@ -53,9 +53,11 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
     except Exception as e:
-        print("Cache data function exception raised")
-        messages.error(request, 'Sorry, your payment cannot be \
-            processed right now. Please try again later.')
+        sweetify.error(request, title='Error!',
+                       icon='error',
+                       text='Sorry, your payment cannot be \
+                             processed right now. Please try again later.',
+                       timer=4000)
         return HttpResponse(content=e, status=400)
 
 
@@ -127,13 +129,19 @@ def checkout(request):
                 args=[order.order_number]
             ))
         else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            sweetify.error(request, title='Error!',
+                           icon='error',
+                           text='There was an error with your form. \
+                                 Please double check your information.',
+                           timer=4000)
 
     elif request.method == "GET":
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "Your bag is empty at the moment")
+            sweetify.warning(request, title='Warning!',
+                             icon='warning',
+                             text='Your bag is empty at the moment',
+                             timer=4000)
             return redirect(reverse('all_cars'))
 
         current_bag = bag_contents(request)
@@ -146,7 +154,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill the form with user profile info
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -204,9 +212,10 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
+    sweetify.success(request, title='Success!',
+                     icon='success',
+                     text=f'Your Order has been processed and a confirmation     email has been sent to {order.email}',
+                     timer=4000)
 
     if 'bag' in request.session:
         del request.session['bag']

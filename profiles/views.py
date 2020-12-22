@@ -1,13 +1,12 @@
 from django.shortcuts import render, get_object_or_404
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 
 from .models import UserProfile
-from cars.models import Car
 from .forms import UserProfileForm
 
 from checkout.models import Order
+
+import sweetify
 
 # Create your views here.
 
@@ -21,9 +20,15 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated succesfully')
+            sweetify.success(request, title='Success!',
+                             icon='success',
+                             text='Profile successfully updated',
+                             timer=4000)
         else:
-            messages.error(request, 'Profile update failed, Please ensure the form is valid')
+            sweetify.error(request, title='Error!',
+                           icon='error',
+                           text='Failed to update profile, please try again',
+                           timer=4000)
     else:
         form = UserProfileForm(instance=profile)
 

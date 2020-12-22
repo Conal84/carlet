@@ -21,7 +21,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.12.5/sweetalert2.min.css" integrity="sha512-EeZYT52DgUwGU45iNoywycYyJW/C2irAZhp2RZAA0X4KtgE4XbqUl9zXydANcIlEuF+BXpsooxzkPW081bqoBQ==" crossorigin="anonymous" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {% endblock %}
 
@@ -57,7 +58,10 @@
     {% include 'includes/footer.html' %}
     {% block postloadjs %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.12.5/sweetalert2.min.js" integrity="sha512-hAGPQMZiUi+JhDvGYUsYbrzx/Hp6Hj/S/sIbKFAjaNRQGD2czl8I3o7cdU8iaJpi2nQdwgPx1C3sGZHPVKpX2A==" crossorigin="anonymous"></script>
     <script src="{% static 'js/script.js' %}"></script>
     {% endblock %}
+    {% load sweetify %}
+    {% sweetify %}
   </body>
 </html>

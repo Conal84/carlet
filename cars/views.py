@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Car
@@ -9,6 +8,8 @@ from bag.contexts import bag_contents
 
 from decimal import getcontext, Decimal
 getcontext().prec = 3
+
+import sweetify
 
 # Create your views here.
 
@@ -146,11 +147,16 @@ def add_car(request):
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
-            messages.success(request, 'Successfully added this car!')
+            sweetify.success(request, title='Success!',
+                             icon='success',
+                             text='Car successfully added',
+                             timer=4000)
             return redirect(reverse('add_car'))
         else:
-            messages.error(request,
-                           'Failed to add this car!')
+            sweetify.error(request, title='Error!',
+                           icon='error',
+                           text='Failed to add this car, please try again',
+                           timer=4000)
     else:
         form = CarForm()
 
@@ -187,11 +193,15 @@ def edit_car(request, car_id):
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
-            messages.success(request, 'Successfully added this car!')
+            sweetify.success(request, title='Success!',
+                             icon='success',
+                             text='Car successfully edited',
+                             timer=4000)
             return redirect(reverse('display_cars'))
         else:
-            messages.error(
-                request, 'Failed to add this car!')
+            sweetify.error(request, title='Error!', icon='error',
+                           text='Failed to edit this car, please try again',
+                           timer=4000)
     else:
         form = CarForm(instance=car)
 
@@ -208,5 +218,7 @@ def delete_car(request, car_id):
     """Delete an individual car from the database"""
     car = get_object_or_404(Car, pk=car_id)
     car.delete()
+    sweetify.success(request, title='Success!', icon='success',
+                     text='Car successfully deleted', timer=4000)
 
     return redirect(reverse('display_cars'))

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+    'sweetify',
 
     # custom apps
     'home',
@@ -91,6 +92,8 @@ TEMPLATES = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
