@@ -14,6 +14,15 @@ class CarForm(forms.ModelForm):
         self.fields['location'].widget = forms.TextInput(attrs={
             'id': 'search-location',
         })
+        self.fields['available_from'].widget = forms.TextInput(attrs={
+            'id': 'search-from',
+        })
+        self.fields['available_to'].widget = forms.TextInput(attrs={
+            'id': 'search-to',
+        })
+        self.fields['cost_per_day'].widget = forms.TextInput(attrs={
+            'placeholder': '£',
+        })
 
     image1 = forms.ImageField(label="Car Image 1 *", widget=CustomClearableFileInput)
     image2 = forms.ImageField(label="Car Image 2", required=False, widget=CustomClearableFileInput)
