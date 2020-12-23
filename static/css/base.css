@@ -222,7 +222,7 @@ h5 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  height: 40%;
+  height: 20%;
 }
 
 #search-form-container {
@@ -272,14 +272,14 @@ h5 {
   font-size: 1.3rem;
 }
 
-.car-card{
-    width: 18rem;
+.car-card {
+  width: 18rem;
 }
 
-.card-img-top{
-    width: 100%;
-    height: 10vw;
-    object-fit: fill;
+.card-img-top {
+  width: 100%;
+  height: 10vw;
+  object-fit: fill;
 }
 
 /* -------------------------------------- car-dashboard.html */
@@ -359,17 +359,39 @@ h5 {
 }
 
 /* -------------------------------------- Media Queries */
-/* Large devices */
-@media screen and (min-width: 1170px) {
+
+/* Small devices Portrait View - 320px and above*/
+@media screen and (min-width: 320px) {
+  #background-container {
+    height: 30%;
+  }
 }
 
-/*Tablet and above Landscape View*/
-@media screen and (min-width: 940px) {
+/* Small devices Landsacpe View - 568px and above*/
+@media screen and (min-width: 568px) {
+  #background-container {
+    height: 35%;
+  }
+}
+
+/*Tablet and above Portrait View - 768px and above*/
+@media screen and (min-width: 768px) {
+  #background-container {
+    height: 40%;
+  }
+}
+
+/*Tablet and above Landscape View - 1024px and above*/
+@media screen and (min-width: 1024px) {
+  #background-container {
+    height: 50%;
+  }
+
   .full-row {
     height: calc(100vh - 10rem);
   }
 
-    .car-col{
+  .car-col {
     height: 80%;
   }
 
@@ -380,8 +402,8 @@ h5 {
   }
 }
 
-/*Tablet and above Portrait View*/
-@media screen and (min-width: 768px) {
+/* Large devices - 1170px and above */
+@media screen and (min-width: 1170px) {
   #background-container {
     height: 60%;
   }
