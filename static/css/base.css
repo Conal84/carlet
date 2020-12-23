@@ -16,10 +16,6 @@ body {
   font-family: 'Nunito Sans', sans-serif;
 }
 
-.index-text {
-    color: #dc04b4;
-}
-
 /* -------------------------------------- Fonts */
 .logo-font {
     font-family: 'Roboto', sans-serif;
@@ -28,6 +24,15 @@ body {
 
 h1, h2, h3, h4, h5 {
     font-family: 'Roboto', sans-serif;
+}
+
+.index-text {
+    color: #dc04b4;
+}
+
+.text-bold{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
 }
 
 /* -------------------------------------- Colors */
@@ -236,18 +241,31 @@ h1, h2, h3, h4, h5 {
     box-shadow:0 0 15px 10px rgba(0,0,0,0.1);
 }
 
-/* -------------------------------------- cars-all.html */
+/* -------------------------------------- Cars */
 .responsive{
     max-width: 100%;
     height: auto;
 }
 
-/* -------------------------------------- car-insurance.html */
-.choice-row{
+.full-row{
     height: calc(100vh - 10rem);
 }
 
-.choice-col{
+.car-col,
+.carousel-container,
+.carousel,
+.carousel-inner,
+.carousel-item{
+    height: calc(100vh - 10rem);
+}
+
+.carousel-image{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.center-col{
     width: 50vw;
 }
 

@@ -1,14 +1,13 @@
 {% extends "base.html" %} {% block content %}
-<div class="container-fluid">
-	<div class="row">
-        <div class="col-12 col-md-6 p-3">
+	<div class="row full-row m-0">
+        <div class="col-12 col-md-6 p-3 car-col my-auto">
             <div class="carousel-container">
                 <div id="carousel-car-images" class="carousel slide" data-ride="carousel" data-interval="8000">
                     <div class="carousel-inner">
                         {% for image in images.values %}
                         <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
                             <a href="{{ image }}" target="_blank">
-                                <img src="{{ image }}" class="d-block w-100 h-100 carousel-image" alt=""/>
+                                <img src="{{ image }}" class="d-block carousel-image" alt=""/>
                             </a>
                         </div>
                         {% endfor %}
@@ -24,25 +23,30 @@
                 </div>
             </div>
         </div>
-		<div class="col-12 col-md-6 p-3">
-            <div class="car-details-container">
+		<div class="col-12 col-md-6 p-3 my-auto">
+            <div class="px-5">
+                <h1 class="text-center">Available CarLet</h1>
+                <hr>
                 <p>{{ car.make }}</p>
                 <p>{{ car.model }}</p>
                 <p>{{ car.description }}</p>
                 <p>{{ car.location }}</p>
-                <p>£{{ car.cost_per_day }} per day</p>
-                <p class="font-weight-bold">Total £{{ car_total }}</p>
+                <p class="text-bold">£{{ car.cost_per_day }} per day for 
+                    {{ num_days }} days</p>
+                <hr>
+                <p class="text-bold">Total £{{ car_total }}</p>
                 <hr>
             </div>
-            <form class="form d-inline-block" action="{% url 'add_to_bag' car.id %}" method="POST">
-                {% csrf_token %}
-                <input type="submit" class="btn btn-primary btn-lg" value="Reserve">
-                <input type="hidden" name="item" value="car">
-            </form>
-            <input type="button" class="btn btn-primary btn-lg" value="Cancel" onclick="goBack()">
+            <div class="text-center">
+                <form class="form d-inline-block" action="{% url 'add_to_bag' car.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-primary btn-lg" value="Reserve">
+                    <input type="hidden" name="item" value="car">
+                </form>
+                <input type="button" class="btn btn-primary btn-lg" value="Cancel" onclick="goBack()">
+            </div>
 		</div>
 	</div>
-</div>
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}

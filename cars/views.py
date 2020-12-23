@@ -75,6 +75,7 @@ def car_detail(request, car_id):
     context = {
         "car": car,
         "car_total": car_total,
+        "num_days": num_days,
         "images": images,
     }
     return render(request, template, context)
@@ -93,6 +94,7 @@ def car_insurance(request, id):
     context = {
         "car": car,
         "insurance": insurance,
+        "num_days": num_days,
         "insurance_total": insurance_total,
     }
 
@@ -112,6 +114,7 @@ def car_insurance_skip(request, car_id):
     context = {
         "car": car,
         "support": support,
+        "num_days": num_days,
         "support_total": support_total,
     }
     return render(request, template, context)
@@ -130,6 +133,7 @@ def car_support(request, id):
     context = {
         "car": car,
         "support": support,
+        "num_days": num_days,
         "support_total": support_total,
     }
     return render(request, template, context)
