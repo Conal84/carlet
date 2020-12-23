@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&display=swap");
 
 /* -------------------------------------- Html */
 html {
@@ -13,280 +13,289 @@ body {
   font-size: 1.6rem;
   height: 100%;
   margin: 0;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 /* -------------------------------------- Fonts */
 .logo-font {
-    font-family: 'Roboto', sans-serif;
-    color: #4059ad;
+  font-family: "Roboto", sans-serif;
+  color: #4059ad;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Roboto', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Roboto", sans-serif;
 }
 
 .index-text {
-    color: #dc04b4;
+  color: #dc04b4;
 }
 
-.text-bold{
-    font-family: 'Roboto', sans-serif;
-    font-weight: 800;
+.text-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
 }
 
 /* -------------------------------------- Colors */
 .bg-purple {
-    background-color: #7510f7;
+  background-color: #7510f7;
 }
 
 .bg-blue {
-    background-color: #6cd4ff;
+  background-color: #6cd4ff;
 }
 
 .bg-pink {
-    background-color: #cfb1b7;
+  background-color: #cfb1b7;
 }
 
 .bg-silver {
-    background-color: #83858c;
+  background-color: #83858c;
+}
+
+.hr-color {
+  border-top: 1px solid #dc04b4;
 }
 
 /* -------------------------------------- Buttons */
 .btn-primary {
-    background-color: #7510F7;
-    border-color: #7510F7;
+  background-color: #7510f7;
+  border-color: #7510f7;
 }
 
 .btn-primary:hover {
-    background-color: #7510F7;
-    border-color: #7510F7;
-    opacity: 0.9;
+  background-color: #7510f7;
+  border-color: #7510f7;
+  opacity: 0.9;
 }
 
 .btn-secondary {
-    background-color: #6cd4ff;
-    border-color: #6cd4ff;
+  background-color: #6cd4ff;
+  border-color: #6cd4ff;
 }
 
 .btn-secondary:hover {
-    background-color: #6cd4ff;
-    border-color: #6cd4ff;
-    opacity: 0.9;
+  background-color: #6cd4ff;
+  border-color: #6cd4ff;
+  opacity: 0.9;
 }
 
-.btn-xl{
-    padding: 1rem 2rem;
-    font-size: 1.75rem;
-    line-height: 1.5;
-    border-radius: .5rem;
+.btn-xl {
+  padding: 1rem 2rem;
+  font-size: 1.75rem;
+  line-height: 1.5;
+  border-radius: 0.5rem;
 }
 
-.btn-search{
-    padding: 0.6rem 0.6rem 0.8rem 0.6rem;
-    width: 100%;
-    font-size: 1.6rem;
-    line-height: 1.5;
-    border-radius: 1rem;
+.btn-search {
+  padding: 0.6rem 0.6rem 0.8rem 0.6rem;
+  width: 100%;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  border-radius: 1rem;
 }
 
 /* -------------------------------------- Alerts */
-.swal2-html-container{
-    font-size: 1.6rem;
+.swal2-html-container {
+  font-size: 1.6rem;
 }
 
 /* -------------------------------------- Navbar */
-.navbar-brand{
-    font-size: 2rem;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-    color: #7510F7;
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: #7510f7;
 }
 
-.navbar-brand:hover{
-    color: #7510F7;
-    opacity: 0.9;
+.navbar-brand:hover {
+  color: #7510f7;
+  opacity: 0.9;
 }
 
 .nav-link {
-    color: #7510F7;
-    font-family: 'Roboto', sans-serif;
+  color: #7510f7;
+  font-family: "Roboto", sans-serif;
 }
 
 .nav-link:hover {
-    color: #7510F7;
-    opacity: 0.9;
+  color: #7510f7;
+  opacity: 0.9;
 }
 
 .navbar {
-    height: 5rem;
-    background-color: #fff;
-    border-bottom: 2px solid #dc04b4;
+  height: 5rem;
+  background-color: #fff;
+  border-bottom: 2px solid #dc04b4;
 }
 
-#carlet-nav{
-    position: relative;
-    top: 5px;
-    background-color: rgba(250,250,250,0.5);
+#carlet-nav {
+  position: relative;
+  top: 5px;
+  background-color: rgba(250, 250, 250, 0.5);
 }
 
-.car-basket-icon{
-    position: relative;
-    bottom: 3px;
+.car-basket-icon {
+  position: relative;
+  bottom: 3px;
 }
 
-.car-basket-icon2{
-    position: relative;
-    bottom: 4px;
+.car-basket-icon2 {
+  position: relative;
+  bottom: 4px;
 }
-
 
 /* -------------------------------------- Toasts */
 #bag-toast-container {
-    position: fixed;
-    top: 4rem;
-    right: 1rem;
-    z-index: 999999999;
+  position: fixed;
+  top: 4rem;
+  right: 1rem;
+  z-index: 999999999;
 }
 
 #bag-toast {
-    overflow: visible;
-    font-size: 1.5rem;
+  overflow: visible;
+  font-size: 1.5rem;
 }
 
 .toast-header {
-    height: 5rem;
+  height: 5rem;
 }
 
 .close {
-    color: #fff;
-    font-size: 2rem;
-    opacity: 1;
+  color: #fff;
+  font-size: 2rem;
+  opacity: 1;
 }
 
 .close:hover {
-    color: #fff;
-    opacity: 0.5;
+  color: #fff;
+  opacity: 0.5;
 }
 
 .fa-trash-alt {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* from CSS-tricks.com https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
-    width: 0; 
-    height: 0; 
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
-    border-bottom: 10px solid #7510F7;
-    border-bottom-color: #7510F7;
-    position: absolute;
-    top: -1rem;
-    right: 2rem;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 10px solid #7510f7;
+  border-bottom-color: #7510f7;
+  position: absolute;
+  top: -1rem;
+  right: 2rem;
 }
 
 .bag-toast-body {
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .toast-bag-total {
-    background-color: #cfbff7;
+  background-color: #cfbff7;
 }
 
 #bag-empty-text {
-    text-align: center;
-    margin: 4rem;
+  text-align: center;
+  margin: 4rem;
 }
 
 /* -------------------------------------- index.html */
-.content-container{
-    min-height: calc(100vh - 10rem);
+.content-container {
+  min-height: calc(100vh - 10rem);
 }
 
-.index-wrapper{
-    height: calc(100vh - 10rem);
+.index-wrapper {
+  height: calc(100vh - 10rem);
 }
 
-#background-container{
-    background: url(/media/index_bg.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    height: 40%;
+#background-container {
+  background: url(/media/index_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 40%;
 }
 
 #search-form-container {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
-#search-form{
-    padding: 5px;
-    width: 75vw;
-    background-color: rgba(207, 191, 247, 0.5);
-    border-radius: 10px;
+#search-form {
+  padding: 5px;
+  width: 75vw;
+  background-color: rgba(207, 191, 247, 0.5);
+  border-radius: 10px;
 }
 
 .asteriskField {
-    display: none;
+  display: none;
 }
 
 .form-control {
-    padding: 2rem;
-    font-size: 1.6rem;
-    border-radius: 1rem;
-    box-shadow:0 0 15px 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* -------------------------------------- Cars */
-.responsive{
-    max-width: 100%;
-    height: auto;
+.responsive {
+  max-width: 100%;
+  height: auto;
 }
 
-.full-row{
-    height: calc(100vh - 10rem);
+.full-row {
+  min-height: calc(100vh - 10rem);
 }
 
-.car-col,
-.carousel-container,
-.carousel,
-.carousel-inner,
-.carousel-item{
-    height: calc(100vh - 10rem);
+.car-col {
+  height: 50%;
 }
 
-.carousel-image{
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-}
-
-.center-col{
-    width: 50vw;
+.carousel-image {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
 }
 
 .font-size-muted {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
+}
+
+.car-card{
+    width: 18rem;
+}
+
+.card-img-top{
+    width: 100%;
+    height: 10vw;
+    object-fit: fill;
 }
 
 /* -------------------------------------- car-dashboard.html */
-.fa-card-img{
-    font-size: 5rem;
-    color: #7510F7;
-    padding-top: 5px;
+.fa-card-img {
+  font-size: 5rem;
+  color: #7510f7;
+  padding-top: 5px;
 }
 
-.dashboard-card{
-    min-height: 220px;
+.dashboard-card {
+  min-height: 220px;
 }
 
-#profile-card-btn{
-    position: relative;
-    top: 22px;
+#profile-card-btn {
+  position: relative;
+  top: 22px;
 }
 
 /* -------------------------------------- Footer */
@@ -298,60 +307,55 @@ h1, h2, h3, h4, h5 {
 #footer-list i {
   font-size: 3rem;
   margin-top: 1rem;
-  color: #7510F7;
+  color: #7510f7;
 }
 
 /* -------------------------------------- Allauth pages */
 .auth-content {
-    width: 30vw;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: calc(100vh - 10rem);
-    padding: 3rem 0;
+  width: 30vw;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: calc(100vh - 10rem);
+  padding: 3rem 0;
 }
 
 .auth-text {
-    padding-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 
 .auth-form {
-    width: 30vw;
-    border: 2px solid #dc04b4;
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* -------------------------------------- Car-detail */
-.carousel-image {
-    height: 100%;
+  width: 30vw;
+  border: 2px solid #dc04b4;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* -------------------------------------- CarForm widget */
 .btn-file {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-file input[type="file"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    opacity: 0;
-    cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .custom-checkbox .custom-control-label::before {
-    border-radius: 0;
-    border-color: #dc3545;
+  border-radius: 0;
+  border-color: #dc3545;
 }
 
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    border-radius: 0;
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 0;
 }
 
 /* -------------------------------------- Media Queries */
@@ -361,13 +365,24 @@ h1, h2, h3, h4, h5 {
 
 /*Tablet and above Landscape View*/
 @media screen and (min-width: 940px) {
+  .full-row {
+    height: calc(100vh - 10rem);
+  }
 
+    .car-col{
+    height: 80%;
+  }
+
+  .carousel-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
 }
 
 /*Tablet and above Portrait View*/
 @media screen and (min-width: 768px) {
-        #background-container{
-        height: 60%;
-    }
+  #background-container {
+    height: 60%;
+  }
 }
-

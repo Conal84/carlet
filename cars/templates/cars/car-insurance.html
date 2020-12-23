@@ -1,19 +1,19 @@
 {% extends "base.html" %} {% block content %}
 <div class="container-fluid">
 	<div class="row full-row">
-        <div class="col-12 col-md-6 cars-col my-auto">
+        <div class="col-12 col-md-6 p-5 my-auto">
             <img src="/media/axa-logo.jpg" class="responsive" alt="Insurance logo">
         </div>
-		<div class="col-12 col-md-6 my-auto">
+		<div class="col-12 col-md-6 pb-5 my-auto">
             <div class="px-5">
                 <h1 class="text-center">Insure Your Hire Car With Us</h1>
                 <hr>
                 <p>We have partnered with AXA Insurance so you can easily add car insurance for your hire period</p>
                 <p class="text-muted font-size-muted">Please note: If you choose to use your own insurance company you must provide the insurance details to the car owner when collecting the vehicle</p>
                 <p class="text-bold">£{{ insurance }} per day for {{ num_days }} days</p>
-                <hr>
+                <hr class="hr-color">
                 <p class="text-bold">Total £{{ insurance_total }}</p>
-                <hr>
+                <hr class="hr-color">
             </div>
             <div class="text-center">
                 <form class="form d-inline-block" action="{% url 'add_to_bag' car.id %}" method="POST">
