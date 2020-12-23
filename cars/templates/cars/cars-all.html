@@ -6,7 +6,7 @@
             {% for car in cars %}
             <div class="col-sm-6 col-lg-4 col-xl-3 car-col">
                 <div class="card text-center car-card">
-                    <img src="{{ car.image1.url }}" class="card-img-top" alt="Car image">
+                    <img src="{{ car.image1.url }}" class="card-img-top car-card-img" alt="Car image">
                     <div class="card-body">
                         <h3 class="card-title">{{ car.make }}</h3>
                         <h4 class="card-text">{{ car.model }}</h4>

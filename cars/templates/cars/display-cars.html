@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 <section class="container-fluid" id="search-results">
-    <div class="row">
+    <div class="row px-5">
         <div class="col-12">
             <hr>
             <h3>Edit or Delete Your Car</h3>
@@ -8,18 +8,18 @@
             <hr>
         </div>
     </div>
-    <div class="row">
+    <div class="row p-5">
         {% if cars %}
             {% for car in cars %}
             <div class="col-sm-6 col-lg-4 col-xl-3 car-col">
                 <div class="card text-center car-card">
-                    <img src="{{ car.image1.url }}" class="card-img-top" alt="Car image">
+                    <img src="{{ car.image1.url }}" class="card-img-top car-card-img" alt="Car image">
                     <div class="card-body">
                         <h3 class="card-title">{{ car.make }}</h3>
                         <h4 class="card-text">{{ car.model }}</h4>
                         <p class="card-text">£{{ car.cost_per_day }}/day</p>
-                        <a href="{% url 'edit_car' car.id %}" class="btn btn-secondary btn-lg" >Edit</a>
-                        <a href="{% url 'delete_car' car.id %}" class="btn btn-secondary btn-lg" >Delete</a>
+                        <a href="{% url 'edit_car' car.id %}" class="btn btn-primary btn-lg" >Edit</a>
+                        <a href="{% url 'delete_car' car.id %}" class="btn btn-danger btn-lg" >Delete</a>
                     </div>
                 </div>
             </div>

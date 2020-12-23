@@ -83,6 +83,17 @@ h5 {
   opacity: 0.9;
 }
 
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  opacity: 0.9;
+}
+
 .btn-xl {
   padding: 1rem 2rem;
   font-size: 1.75rem;
@@ -276,7 +287,7 @@ h5 {
   width: 18rem;
 }
 
-.card-img-top {
+.car-card-img {
   width: 100%;
   height: 10vw;
   object-fit: fill;
