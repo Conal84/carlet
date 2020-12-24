@@ -293,7 +293,7 @@ h5 {
   object-fit: fill;
 }
 
-/* -------------------------------------- car-dashboard.html */
+/* -------------------------------------- Dashboard */
 .fa-card-img {
   font-size: 5rem;
   color: #7510f7;
@@ -307,6 +307,14 @@ h5 {
 #profile-card-btn {
   position: relative;
   top: 22px;
+}
+
+.dash-form {
+  width: 60vw;
+  border: 2px solid #dc04b4;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* -------------------------------------- Footer */
@@ -368,6 +376,10 @@ h5 {
   border-color: #dc3545;
   border-radius: 0;
 }
+
+/* #search-description{
+    height: 13rem;
+} */
 
 /* -------------------------------------- Media Queries */
 

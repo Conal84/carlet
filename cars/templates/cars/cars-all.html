@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% csrf_token %}
 <section class="container-fluid p-0" id="search-results">
     <div class="row m-0 pt-5">
         {% if cars %}

@@ -8,6 +8,12 @@ class CarForm(forms.ModelForm):
     class Meta:
         model = Car
         exclude = ['user']
+        widgets = {
+          'description': forms.Textarea(attrs={'rows': 3,
+                                               'cols': 10,
+                                               'style': 'height: 12rem;'
+                                               }),
+        }
 
     def __init__(self, *args, **kwargs):
         super(CarForm, self).__init__(*args, **kwargs)
