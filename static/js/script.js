@@ -5,7 +5,16 @@ $(document).ready(function () {
   $("#bag-nav").click(function () {
     $(".toast").toast("show");
   });
+
+  document.getElementById("search-from").onkeydown = function() {
+      return false;
+  }
+
+  document.getElementById("search-to").onkeydown = function() {
+      return false;
+  }
 });
+
 // Toast Bag - Remove item and reload on click
 $(".delete-link").click(function(e) {
     var csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
