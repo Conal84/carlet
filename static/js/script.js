@@ -6,10 +6,16 @@ $(document).ready(function () {
     $(".toast").toast("show");
   });
 
+  /**
+   * Prevent manual date entry on add / edit forms
+   */
   document.getElementById("search-from").onkeydown = function() {
       return false;
   }
 
+    /**
+   * Prevent manual date entry on add / edit forms
+   */
   document.getElementById("search-to").onkeydown = function() {
       return false;
   }
