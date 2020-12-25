@@ -9,6 +9,11 @@ select option[value=""] {
     color: #aab7c4 !important;
 }
 
+.table-checkout-success{
+    padding-top: 2rem;
+    padding-right: 20px;
+}
+
 /* -------------------------------------- Stripe */
 .StripeElement,
 .stripe-style-input {

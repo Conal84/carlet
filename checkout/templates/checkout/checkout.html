@@ -1,6 +1,8 @@
-{% extends "base.html" %} {% load static %} {% block extra_css %}
+{% extends "base.html" %} {% load static %}
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
-{% endblock %} {% block content %}
+{% endblock %}
+{% block content %}
 <div class="container">
 <div class="row">
   <div class="col-12">
@@ -20,10 +22,10 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Description</th>
-              <th scope="col">Cost per day</th>
-              <th scope="col">No. of days</th>
-              <th scope="col">Subtotal</th>
+              <th scope="col" class="text-bold">Description</th>
+              <th scope="col" class="text-bold">Cost per day</th>
+              <th scope="col" class="text-bold">No. of days</th>
+              <th scope="col" class="text-bold">Subtotal</th>
             </tr>
           </thead>
           <tbody>
@@ -77,7 +79,7 @@
       </div>
       {% endif %}
     </div>
-    <div class="col-12 col-md-6 order-md-first">
+    <div class="col-12 col-md-6 pt-5 pt-md-0 order-md-first">
       <p class="text-muted">
         Please fill out the order form below to complete your order
       </p>
