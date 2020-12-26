@@ -140,14 +140,14 @@ def car_support(request, id):
     return render(request, template, context)
 
 
-@login_required
+@login_required(login_url='/login/')
 def car_dashboard(request):
     template = 'cars/car-dashboard.html'
 
     return render(request, template)
 
 
-@login_required
+@login_required(login_url='/login/')
 def add_car(request):
     """Add a car to the database"""
     if request.method == 'POST':
@@ -177,7 +177,7 @@ def add_car(request):
     return render(request, template, context)
 
 
-@login_required
+@login_required(login_url='/login/')
 def display_cars(request):
     """Display a users cars in the database for editing"""
     user = request.user
@@ -191,7 +191,7 @@ def display_cars(request):
     return render(request, template, context)
 
 
-@login_required
+@login_required(login_url='/login/')
 def edit_car(request, car_id):
     """Edit an individual car details"""
     car = get_object_or_404(Car, pk=car_id)
@@ -222,7 +222,7 @@ def edit_car(request, car_id):
     return render(request, template, context)
 
 
-@login_required
+@login_required(login_url='/login/')
 def delete_car(request, car_id):
     """Delete an individual car from the database"""
     car = get_object_or_404(Car, pk=car_id)
