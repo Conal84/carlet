@@ -31,7 +31,6 @@ class UserProfileForm(forms.ModelForm):
             'default_town_or_city': 'Town or City',
             'default_county': 'County',
             'default_postcode': 'Postal Code',
-            'default_country': 'Country',
             'default_phone_number': 'Phone Number',
         }
 
@@ -43,4 +42,5 @@ class UserProfileForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = 'profile-form-input'
             self.fields[field].label = False

@@ -30,6 +30,6 @@ class CarForm(forms.ModelForm):
             'placeholder': '£',
         })
 
-    image1 = forms.ImageField(label="Car Image 1 *", widget=CustomClearableFileInput)
-    image2 = forms.ImageField(label="Car Image 2", required=False, widget=CustomClearableFileInput)
-    image3 = forms.ImageField(label="Car Image 3", required=False, widget=CustomClearableFileInput)
+    image1 = forms.ImageField(label="", widget=CustomClearableFileInput)
+    image2 = forms.ImageField(label="", required=False, widget=CustomClearableFileInput)
+    image3 = forms.ImageField(label="", required=False, widget=CustomClearableFileInput)
