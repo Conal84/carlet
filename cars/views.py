@@ -81,6 +81,7 @@ def car_detail(request, car_id):
     return render(request, template, context)
 
 
+@login_required(login_url='/login/')
 def car_insurance(request, id):
     """ A view to return individual car insurance page"""
     template = 'cars/car-insurance.html'
