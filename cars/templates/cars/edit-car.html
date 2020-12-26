@@ -92,4 +92,18 @@
   src="{% static 'js/google_places.js' %}"
 ></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXt_Gbtreh_O2-q4JrndPuwAJRdk6a54w&libraries=places&callback=activatePlacesSearch"></script>
+<script type="text/javascript">
+    $('.image1').change(function() {
+        var file = $('.image1')[0].files[0];
+        $('#file-image1').text(`Image set to: ${file.name}`);
+    });
+    $('.image2').change(function() {
+        var file = $('.image2')[0].files[0];
+        $('#file-image2').text(`Image set to: ${file.name}`);
+    });
+    $('.image3').change(function() {
+        var file = $('.image3')[0].files[0];
+        $('#file-image3').text(`Image set to: ${file.name}`);
+    });
+</script>
 {% endblock %}

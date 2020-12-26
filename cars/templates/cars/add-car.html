@@ -1,91 +1,114 @@
-{% extends "base.html" %}
-{% load static %}
-{% load crispy_forms_tags %}
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %}
 {% block content %}
-
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <hr>
-            <h3>Add Your Car</h3>
-            <p class="text-muted">Simply add your car details below to hire your car out to people in your area</p>
-            <hr>
-        </div>
+  <div class="row">
+    <div class="col-12">
+      <hr />
+      <h3>Add Your Car</h3>
+      <p class="text-muted">
+        Simply add your car details below to hire your car out to people in your
+        area
+      </p>
+      <hr />
     </div>
-    <div class="row">
-        <div class="col-12 p-4">
-            <form method="POST" action="{% url 'add_car' %}" class="dash-form p-4" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col">
-                        <div class="field-wrapper">
-                            {{ form.make.errors }}
-                            {{ form.make | as_crispy_field }}
-                        </div>
-                        <div class="field-wrapper">
-                            {{ form.model.errors }}
-                            {{ form.model | as_crispy_field }}
-                        </div>
-                        <div class="field-wrapper">
-                            {{ form.description.errors }}
-                            {{ form.description | as_crispy_field }}
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="field-wrapper">
-                            {{ form.location.errors }}
-                            {{ form.location | as_crispy_field }}
-                        </div>
-                        <div class="field-wrapper">
-                            {{ form.available_from.errors }}
-                            {{ form.available_from | as_crispy_field }}
-                        </div>
-                        <div class="field-wrapper">
-                            {{ form.available_to.errors }}
-                            {{ form.available_to | as_crispy_field }}
-                        </div>
-                        <div class="field-wrapper">
-                            {{ form.cost_per_day.errors }}
-                            {{ form.cost_per_day | as_crispy_field }}
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="image-wrapper d-flex justify-content-center pb-5">
-                            <div class="field-wrapper">
-                                {{ form.image1.errors }}
-                                {{ form.image1 }}
-                            </div>
-                            <div class="field-wrapper pl-4 pr-4">
-                                {{ form.image2.errors }}
-                                {{ form.image2 }}
-                            </div>
-                            <div class="field-wrapper">
-                                {{ form.image2.errors }}
-                                {{ form.image2 }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <a href="{% url 'car_dashboard' %}" class="btn btn-primary btn-lg mx-2">Cancel</a>
-                    <button class="btn btn-primary btn-lg">Add Car</button>
-                </div>
-            </form>
+  </div>
+  <div class="row">
+    <div class="col-12 p-4">
+      <form
+        method="POST"
+        action="{% url 'add_car' %}"
+        class="dash-form p-4"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="field-wrapper">
+              {{ form.make.errors }} {{ form.make | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.model.errors }} {{ form.model | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.description.errors }}
+              {{ form.description | as_crispy_field }}
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="field-wrapper">
+              {{ form.location.errors }} {{ form.location | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.available_from.errors }}
+              {{ form.available_from | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.available_to.errors }}
+              {{ form.available_to | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.cost_per_day.errors }}
+              {{ form.cost_per_day | as_crispy_field }}
+            </div>
+          </div>
         </div>
+        <div class="row pt-3 pb-5">
+          <div class="col-12 col-md-4">
+            <div class="field-wrapper">
+              {{ form.image1.errors }} {{ form.image1 }}
+            </div>
+          </div>
+          <div class="col-12 col-md-4 pt-3 pt-md-0">
+            <div class="field-wrapper">
+              {{ form.image2.errors }} {{ form.image2 }}
+            </div>
+          </div>
+          <div class="col-12 col-md-4 pt-3 pt-md-0">
+            <div class="field-wrapper">
+              {{ form.image2.errors }} {{ form.image3 }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="d-flex justify-content-center">
+              <a
+                href="{% url 'car_dashboard' %}"
+                class="btn btn-primary btn-lg mx-2"
+                >Cancel</a
+              >
+              <button class="btn btn-primary btn-lg">Add Car</button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 {% endblock %}
-{% block postloadjs %} 
+{% block postloadjs %}
 {{ block.super }}
-    <script
-    type="text/javascript"
-    src="{% static 'js/daterange_picker.js' %}"
-    ></script>
-    <script
-    type="text/javascript"
-    src="{% static 'js/google_places.js' %}"
-    ></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXt_Gbtreh_O2-q4JrndPuwAJRdk6a54w&libraries=places&callback=activatePlacesSearch"></script>
+<script
+  type="text/javascript"
+  src="{% static 'js/daterange_picker.js' %}"
+></script>
+<script
+  type="text/javascript"
+  src="{% static 'js/google_places.js' %}"
+></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXt_Gbtreh_O2-q4JrndPuwAJRdk6a54w&libraries=places&callback=activatePlacesSearch"></script>
+<script type="text/javascript">
+    $('.image1').change(function() {
+        var file = $('.image1')[0].files[0];
+        $('#file-image1').text(`Image set to: ${file.name}`);
+    });
+    $('.image2').change(function() {
+        var file = $('.image2')[0].files[0];
+        $('#file-image2').text(`Image set to: ${file.name}`);
+    });
+    $('.image3').change(function() {
+        var file = $('.image3')[0].files[0];
+        $('#file-image3').text(`Image set to: ${file.name}`);
+    });
+</script>
 {% endblock %}
