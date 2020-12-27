@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+{% csrf_token %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <hr />
+      <h3>Booking History</h3>
+      <p class="text-muted">See previous and current bookings for your car</p>
+      <hr />
+    </div>
+  </div>
+  {% if bookings %}
+  <div class="row">
+    <div class="col-12 pt-3">
+      <div class="table-responsive">
+        <table class="table table-sm table-borderless">
+          <thead>
+            <tr>
+              <th>Car</th>
+              <th>Booked by</th>
+              <th>Start date</th>
+              <th>End date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for booking in bookings %}
+            <tr>
+              <td>{{ booking.car }}</td>
+              <td>£{{ booking.user }}</td>
+              <td>£{{ booking.start_date }}</td>
+              <td>£{{ booking.end_date }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="row">
+      <div class="col-12">
+          You do not have any booking to view at the moment
+      </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

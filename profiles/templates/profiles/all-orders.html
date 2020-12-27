@@ -11,9 +11,10 @@
       <hr />
     </div>
   </div>
+  {% if orders %}
   <div class="row">
     <div class="col-12 pt-3">
-      <div class="order-history table-responsive">
+      <div class="table-responsive">
         <table class="table table-sm table-borderless">
           <thead>
             <tr>
@@ -52,5 +53,12 @@
       </div>
     </div>
   </div>
+    {% else %}
+  <div class="row">
+      <div class="col-12">
+          You do not have any orders to view at the moment
+      </div>
+  </div>
+  {% endif %}
 </div>
 {% endblock %}

@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Car
 from .forms import CarForm
 from .utils import calc_days, check_available
+from profiles.models import UserProfile
 
 from decimal import getcontext, Decimal
 getcontext().prec = 3
@@ -231,3 +232,17 @@ def delete_car(request, car_id):
                      text='Car successfully deleted', timer=4000)
 
     return redirect(reverse('display_cars'))
+
+
+def car_bookings(request):
+    """A view to show all bookings for a particular car owner"""
+    user = request.user
+    cars = Car.objects.filter(user=user)
+    bookings = cars.bookings.all()
+
+    template = 'cars/car-bookings.html'
+    context = {
+        'bookings': bookings,
+    }
+
+    return render(request, template, context)

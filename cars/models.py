@@ -35,16 +35,15 @@ class Car(models.Model):
 class Booking(models.Model):
     car = models.ForeignKey(
                             Car,
-                            on_delete=models.CASCADE,
-                            null=False, blank=False,
+                            on_delete=models.SET_NULL,
+                            null=True, blank=False,
                             related_name='bookings'
                             )
     user = models.ForeignKey(
                              User,
-                             on_delete=models.CASCADE,
-                             null=False,
+                             on_delete=models.SET_NULL,
+                             null=True,
                              blank=False,
-                             related_name='bookings'
                              )
     start_date = models.DateField()
     end_date = models.DateField()
