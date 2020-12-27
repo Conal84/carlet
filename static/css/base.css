@@ -219,7 +219,7 @@ h5 {
   margin: 4rem;
 }
 
-/* -------------------------------------- index.html */
+/* -------------------------------------- Index */
 .content-container {
   min-height: calc(100vh - 10rem);
 }
@@ -302,11 +302,8 @@ h5 {
 
 .dashboard-card {
   min-height: 220px;
-}
-
-#profile-card-btn {
-  position: relative;
-  top: 22px;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .dash-form {
@@ -401,6 +398,21 @@ h5 {
 @media screen and (min-width: 768px) {
   #background-container {
     height: 40%;
+  }
+
+  .dashboard-row {
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-card {
+    min-height: 220px;
+    margin-bottom: 0;
+    width: 200px;
+  }
+
+  #profile-card-btn {
+    position: relative;
+    top: 22px;
   }
 }
 
