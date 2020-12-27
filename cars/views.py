@@ -238,11 +238,18 @@ def car_bookings(request):
     """A view to show all bookings for a particular car owner"""
     user = request.user
     cars = Car.objects.filter(user=user)
-    bookings = cars.bookings.all()
+    booking_list = []
+
+    for car in cars:
+        bookings = car.bookings.all()
+        if bookings:
+            booking_list.append(bookings)
+
+    print(f'booking list is: {booking_list}')
 
     template = 'cars/car-bookings.html'
     context = {
-        'bookings': bookings,
+        'bookings': booking_list,
     }
 
     return render(request, template, context)
