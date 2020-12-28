@@ -32,13 +32,13 @@
 								<p>{{bag_car.make}}, {{bag_car.model}}</p>
 							</td>
 							<td class="py-1">
-								<p>£{{bag_car.cost_per_day}}</p>
+								<p>£{{bag_car.cost_per_day|floatformat:2}}</p>
 							</td>
 							<td class="py-1">
 								<p>{{num_days}}</p>
 							</td>
 							<td class="py-1">
-								<p>£{{bag_car_total}}</p>
+								<p>£{{bag_car_total|floatformat:2}}</p>
 							</td>
                             <td class="py-1">
 								<a class="delete-link" data-name="del_car"><i class="far fa-trash-alt"></i></a>
@@ -50,13 +50,13 @@
 								<p>Car insurance</p>
 							</td>
 							<td class="py-1">
-								<p>£{{bag_insurance}}</p>
+								<p>£{{bag_insurance|floatformat:2}}</p>
 							</td>
 							<td class="py-1">
 								<p>{{num_days}}</p>
 							</td>
 							<td class="py-1">
-								<p>£{{bag_insurance_total}}</p>
+								<p>£{{bag_insurance_total|floatformat:2}}</p>
 							</td>
                             <td class="py-1">
 								<a class="delete-link" data-name="del_insurance"><i class="far fa-trash-alt"></i></a>
@@ -69,13 +69,13 @@
 								<p>Road side assistance</p>
 							</td>
 							<td class="py-1">
-								<p>£{{bag_support}}</p>
+								<p>£{{bag_support|floatformat:2}}</p>
 							</td>
 							<td class="py-1">
 								<p>{{num_days}}</p>
 							</td>
 							<td class="py-1">
-								<p>£{{bag_support_total}}</p>
+								<p>£{{bag_support_total|floatformat:2}}</p>
 							</td>
                             <td class="py-1">
 								<a class="delete-link" data-name="del_support"><i class="far fa-trash-alt"></i></a>
@@ -86,7 +86,8 @@
 				</table>
 			</div>
             <div class="text-center font-weight-bold pb-3">
-                <span class="pr-3">Total to pay</span><span>£{{grand_total}}</span>
+                <span class="pr-3">Total to pay</span>
+                <span>£{{grand_total|floatformat:2}}</span>
             </div>
             <div class="mx-3 mb-3">
                 <a class="btn btn-primary btn-lg btn-block" href="{% url 'checkout' %}" role="button">Go To Secure Checkout

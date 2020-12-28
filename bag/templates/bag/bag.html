@@ -28,13 +28,13 @@
 								<p>{{make}}, {{model}}</p>
 							</td>
 							<td class="py-3">
-								<p>£{{car_cost_per_day}} per day</p>
+								<p>£{{car_cost_per_day|floatformat:2}} per day</p>
 							</td>
 							<td class="py-3">
 								<p>for {{num_days}} days</p>
 							</td>
 							<td class="py-3">
-								<p>£{{car_total}}</p>
+								<p>£{{car_total|floatformat:2}}</p>
 							</td>
 						</tr>
                         <tr>
@@ -42,13 +42,13 @@
 								<p>Car insurance</p>
 							</td>
 							<td class="py-3">
-								<p>£{{insurance_per_day}} per day</p>
+								<p>£{{insurance_per_day|floatformat:2}} per day</p>
 							</td>
 							<td class="py-3">
 								<p>for {{num_days}} days</p>
 							</td>
 							<td class="py-3">
-								<p>£{{insurance_total}}</p>
+								<p>£{{insurance_total|floatformat:2}}</p>
 							</td>
 						</tr>
                         <tr>
@@ -56,13 +56,13 @@
 								<p>Road side assistance</p>
 							</td>
 							<td class="py-3">
-								<p>£{{support_per_day}} per day</p>
+								<p>£{{support_per_day|floatformat:2}} per day</p>
 							</td>
 							<td class="py-3">
 								<p>for {{num_days}} days</p>
 							</td>
 							<td class="py-3">
-								<p>£{{support_total}}</p>
+								<p>£{{support_total|floatformat:2}}</p>
 							</td>
 						</tr>
 					</tbody>
