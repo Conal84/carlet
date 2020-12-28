@@ -1,12 +1,96 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-<div class="row">
-    <div class="col-6">
+<!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'Hire')">Hire a Car</button>
+  <button class="tablinks" onclick="openTab(event, 'Rent')">Rent out your Car</button>
+</div>
 
+<!-- Tab Content Hire -->
+<div id="Hire" class="tabcontent howitworks-wrapper">
+    <div class="row pt-5">
+        <div class="col"></div>
+        <div class="col-4 align-self-center d-flex justify-content-center">
+            <p>Need a car to get around?</p>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+            <img src="/media/person_city.png" class="responsive" alt="How it works image">
+        </div>
+        <div class="col"></div>
     </div>
-    <div class="col-6">
-        
+    <div class="row py-5">
+        <div class="col"></div>
+        <div class="col-4 d-flex justify-content-center">
+            <img src="/media/devices.png" class="responsive" alt="How it works image">
+        </div>
+        <div class="col-4 align-self-center d-flex justify-content-center">
+            <p>Use CarLet to rent a car from people in your area</p>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row pb-5">
+        <div class="col"></div>
+        <div class="col-4 align-self-center text-center">
+            <p>Create an account</p>
+            <p>Complete your order</p>
+            <p>Collect the car and go</p>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+            <img src="/media/index_bg.png" class="responsive" alt="How it works image">
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col text-center pb-5">
+            <a class="btn btn-primary btn-lg" href="{% url 'home' %}" role="button">Search</a>
+        </div>
     </div>
 </div>
-{% endblock %} {% block postloadjs %} {{ block.super }}
 
+<!-- Tab Content Rent -->
+<div id="Rent" class="tabcontent howitworks-wrapper">
+    <div class="row pt-5">
+        <div class="col"></div>
+        <div class="col-4 d-flex justify-content-center">
+            <img src="/media/house.png" class="responsive" alt="How it works image">
+        </div>
+        <div class="col-4 align-self-center d-flex justify-content-center">
+            <p>Is your car sitting outside doing nothing?</p>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row py-5">
+        <div class="col"></div>
+        <div class="col-4 align-self-center d-flex justify-content-center">
+            <p>Use CarLet to rent out your car</p>
+        </div>
+        <div class="col-4 d-flex justify-content-center">
+            <img src="/media/devices.png" class="responsive" alt="How it works image">
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row pb-5">
+        <div class="col"></div>
+        <div class="col-4 d-flex justify-content-center">
+            <img src="/media/piggy_bank.png" class="responsive" alt="How it works image">
+        </div>
+        <div class="col-4 align-self-center text-center">
+            <p>Create an account</p>
+            <p>Add your car details</p>
+            <p>Earn some extra cash</p>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col text-center pb-5">
+            <a class="btn btn-primary btn-lg" href="{% url 'account_login' %}" role="button">Log In</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+<script
+  type="text/javascript"
+  src="{% static 'js/how_it_works_tabs.js' %}"
+></script>
 {% endblock %}
