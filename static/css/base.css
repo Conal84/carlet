@@ -264,40 +264,31 @@ h5 {
   min-height: calc(100vh - 10rem);
 }
 
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
+/* Style the tab buttons */
+.tablinks {
   background-color: inherit;
-  float: left;
   border: none;
+  border-bottom: 2px solid #6cd4ff;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
-  transition: 0.3s;
+  transition: 0.3s linear;
+  height: 100%;
+  width: 100%;
 }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
+/* Change background color of button columns on hover */
+.tablinks:hover {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #dc04b4;
 }
 
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+/* When tablink buton is active change border thickness */
+.tablinks.active {
+  border: none;
+  outline: none;
+  border-bottom: 4px solid #dc04b4;
 }
 
 /* -------------------------------------- Cars */

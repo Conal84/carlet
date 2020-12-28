@@ -1,8 +1,14 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 <!-- Tab links -->
-<div class="tab">
-  <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'Hire')">Hire a Car</button>
-  <button class="tablinks" onclick="openTab(event, 'Rent')">Rent out your Car</button>
+<div class="row pt-3">
+    <div class="col"></div>
+    <div class="tab-col col-4 d-flex justify-content-center">
+        <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'Hire')">Hire a Car</button>
+    </div>
+    <div class="tab-col col-4 d-flex justify-content-center">
+        <button class="tablinks" onclick="openTab(event, 'Rent')">Rent out your Car</button>
+    </div>
+    <div class="col"></div>
 </div>
 
 <!-- Tab Content Hire -->
@@ -23,7 +29,7 @@
             <img src="/media/devices.png" class="responsive" alt="How it works image">
         </div>
         <div class="col-4 align-self-center d-flex justify-content-center">
-            <p>Use CarLet to rent a car from people in your area</p>
+            <p>Use <span class="navbar-brand m-0">CarLet</span> to hire a car from people in your area</p>
         </div>
         <div class="col"></div>
     </div>
@@ -61,7 +67,7 @@
     <div class="row py-5">
         <div class="col"></div>
         <div class="col-4 align-self-center d-flex justify-content-center">
-            <p>Use CarLet to rent out your car</p>
+            <p>Use <span class="navbar-brand m-0">CarLet</span> to rent out your car</p>
         </div>
         <div class="col-4 d-flex justify-content-center">
             <img src="/media/devices.png" class="responsive" alt="How it works image">
