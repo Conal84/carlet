@@ -8,8 +8,8 @@ from .forms import CarForm
 from .utils import calc_days, check_available
 from profiles.models import UserProfile
 
-from decimal import getcontext, Decimal
-getcontext().prec = 3
+from decimal import Decimal, getcontext
+getcontext().prec = 2
 
 # Create your views here.
 
@@ -87,11 +87,11 @@ def car_insurance(request, id):
     """ A view to return individual car insurance page"""
     template = 'cars/car-insurance.html'
     car = get_object_or_404(Car, pk=id)
-    insurance = Decimal(car.insurance)
+    insurance = '£{:.2f}'.format(car.insurance)
 
     bag = request.session.get('bag')
     num_days = bag["num_days"]
-    insurance_total = Decimal(insurance * num_days)
+    insurance_total = '£{:.2f}'.format(car.insurance * num_days)
 
     context = {
         "car": car,
@@ -107,11 +107,11 @@ def car_insurance_skip(request, car_id):
     """ A view to return individual car insurance page"""
     template = 'cars/car-support.html'
     car = get_object_or_404(Car, pk=car_id)
-    support = Decimal(car.support)
+    support = '£{:.2f}'.format(car.support)
 
     bag = request.session.get('bag')
     num_days = bag["num_days"]
-    support_total = Decimal(support * num_days)
+    support_total = '£{:.2f}'.format(car.support * num_days)
 
     context = {
         "car": car,
@@ -126,11 +126,11 @@ def car_support(request, id):
     """ A view to return individual car support page"""
     template = 'cars/car-support.html'
     car = get_object_or_404(Car, pk=id)
-    support = Decimal(car.support)
+    support = '£{:.2f}'.format(car.support)
 
     bag = request.session.get('bag')
     num_days = bag["num_days"]
-    support_total = Decimal(support * num_days)
+    support_total = '£{:.2f}'.format(car.support * num_days)
 
     context = {
         "car": car,

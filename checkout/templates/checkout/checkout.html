@@ -34,13 +34,13 @@
                 <p>{{bag_car.make}}, {{bag_car.model}}</p>
               </td>
               <td class="py-3">
-                <p>£{{bag_car.cost_per_day}} per day</p>
+                <p>£{{bag_car.cost_per_day|floatformat:2}} per day</p>
               </td>
               <td class="py-3">
                 <p>for {{num_days}} days</p>
               </td>
               <td class="py-3">
-                <p>£{{bag_car_total}}</p>
+                <p>£{{bag_car_total|floatformat:2}}</p>
               </td>
             </tr>
             {% if bag_insurance %}
@@ -49,13 +49,13 @@
                 <p>Car insurance</p>
               </td>
               <td class="py-3">
-                <p>£{{bag_insurance}} per day</p>
+                <p>£{{bag_insurance|floatformat:2}} per day</p>
               </td>
               <td class="py-3">
                 <p>for {{num_days}} days</p>
               </td>
               <td class="py-3">
-                <p>£{{bag_insurance_total}}</p>
+                <p>£{{bag_insurance_total|floatformat:2}}</p>
               </td>
             </tr>
             {% endif %} {% if bag_support %}
@@ -64,16 +64,30 @@
                 <p>Road side assistance</p>
               </td>
               <td class="py-3">
-                <p>£{{bag_support}} per day</p>
+                <p>£{{bag_support|floatformat:2}} per day</p>
               </td>
               <td class="py-3">
                 <p>for {{num_days}} days</p>
               </td>
               <td class="py-3">
-                <p>£{{bag_support_total}}</p>
+                <p>£{{bag_support_total|floatformat:2}}</p>
               </td>
             </tr>
             {% endif %}
+            <tr>
+                <td class="py-3">
+                    <p class="text-bold">Grand Total</p>
+                </td>
+                <td class="py-3">
+                    <p></p>
+                </td>
+                <td class="py-3">
+                    <p></p>
+                </td>
+                <td class="py-3">
+                    <p class="text-bold">£{{grand_total|floatformat:2}}</p>
+                </td>
+            </tr>
           </tbody>
         </table>
       </div>
