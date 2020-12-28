@@ -1,13 +1,13 @@
 {% extends "base.html" %} {% block content %}
 	<div class="row full-row m-0">
-        <div class="col-12 col-md-6 p-5 car-col my-auto">
+        <div class="col-12 col-md-6 car-col my-auto">
             <div class="carousel-container">
                 <div id="carousel-car-images" class="carousel slide" data-ride="carousel" data-interval="8000">
                     <div class="carousel-inner">
                         {% for image in images.values %}
                         <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
                             <a href="{{ image }}" target="_blank">
-                                <img src="{{ image }}" class="d-block carousel-image" alt=""/>
+                                <img src="{{ image }}" class="d-block carousel-image" alt="car detail image"/>
                             </a>
                         </div>
                         {% endfor %}
