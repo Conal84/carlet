@@ -5,20 +5,6 @@ $(document).ready(function () {
   $("#bag-nav").click(function () {
     $(".toast").toast("show");
   });
-
-  /**
-   * Prevent manual date entry on add / edit forms
-   */
-  document.getElementById("search-from").onkeydown = function() {
-      return false;
-  }
-
-    /**
-   * Prevent manual date entry on add / edit forms
-   */
-  document.getElementById("search-to").onkeydown = function() {
-      return false;
-  }
 });
 
 // Toast Bag - Remove item and reload on click

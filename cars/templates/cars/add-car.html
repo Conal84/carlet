@@ -55,19 +55,19 @@
         <div class="row pt-3 pb-5">
           <div class="col-12 col-md-4">
             <div class="field-wrapper">
-                <label for="image1" class="m-0">Required *</label>
+              <label for="image1" class="m-0">Required *</label>
               {{ form.image1.errors }} {{ form.image1 }}
             </div>
           </div>
           <div class="col-12 col-md-4 pt-3 pt-md-0">
             <div class="field-wrapper">
-                <label for="image2"></label>
+              <label for="image2"></label>
               {{ form.image2.errors }} {{ form.image2 }}
             </div>
           </div>
           <div class="col-12 col-md-4 pt-3 pt-md-0">
             <div class="field-wrapper">
-                <label for="image3"></label>
+              <label for="image3"></label>
               {{ form.image2.errors }} {{ form.image3 }}
             </div>
           </div>
@@ -101,17 +101,30 @@
 ></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXt_Gbtreh_O2-q4JrndPuwAJRdk6a54w&libraries=places&callback=activatePlacesSearch"></script>
 <script type="text/javascript">
-    $('.image1').change(function() {
-        var file = $('.image1')[0].files[0];
-        $('#file-image1').text(`Image set to: ${file.name}`);
-    });
-    $('.image2').change(function() {
-        var file = $('.image2')[0].files[0];
-        $('#file-image2').text(`Image set to: ${file.name}`);
-    });
-    $('.image3').change(function() {
-        var file = $('.image3')[0].files[0];
-        $('#file-image3').text(`Image set to: ${file.name}`);
-    });
+  /**
+   * Set image file name when image selected
+   */
+  $(".image1").change(function () {
+    var file = $(".image1")[0].files[0];
+    $("#file-image1").text(`Image set to: ${file.name}`);
+  });
+  $(".image2").change(function () {
+    var file = $(".image2")[0].files[0];
+    $("#file-image2").text(`Image set to: ${file.name}`);
+  });
+  $(".image3").change(function () {
+    var file = $(".image3")[0].files[0];
+    $("#file-image3").text(`Image set to: ${file.name}`);
+  });
+  /**
+   * Prevent manual date entry on add / edit forms
+   */
+  document.getElementById("search-from").onkeydown = function () {
+    return false;
+  };
+
+  document.getElementById("search-to").onkeydown = function () {
+    return false;
+  };
 </script>
 {% endblock %}
