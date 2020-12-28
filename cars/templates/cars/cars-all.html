@@ -5,7 +5,7 @@
     <div class="row m-0 pt-5">
         {% if cars %}
             {% for car in cars %}
-            <div class="col-sm-6 col-lg-4 col-xl-3 car-col">
+            <div class="col-sm-6 col-lg-4 col-xl-3 car-col mb-3">
                 <div class="card text-center car-card">
                     <img src="{{ car.image1.url }}" class="card-img-top car-card-img" alt="Car image">
                     <div class="card-body">
@@ -16,24 +16,24 @@
                             </div>
                         </div>
                     </div>
-            <div class="col-12 d-sm-none mb-5">
+            <div class="col-12 d-sm-none mb-3">
                 <hr>
             </div>
 
             {% if forloop.counter|divisibleby:2 %}
-            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-3">
                 <hr>
             </div>
             {% endif %}
 
             {% if forloop.counter|divisibleby:3 %}
-            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+            <div class="col-12 d-none d-lg-block d-xl-none mb-3">
                 <hr>
             </div>
             {% endif %}
 
             {% if forloop.counter|divisibleby:4 %}
-            <div class="col-12 d-none d-xl-block mb-5">
+            <div class="col-12 d-none d-xl-block mb-3">
                 <hr>
             </div>
             {% endif %}
