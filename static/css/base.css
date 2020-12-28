@@ -16,7 +16,7 @@ body {
   font-family: "Nunito Sans", sans-serif;
 }
 
-/* -------------------------------------- Fonts */
+/* -------------------------------------- Fonts & Text */
 .logo-font {
   font-family: "Roboto", sans-serif;
   color: #4059ad;
@@ -37,6 +37,10 @@ h5 {
 .text-bold {
   font-family: "Roboto", sans-serif;
   font-weight: 800;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 /* -------------------------------------- Colors */
