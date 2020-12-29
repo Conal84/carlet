@@ -1,1 +1,1 @@
-web: gunicorn carlet-app.wsgi:application
+web: gunicorn carlet.wsgi:application
