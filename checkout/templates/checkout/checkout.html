@@ -18,6 +18,12 @@
         Your Order
       </p>
       {% if grand_total %}
+      <div class="p-3">
+        <p class="text-bold">Car Collection Location</p>
+        <p>{{bag_car.street_address1}}, {{bag_car.street_address2}}</p>
+        <p>{{bag_car.city}}, {{bag_car.county}}</p>
+        <p>{{bag_car.postcode}}</p>
+      </div>
       <div class="table-responsive">
         <table class="table">
           <thead>

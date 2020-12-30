@@ -11,7 +11,7 @@ from datetime import datetime
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from bag.contexts import bag_contents
-from cars.models import Booking
+from cars.models import Car, Booking
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 
@@ -137,7 +137,7 @@ def checkout(request):
             booking.save()
             return redirect(reverse(
                 'checkout_success',
-                args=[order.order_number]
+                args=[order.order_number, car.id]
             ))
         else:
             sweetify.error(request, title='Error!',
@@ -191,12 +191,13 @@ def checkout(request):
     return render(request, template, context)
 
 
-def checkout_success(request, order_number):
+def checkout_success(request, order_number, car_id):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    car = get_object_or_404(Car, pk=car_id)
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -230,6 +231,7 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout-success.html'
     context = {
         'order': order,
+        'car': car,
     }
 
     return render(request, template, context)

@@ -8,9 +8,6 @@ from .forms import CarForm
 from .utils import calc_days, check_available
 from profiles.models import UserProfile
 
-from decimal import Decimal, getcontext
-getcontext().prec = 2
-
 # Create your views here.
 
 
@@ -41,7 +38,7 @@ def cars_all(request):
         #     available_to__gte=search_to
         # )
         cars = Car.objects.filter(
-            location__icontains=location
+            city__icontains=location
         )
         print(f"Cars by location are: {cars}")
         car_available_list = []

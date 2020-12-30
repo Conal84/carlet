@@ -30,7 +30,9 @@
                 <p>{{ car.make }}</p>
                 <p>{{ car.model }}</p>
                 <p>{{ car.description }}</p>
-                <p>{{ car.location }}</p>
+                <p>{{ car.street_address1 }}, {{ car.street_address2 }}</p>
+                <p>{{ car.city }}, {{ car.county }}</p>
+                <p>{{ car.postcode }}</p>
                 <p class="text-bold">£{{ car.cost_per_day }} per day for 
                     {{ num_days }} days</p>
                 <hr class="hr-color">

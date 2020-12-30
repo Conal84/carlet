@@ -15,7 +15,7 @@
       </p>
     </div>
   </div>
-  <div class="row pt-3">
+  <div class="row py-3">
     <div class="col-12 col-md-6 order-md-last">
       <p class="text-muted">Your Order</p>
       <div class="row w-100">
@@ -34,11 +34,23 @@
           <p>{{ order.date }}</p>
         </div>
       </div>
-      <div class="table-responsive table-checkout-success">
+      <hr>
+      <div class="row w-100">
+          <div class="col-12 p-4">
+            <p class="text-bold">Car Collection Details</p>
+            <p>{{ car.contact_name }}</p>
+            <p>{{ car.contact_phone_number }}</p>
+            <p>{{car.street_address1}}, {{car.street_address2}}</p>
+            <p>{{car.city}}, {{car.county}}</p>
+            <p class="m-0">{{car.postcode}}</p>
+          </div>
+      </div>
+      <hr>
+      <div class="table-responsive pt-0 table-checkout-success">
         <table class="table table-borderless">
           <thead>
             <tr>
-              <th scope="col" class="text-bold pl-0">Description</th>
+              <th scope="col" class="text-bold pl-0">Items Ordered</th>
               <th scope="col" class="text-bold">Cost/day</th>
               <th scope="col" class="text-bold">No. of days</th>
               <th scope="col" class="text-bold text-md-right">Subtotal</th>

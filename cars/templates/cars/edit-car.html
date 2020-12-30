@@ -33,7 +33,8 @@
           </div>
           <div class="col-12 col-md-6">
             <div class="field-wrapper">
-              {{ form.location.errors }} {{ form.location | as_crispy_field }}
+              {{ form.street_address1.errors }}
+              {{ form.street_address1 | as_crispy_field }}
             </div>
             <div class="field-wrapper">
               {{ form.available_from.errors }}

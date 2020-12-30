@@ -17,7 +17,7 @@ class CarForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CarForm, self).__init__(*args, **kwargs)
-        self.fields['location'].widget = forms.TextInput(attrs={
+        self.fields['city'].widget = forms.TextInput(attrs={
             'id': 'search-location',
         })
         self.fields['available_from'].widget = forms.TextInput(attrs={

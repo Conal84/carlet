@@ -36,8 +36,35 @@
           </div>
           <div class="col-12 col-md-6">
             <div class="field-wrapper">
-              {{ form.location.errors }} {{ form.location | as_crispy_field }}
+              {{ form.contact_name.errors }}
+              {{ form.contact_name | as_crispy_field }}
             </div>
+            <div class="field-wrapper">
+              {{ form.street_address1.errors }}
+              {{ form.street_address1 | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.street_address2.errors }}
+              {{ form.street_address2 | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.city.errors }}
+              {{ form.city | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.county.errors }}
+              {{ form.county | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.postcode.errors }}
+              {{ form.postcode | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.contact_phone_number.errors }}
+              {{ form.contact_phone_number | as_crispy_field }}
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
             <div class="field-wrapper">
               {{ form.available_from.errors }}
               {{ form.available_from | as_crispy_field }}
