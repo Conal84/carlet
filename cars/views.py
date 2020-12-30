@@ -240,9 +240,8 @@ def car_bookings(request):
     for car in cars:
         bookings = car.bookings.all()
         if bookings:
-            booking_list.append(bookings)
-
-    print(f'booking list is: {booking_list}')
+            for booking in bookings:
+                booking_list.append(booking)
 
     template = 'cars/car-bookings.html'
     context = {

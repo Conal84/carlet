@@ -64,6 +64,9 @@ class StripeWH_Handler:
         bag_support_total = intent.metadata.bag_support_total
         save_info = intent.metadata.save_info
 
+        id = bag['car_id']
+        car = get_object_or_404(Car, pk=id)
+
         billing_details = intent.charges.data[0].billing_details
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
@@ -114,11 +117,12 @@ class StripeWH_Handler:
                     postcode=billing_details.address.postal_code,
                     country=billing_details.address.country,
                     stripe_pid=pid,
+                    car=car,
                 )
                 bag = json.loads(bag)
                 if "car_id" in bag:
-                    id = bag['car_id']
-                    car = get_object_or_404(Car, pk=id)
+                    # id = bag['car_id']
+                    # car = get_object_or_404(Car, pk=id)
                     desc = car.make + " " + car.model
                     order_line_item = OrderLineItem(
                         order=order,
@@ -129,8 +133,8 @@ class StripeWH_Handler:
                     )
                     order_line_item.save()
                 if "insurance" in bag:
-                    id = bag['car_id']
-                    car = get_object_or_404(Car, pk=id)
+                    # id = bag['car_id']
+                    # car = get_object_or_404(Car, pk=id)
                     insurance = car.insurance
                     order_line_item = OrderLineItem(
                         order=order,
@@ -141,8 +145,8 @@ class StripeWH_Handler:
                     )
                     order_line_item.save()
                 if "support_id" in bag:
-                    id = bag['car_id']
-                    car = get_object_or_404(Car, pk=id)
+                    # id = bag['car_id']
+                    # car = get_object_or_404(Car, pk=id)
                     support = car.support
                     order_line_item = OrderLineItem(
                         order=order,

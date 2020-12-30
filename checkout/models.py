@@ -5,6 +5,7 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 
 from profiles.models import UserProfile
+from cars.models import Car
 
 # Create your models here.
 
@@ -15,6 +16,9 @@ class Order(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=False,
                                      related_name='orders')
+    car = models.ForeignKey(Car, on_delete=models.SET_NULL,
+                            null=True, blank=False,
+                            related_name='car_orders')
     full_name = models.CharField(max_length=32, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)

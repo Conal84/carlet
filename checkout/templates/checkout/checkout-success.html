@@ -38,11 +38,11 @@
       <div class="row w-100">
           <div class="col-12 p-4">
             <p class="text-bold">Car Collection Details</p>
-            <p>{{ car.contact_name }}</p>
-            <p>{{ car.contact_phone_number }}</p>
-            <p>{{car.street_address1}}, {{car.street_address2}}</p>
-            <p>{{car.city}}, {{car.county}}</p>
-            <p class="m-0">{{car.postcode}}</p>
+            <p>{{ order.car.contact_name }}</p>
+            <p>{{ order.car.contact_phone_number }}</p>
+            <p>{{order.car.street_address1}}, {{order.car.street_address2}}</p>
+            <p>{{order.car.city}}, {{order.car.county}}</p>
+            <p class="m-0">{{order.car.postcode}}</p>
           </div>
       </div>
       <hr>
@@ -149,7 +149,7 @@
     </div>
   </div>
 {% if from_profile %}
-  <div class="row">
+  <div class="row pb-5">
       <div class="col d-flex justify-content-center">
             <a href="{% url 'all_orders' %}" class="btn btn-primary btn-lg">
                 <span class="icon mr-2">
