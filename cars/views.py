@@ -62,9 +62,13 @@ def car_detail(request, car_id):
 
     images = {
         'image1': car.image1.url,
-        'image2': car.image2.url,
-        'image3': car.image3.url,
     }
+
+    if car.image2:
+        images['image2'] = car.image2.url
+
+    if car.image3:
+        images['image3'] = car.image3.url
 
     bag = request.session.get('bag')
     num_days = bag["num_days"]
