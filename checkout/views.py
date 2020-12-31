@@ -138,7 +138,7 @@ def checkout(request):
             booking.save()
             return redirect(reverse(
                 'checkout_success',
-                args=[order.order_number, car.id]
+                args=[order.order_number]
             ))
         else:
             sweetify.error(request, title='Error!',
@@ -192,13 +192,13 @@ def checkout(request):
     return render(request, template, context)
 
 
-def checkout_success(request, order_number, car_id):
+def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    car = get_object_or_404(Car, pk=car_id)
+    car = order.car
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)

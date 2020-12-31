@@ -23,6 +23,9 @@
         {% csrf_token %}
         <div class="row">
           <div class="col-12 col-md-6">
+            <div class="pb-md-5">
+                <p>Add Car details below</p>
+            </div>
             <div class="field-wrapper">
               {{ form.make.errors }} {{ form.make | as_crispy_field }}
             </div>
@@ -33,8 +36,23 @@
               {{ form.description.errors }}
               {{ form.description | as_crispy_field }}
             </div>
+            <div class="field-wrapper">
+              {{ form.available_from.errors }}
+              {{ form.available_from | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.available_to.errors }}
+              {{ form.available_to | as_crispy_field }}
+            </div>
+            <div class="field-wrapper">
+              {{ form.cost_per_day.errors }}
+              {{ form.cost_per_day | as_crispy_field }}
+            </div>
           </div>
           <div class="col-12 col-md-6">
+            <div class="pb-md-1">
+                <p>Add contact details and car location below so the person collecting the car can find you</p>
+            </div>
             <div class="field-wrapper">
               {{ form.contact_name.errors }}
               {{ form.contact_name | as_crispy_field }}
@@ -62,20 +80,6 @@
             <div class="field-wrapper">
               {{ form.contact_phone_number.errors }}
               {{ form.contact_phone_number | as_crispy_field }}
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="field-wrapper">
-              {{ form.available_from.errors }}
-              {{ form.available_from | as_crispy_field }}
-            </div>
-            <div class="field-wrapper">
-              {{ form.available_to.errors }}
-              {{ form.available_to | as_crispy_field }}
-            </div>
-            <div class="field-wrapper">
-              {{ form.cost_per_day.errors }}
-              {{ form.cost_per_day | as_crispy_field }}
             </div>
           </div>
         </div>
