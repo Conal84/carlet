@@ -8,7 +8,6 @@ from django.contrib.auth.models import User
 class Car(models.Model):
     make = models.CharField(max_length=30)
     model = models.CharField(max_length=30)
-    description = models.TextField(max_length=100)
     contact_name = models.CharField(max_length=40, default='')
     street_address1 = models.CharField(max_length=80, default='')
     street_address2 = models.CharField(max_length=80, default='')

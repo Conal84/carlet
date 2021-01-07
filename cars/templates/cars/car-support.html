@@ -19,7 +19,7 @@
             <div class="text-center">
                 <form class="form d-inline-block" action="{% url 'add_to_bag' car.id %}" method="POST">
                     {% csrf_token %}
-                    <input type="submit" class="btn btn-primary btn-lg" value="Reserve">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Add to Order">
                     <input type="hidden" name="item" value="support">
                 </form>
                 <a class="btn btn-primary btn-lg" href="{% url 'checkout' %}" role="button">Go To Checkout</a>
