@@ -27,7 +27,7 @@
             {% for booking in bookings %}
             <tr>
               <td>{{ booking.car }}</td>
-              <td>{{ booking.user }}</td>
+              <td>{{ booking.user.get_full_name }}</td>
               <td>{{ booking.start_date }}</td>
               <td>{{ booking.end_date }}</td>
             </tr>
