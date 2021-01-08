@@ -31,12 +31,15 @@ def cars_all(request):
         calc_days(request, search_from, search_to)
 
         # cars = Car.objects.filter(
+        #     available=True
+        # ).filter(
         #     location__icontains=location
         # ).filter(
         #     available_from__lte=search_from
         # ).filter(
         #     available_to__gte=search_to
         # )
+
         cars = Car.objects.filter(
             city__icontains=location
         )
@@ -181,9 +184,15 @@ def add_car(request):
 
 @login_required(login_url='/login/')
 def display_cars(request):
-    """Display a users cars in the database for editing"""
-    user = request.user
-    cars = Car.objects.filter(user=user)
+    """
+    Display a users cars in the database for editing
+    If user is superuser display all cars
+    """
+    if request.user.is_superuser:
+        cars = Car.objects.all()
+    else:
+        user = request.user
+        cars = Car.objects.filter(user=user)
 
     template = 'cars/display-cars.html'
     context = {
@@ -222,6 +231,21 @@ def edit_car(request, car_id):
     }
 
     return render(request, template, context)
+
+
+@login_required(login_url='/login/')
+def remove_car(request, car_id):
+    """
+    Remove an individual car by setting car
+    available attribute to false
+    """
+    car = get_object_or_404(Car, pk=car_id)
+    car.available = False
+    car.save()
+    sweetify.success(request, title='Success!', icon='success',
+                     text='Car successfully removed', timer=4000)
+
+    return redirect(reverse('display_cars'))
 
 
 @login_required(login_url='/login/')

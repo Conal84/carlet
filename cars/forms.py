@@ -7,7 +7,7 @@ class CarForm(forms.ModelForm):
 
     class Meta:
         model = Car
-        exclude = ['user']
+        exclude = ['user', 'available']
 
     def __init__(self, *args, **kwargs):
         super(CarForm, self).__init__(*args, **kwargs)

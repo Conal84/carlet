@@ -17,6 +17,7 @@ class Car(models.Model):
     contact_phone_number = models.CharField(max_length=20, default='')
     available_from = models.DateField(default=date.today)
     available_to = models.DateField(default=date.today)
+    available = models.BooleanField(default=True)
     cost_per_day = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image1 = models.ImageField(null=True, blank=True)
