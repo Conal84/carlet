@@ -40,7 +40,7 @@ h5 {
 }
 
 .underline {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* -------------------------------------- Colors */
@@ -332,6 +332,15 @@ h5 {
   width: 100%;
   height: 10vw;
   object-fit: fill;
+}
+
+.fa-map-marker-alt {
+    color: #7510f7;
+}
+
+#map {
+  height: 400px;
+  width: 400px;
 }
 
 /* -------------------------------------- Dashboard */
