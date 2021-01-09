@@ -63,36 +63,36 @@ I want to use bright but neutral colors to attract users from a variety of demog
 
 
 ### Wireframes
-![Home Desktop](/static/wireframes/Home.png)
-![Home Tablet](/static/wireframes/Home_tablet.png)
-![Home Mobile](/static/wireframes/Home_phone.png)
-![Car details Desktop](/static/wireframes/Car_details.png)
-![Car details Tablet](/static/wireframes/Car_details_tablet.png)
-![Car details Mobile](/static/wireframes/Car_details_phone.png)
-![Sign Up](/static/wireframes/Sign_up_In.png)
-![Sign Up Tablet](/static/wireframes/Sign_up_In_tablet.png)
-![Sign Up Mobile](/static/wireframes/Sign_up_in_phone.png)
-![Search Logged in Desktop](/static/wireframes/Search_logged_in.png)
-![Search Logged in Tablet](/static/wireframes/Search_logged_in_tablet.png)
-![Search Logged in Mobile](/static/wireframes/Search_logged_in_phone.png)
-![Car details Logged in Desktop](/static/wireframes/Car_details_logged_in.png)
-![Car details Logged in Tablet](/static/wireframes/Car_details_logged_in_tablet.png)
-![Car details Logged in Mobile](/static/wireframes/Car_details_logged_in_phone.png)
-![My account Desktop](/static/wireframes/My_account.png)
-![My account Tablet](/static/wireframes/My_account_tablet.png)
-![My account Mobile](/static/wireframes/My_account_phone.png)
-![Hire history Desktop](/static/wireframes/Hire_history.png)
-![Hire history Tablet](/static/wireframes/Hire_history_tablet.png)
-![Hire history Mobile](/static/wireframes/Hire_history_phone.png)
-![My Listings Desktop](/static/wireframes/My_listings.png)
-![My Listings Tablet](/static/wireframes/My_listings_tablet.png)
-![My Listings Mobile](/static/wireframes/My_listings_phone.png)
-![Checkout Desktop](/static/wireframes/Checkout.png)
-![Checkout Tablet](/static/wireframes/Checkout_tablet.png)
-![Checkout Mobile](/static/wireframes/Checkout_phone.png)
-![Logout Desktop](/static/wireframes/Log_out.png)
-![Logout Tablet](/static/wireframes/Log_out_tablet.png)
-![Logout Mobile](/static/wireframes/Log_out_phone.png)
+[Home Desktop](/static/wireframes/Home.png)
+[Home Tablet](/static/wireframes/Home_tablet.png)
+[Home Mobile](/static/wireframes/Home_phone.png)
+[Car details Desktop](/static/wireframes/Car_details.png)
+[Car details Tablet](/static/wireframes/Car_details_tablet.png)
+[Car details Mobile](/static/wireframes/Car_details_phone.png)
+[Sign Up](/static/wireframes/Sign_up_In.png)
+[Sign Up Tablet](/static/wireframes/Sign_up_In_tablet.png)
+[Sign Up Mobile](/static/wireframes/Sign_up_in_phone.png)
+[Search Logged in Desktop](/static/wireframes/Search_logged_in.png)
+[Search Logged in Tablet](/static/wireframes/Search_logged_in_tablet.png)
+[Search Logged in Mobile](/static/wireframes/Search_logged_in_phone.png)
+[Car details Logged in Desktop](/static/wireframes/Car_details_logged_in.png)
+[Car details Logged in Tablet](/static/wireframes/Car_details_logged_in_tablet.png)
+[Car details Logged in Mobile](/static/wireframes/Car_details_logged_in_phone.png)
+[My account Desktop](/static/wireframes/My_account.png)
+[My account Tablet](/static/wireframes/My_account_tablet.png)
+[My account Mobile](/static/wireframes/My_account_phone.png)
+[Hire history Desktop](/static/wireframes/Hire_history.png)
+[Hire history Tablet](/static/wireframes/Hire_history_tablet.png)
+[Hire history Mobile](/static/wireframes/Hire_history_phone.png)
+[My Listings Desktop](/static/wireframes/My_listings.png)
+[My Listings Tablet](/static/wireframes/My_listings_tablet.png)
+[My Listings Mobile](/static/wireframes/My_listings_phone.png)
+[Checkout Desktop](/static/wireframes/Checkout.png)
+[Checkout Tablet](/static/wireframes/Checkout_tablet.png)
+[Checkout Mobile](/static/wireframes/Checkout_phone.png)
+[Logout Desktop](/static/wireframes/Log_out.png)
+[Logout Tablet](/static/wireframes/Log_out_tablet.png)
+[Logout Mobile](/static/wireframes/Log_out_phone.png)
 
 ### Technologies used
 #### Tools
@@ -128,9 +128,6 @@ I want to use bright but neutral colors to attract users from a variety of demog
 ![Database Structure](/static/docs/Database_structure.png)
 
 ### Project collection
-
-### File structure
-![File Structure](/static/docs/File_structure.png)
 
 ### Features to implement
 
