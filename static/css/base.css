@@ -336,11 +336,21 @@ h5 {
 
 .fa-map-marker-alt {
     color: #7510f7;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 #map {
   height: 400px;
-  width: 400px;
+  width: 100%;
+}
+
+.close {
+    color: #7510f7;
+}
+
+.close:hover {
+    color: #7510f7;
 }
 
 /* -------------------------------------- Dashboard */
