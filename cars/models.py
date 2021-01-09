@@ -20,9 +20,9 @@ class Car(models.Model):
     available = models.BooleanField(default=True)
     cost_per_day = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image1 = models.ImageField(null=True, blank=True)
-    image2 = models.ImageField(null=True, blank=True)
-    image3 = models.ImageField(null=True, blank=True)
+    image1 = models.ImageField(blank=True)
+    image2 = models.ImageField(blank=True)
+    image3 = models.ImageField(blank=True)
 
     def __str__(self):
         return f"{self.make}, {self.model}"

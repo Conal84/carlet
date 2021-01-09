@@ -25,5 +25,7 @@ class CarForm(forms.ModelForm):
         })
 
     image1 = forms.ImageField(label="", widget=CustomClearableFileInput)
-    image2 = forms.ImageField(label="", required=False, widget=CustomClearableFileInput)
-    image3 = forms.ImageField(label="", required=False, widget=CustomClearableFileInput)
+    image2 = forms.ImageField(label="", required=False,
+                              widget=CustomClearableFileInput)
+    image3 = forms.ImageField(label="", required=False,
+                              widget=CustomClearableFileInput)

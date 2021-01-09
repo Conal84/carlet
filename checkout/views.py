@@ -11,7 +11,7 @@ from datetime import datetime
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from bag.contexts import bag_contents
-from cars.models import Car, Booking
+from cars.models import Booking
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 

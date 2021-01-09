@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Car
 from .forms import CarForm
 from .utils import calc_days, check_available
-from profiles.models import UserProfile
 
 # Create your views here.
 
