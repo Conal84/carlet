@@ -44,22 +44,6 @@ h5 {
 }
 
 /* -------------------------------------- Colors */
-.bg-purple {
-  background-color: #7510f7;
-}
-
-.bg-blue {
-  background-color: #6cd4ff;
-}
-
-.bg-pink {
-  background-color: #cfb1b7;
-}
-
-.bg-silver {
-  background-color: #83858c;
-}
-
 .hr-color {
   border-top: 1px solid #dc04b4;
 }
@@ -338,6 +322,7 @@ h5 {
     color: #7510f7;
     font-size: 2rem;
     cursor: pointer;
+    padding-bottom: 10px;
 }
 
 #map {
