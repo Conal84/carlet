@@ -1,6 +1,6 @@
 <h1 align="center">Car-Let</h1>
 
-[The_Carlet_website](https://carlet-app.herokuapp.com/) allows users to search a list of cars for hire by location.
+The [Carlet](https://carlet-app.herokuapp.com/) website allows users to search a list of cars for hire by location.
 Users can click on an available car to see additional car details and then hire that car if they wish to do so.
 Users can also upload their car to the website to make it available for hire.
 Users can create, view, update and delete an account when required.
@@ -10,26 +10,44 @@ Visitors can also view their cart and easily checkout a car.
 ### User Stories
 #### Visitor (Not Signed up user)
 As a site visitor I want to carry out a search so I can see what products are available
+
 As a site visitor I want to easily understand how the site works and what it does so I can use the site quickly and easily make purchases
+
 As a site visitor I want to easily create an account and login to my account so I can access additional site functionality
 
 #### User (Signed up user)
 As a site user I want to be able to view a list of products so I can easily choose what I want
+
 As a site user I want to be able to view individual product details so I can see more information and make a choice
+
 As a site user I want to be able to view the cost of purchases at any time so I can easily see the cost of item I have chosen
+
 As a site user I want to be able to login to my account so I can see my account details, current and previous purchases
+
 As a site user I want to be able to logout of my account so I can securely leave the site
+
 As a site user I want to be able to easily recover my password if forgotten so I can regain site access
+
 As a site user I want to be able to receieve email confirmation after sign up so I can confirm successful registration
+
 As a site user I want to be able to easily add a car to the hire car system so I can quickly and easily use the site
+
 As a site user I want to be able to edit a current car in the system so I can update my car information
+
 As a site user I want to be able to see my previous orders and car booking history so I can remind myself of previous site interactions
+
 As a site user I want to be able to view items in my bag to be purchased so I can easily see what I am purchasing
+
 As a site user I want to be able to remove items from my bag which I no longer want so I can easily change my requested items
+
 As a site user I want to be able to delete a car from the car hire system so I can remove a product which is no longer available
+
 As a site user I want to be able to easily enter my payment information so I can make a payment with ease
+
 As a site user I want to be able to feel my personal payment information is secure and safe so I can have peace of mind when making a purchase
+
 As a site user I want to be able to view an order confirmation after checkout so I can feel secure that the transaction has taken place
+
 As a site user I want to be able to receieve an email confirmation after placing an order so I can feel secure that the transaction has taken place
 
 
@@ -66,36 +84,36 @@ I have used Nunito Sans font throughout the website as it has a simplistic style
 I have used Inkscape to design and modify svg images which I used for the main page background image and on the how it works pages to explain in simple terms to site visitors how to use CarLet.
 
 ### Wireframes
-[Home Desktop](/static/wireframes/Home.png)
-[Home Tablet](/static/wireframes/Home_tablet.png)
-[Home Mobile](/static/wireframes/Home_phone.png)
-[Car details Desktop](/static/wireframes/Car_details.png)
-[Car details Tablet](/static/wireframes/Car_details_tablet.png)
-[Car details Mobile](/static/wireframes/Car_details_phone.png)
-[Sign Up](/static/wireframes/Sign_up_In.png)
-[Sign Up Tablet](/static/wireframes/Sign_up_In_tablet.png)
-[Sign Up Mobile](/static/wireframes/Sign_up_in_phone.png)
-[Search Logged in Desktop](/static/wireframes/Search_logged_in.png)
-[Search Logged in Tablet](/static/wireframes/Search_logged_in_tablet.png)
-[Search Logged in Mobile](/static/wireframes/Search_logged_in_phone.png)
-[Car details Logged in Desktop](/static/wireframes/Car_details_logged_in.png)
-[Car details Logged in Tablet](/static/wireframes/Car_details_logged_in_tablet.png)
-[Car details Logged in Mobile](/static/wireframes/Car_details_logged_in_phone.png)
-[My account Desktop](/static/wireframes/My_account.png)
-[My account Tablet](/static/wireframes/My_account_tablet.png)
-[My account Mobile](/static/wireframes/My_account_phone.png)
-[Hire history Desktop](/static/wireframes/Hire_history.png)
-[Hire history Tablet](/static/wireframes/Hire_history_tablet.png)
-[Hire history Mobile](/static/wireframes/Hire_history_phone.png)
-[My Listings Desktop](/static/wireframes/My_listings.png)
-[My Listings Tablet](/static/wireframes/My_listings_tablet.png)
-[My Listings Mobile](/static/wireframes/My_listings_phone.png)
-[Checkout Desktop](/static/wireframes/Checkout.png)
-[Checkout Tablet](/static/wireframes/Checkout_tablet.png)
-[Checkout Mobile](/static/wireframes/Checkout_phone.png)
-[Logout Desktop](/static/wireframes/Log_out.png)
-[Logout Tablet](/static/wireframes/Log_out_tablet.png)
-[Logout Mobile](/static/wireframes/Log_out_phone.png)
+* [Home Desktop](/static/wireframes/Home.png)
+* [Home Tablet](/static/wireframes/Home_tablet.png)
+* [Home Mobile](/static/wireframes/Home_phone.png)
+* [Car details Desktop](/static/wireframes/Car_details.png)
+* [Car details Tablet](/static/wireframes/Car_details_tablet.png)
+* [Car details Mobile](/static/wireframes/Car_details_phone.png)
+* [Sign Up](/static/wireframes/Sign_up_In.png)
+* [Sign Up Tablet](/static/wireframes/Sign_up_In_tablet.png)
+* [Sign Up Mobile](/static/wireframes/Sign_up_in_phone.png)
+* [Search Logged in Desktop](/static/wireframes/Search_logged_in.png)
+* [Search Logged in Tablet](/static/wireframes/Search_logged_in_tablet.png)
+* [Search Logged in Mobile](/static/wireframes/Search_logged_in_phone.png)
+* [Car details Logged in Desktop](/static/wireframes/Car_details_logged_in.png)
+* [Car details Logged in Tablet](/static/wireframes/Car_details_logged_in_tablet.png)
+* [Car details Logged in Mobile](/static/wireframes/Car_details_logged_in_phone.png)
+* [My account Desktop](/static/wireframes/My_account.png)
+* [My account Tablet](/static/wireframes/My_account_tablet.png)
+* [My account Mobile](/static/wireframes/My_account_phone.png)
+* [Hire history Desktop](/static/wireframes/Hire_history.png)
+* [Hire history Tablet](/static/wireframes/Hire_history_tablet.png)
+* [Hire history Mobile](/static/wireframes/Hire_history_phone.png)
+* [My Listings Desktop](/static/wireframes/My_listings.png)
+* [My Listings Tablet](/static/wireframes/My_listings_tablet.png)
+* [My Listings Mobile](/static/wireframes/My_listings_phone.png)
+* [Checkout Desktop](/static/wireframes/Checkout.png)
+* [Checkout Tablet](/static/wireframes/Checkout_tablet.png)
+* [Checkout Mobile](/static/wireframes/Checkout_phone.png)
+* [Logout Desktop](/static/wireframes/Log_out.png)
+* [Logout Tablet](/static/wireframes/Log_out_tablet.png)
+* [Logout Mobile](/static/wireframes/Log_out_phone.png)
 
 ### Technologies used
 #### Tools
@@ -151,9 +169,6 @@ A Dashboard page with links to additional useful user information where users ca
 
 Admin superusers can view all cars in the database and delete any specific car from the database.
 
-### Information Architecture
-![Database Structure](/static/docs/Database_structure.png)
-
 ### Features to implement
 Futue featues to implement include a star rating system where users can allocate star ratings to the people they have hired cars from.
 
@@ -186,12 +201,15 @@ To allow you to access all functionality on the site locally, ensure you have cr
 6. If required upgrade pip locally with the command `pip3 install --upgrade pip`
 7. Install all required packages from the requirements file with the command `pip3 -r requirements.txt`
 8. In your local IDE create the required environment variables;
-`"SECRET_KEY": "<enter_django_secret_key_here>"
-"STRIPE_SECRET_KEY": "<enter_Stripe_secret_key_here>"
-"STRIPE_PUBLIC_KEY": "<enter_Stripe_public_key_here>"
-"STRIPE_WH_SECRET": "<enter_Stripe_webhook_secret_here>"
-"DATABASE_URL": "<enter_postgres_database_url_here>"
-"DEVELOPMENT": "<enter_True_here>"`
+
+KEY | VALUE
+----|------
+SECRET_KEY | <enter_django_secret_key_here>
+STRIPE_SECRET_KEY | <enter_Stripe_secret_key_here>
+STRIPE_PUBLIC_KEY |<enter_Stripe_public_key_here>
+STRIPE_WH_SECRET | <enter_Stripe_webhook_secret_here>
+DATABASE_URL | <enter_postgres_database_url_here>
+DEVELOPMENT | <enter_True_here>
 
 * Note: DEVELOPMENT environment variable is set only within the development environment, it does not exist in the deployed version, making it possible to have different settings for the two environments. For example setting DEBUG to True only when working in development and not on the deployed site.
 
