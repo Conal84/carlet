@@ -1,7 +1,7 @@
 // Initialize the map and geocoder
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
+    zoom: 14,
     center: { lat: 51.509865, lng: -0.118092 },
   });
   const geocoder = new google.maps.Geocoder();
