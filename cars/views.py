@@ -7,6 +7,9 @@ from .models import Car
 from .forms import CarForm
 from .utils import calc_days, check_available
 
+import os
+import boto3
+
 # Create your views here.
 
 
@@ -157,6 +160,10 @@ def add_car(request):
     if request.method == 'POST':
         form = CarForm(request.POST, request.FILES)
         if form.is_valid():
+            # if "USE_AWS" in os.environ:
+            for x, y in request.FILES.items():
+                print(x, y)
+                print(y.name)
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
