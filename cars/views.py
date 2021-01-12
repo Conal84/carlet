@@ -161,12 +161,13 @@ def add_car(request):
         form = CarForm(request.POST, request.FILES)
         if form.is_valid():
             if "USE_AWS" in os.environ:
-                for x in request.FILES.values():
-                    name = x.name
-                    print(f'file name is:{name}')
-                    s3 = boto3.client('s3')
-                    with open(name, "rb") as f:
-                        s3.upload_fileobj(f, "carlet-app", "media")
+                print("Using AWS")
+            # for x in request.FILES.values():
+            #     name = x.name
+            #     print(f'file name is:{name}')
+            #     s3 = boto3.client('s3')
+            #     with open(name, "rb") as f:
+            #         s3.upload_fileobj(f, "carlet-app", "media")
 
             instance = form.save(commit=False)
             instance.user = request.user
