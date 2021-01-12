@@ -168,8 +168,7 @@ def add_car(request):
                     name = x.name
                     print(f'file name is:{name}')
                     try:
-                        with open(name, "rb") as f:
-                            s3.upload_fileobj(f, "carlet-app", "media")
+                        response = s3.upload_file(name, "carlet-app", "media")
                     except ClientError as e:
                         print(e)
 
