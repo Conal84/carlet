@@ -165,7 +165,8 @@ def add_car(request):
                 s3 = boto3.resource('s3')
                 for x in request.FILES.values():
                     name = x.name
-                    s3.Bucket('carlet-app').put_object(Key='media', Body=name)
+                    data = open(name, 'rb')
+                    s3.Bucket('carlet-app').put_object(Key='media/', Body=data)
 
             instance = form.save(commit=False)
             instance.user = request.user
