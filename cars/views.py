@@ -163,12 +163,10 @@ def add_car(request):
         if form.is_valid():
             if "USE_AWS" in os.environ:
                 s3 = boto3.client('s3')
-                print("Using AWS")
                 for x in request.FILES.values():
                     name = x.name
-                    print(f'file name is:{name}')
                     try:
-                        response = s3.upload_file(name, "carlet-app", "media")
+                        s3.upload_file(name, "carlet-app", "media")
                     except ClientError as e:
                         print(e)
 
