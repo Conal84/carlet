@@ -160,10 +160,6 @@ def add_car(request):
     if request.method == 'POST':
         form = CarForm(request.POST, request.FILES)
         if form.is_valid():
-            # if "USE_AWS" in os.environ:
-            for x, y in request.FILES.items():
-                print(x, y)
-                print(y.name)
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
