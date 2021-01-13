@@ -9,6 +9,7 @@ from .utils import calc_days, check_available
 
 import os
 import boto3
+from botocore.exceptions import ClientError
 
 # Create your views here.
 
