@@ -131,6 +131,11 @@ h5 {
   border-bottom: 2px solid #dc04b4;
 }
 
+.fa-bars {
+    color: #7510f7;
+    font-size: 2.4rem;
+}
+
 #carlet-nav {
   position: relative;
   top: 5px;
