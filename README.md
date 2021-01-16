@@ -1,6 +1,7 @@
 <h1 align="center">Car-Let</h1>
 
-The [Carlet](https://carlet-app.herokuapp.com/) website allows users to search a list of cars for hire by location.
+[Carlet](https://carlet-app.herokuapp.com/) The car sharing website.
+Carlet users can search a list of cars for hire by location.
 Users can click on an available car to see additional car details and then hire that car if they wish to do so.
 Users can also upload their car to the website to make it available for hire.
 Users can create, view, update and delete an account when required.
@@ -153,7 +154,7 @@ A user admin section where users can login, logout and sign up.
 
 A How It Works section where new visitors to the site can easily learn how CarLet works
 
-A search form which allows site users to search for cars in a UK city between certain user provided hire dates.
+A search form which allows site users to search for cars in a UK city between certain user provided hire dates. Car availability is checked against the users search dates, search location and any existing bookings for a car.
 
 An All Cars page which display all possible cars availabe to hire for the users search criteria
 
