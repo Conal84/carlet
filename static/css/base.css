@@ -321,12 +321,12 @@ h5 {
 }
 
 .car-card {
-  width: 18rem;
+  width: 20rem;
 }
 
 .car-card-img {
   width: 100%;
-  height: 10vw;
+  height: 40vw;
   object-fit: fill;
 }
 
@@ -449,6 +449,14 @@ h5 {
   .dash-form {
     width: 60vw;
   }
+
+  .car-card {
+    width: 18rem;
+  }
+
+  .car-card-img {
+    height: 20vw;
+  }
 }
 
 /*Tablet and above Portrait View - 768px and above*/
@@ -482,6 +490,14 @@ h5 {
     top: 0;
     transform: none;
   }
+
+  .car-card {
+    width: 22rem;
+  }
+
+  .car-card-img {
+    height: 25vw;
+  }
 }
 
 /*Tablet and above Landscape View - 1024px and above*/
@@ -507,11 +523,27 @@ h5 {
     width: 100%;
     object-fit: contain;
   }
+
+  .car-card {
+    width: 22rem;
+  }
+
+  .car-card-img {
+    height: 20vw;
+  }
 }
 
 /* Large devices - 1170px and above */
 @media screen and (min-width: 1170px) {
   #background-container {
     height: 60%;
+  }
+
+  .car-card {
+    width: 20rem;
+  }
+
+  .car-card-img {
+    height: 10vw;
   }
 }
