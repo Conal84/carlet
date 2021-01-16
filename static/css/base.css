@@ -131,11 +131,6 @@ h5 {
   border-bottom: 2px solid #dc04b4;
 }
 
-.fa-bars {
-  color: #7510f7;
-  font-size: 2.4rem;
-}
-
 #carlet-nav {
   position: relative;
   top: 5px;
@@ -385,7 +380,7 @@ h5 {
 
 /* -------------------------------------- Allauth pages */
 .auth-content {
-  width: 30vw;
+  width: 60vw;
   margin-left: auto;
   margin-right: auto;
   min-height: calc(100vh - 10rem);
@@ -397,7 +392,7 @@ h5 {
 }
 
 .auth-form {
-  width: 30vw;
+  width: 60vw;
   border: 2px solid #dc04b4;
   border-radius: 5px;
   margin-left: auto;
@@ -497,6 +492,14 @@ h5 {
 
   .car-card-img {
     height: 25vw;
+  }
+
+  .auth-content {
+  width: 30vw;
+  }
+
+  .auth-form {
+    width: 30vw;
   }
 }
 

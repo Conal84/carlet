@@ -7,7 +7,7 @@
 {% block content %}
     <div class="auth-content">
         <div class="auth-text">
-            <h2 class="logo-font">{% trans "Log In" %}</h2>
+            <h2 class="logo-font text-center">{% trans "Log In" %}</h2>
 
             {% get_providers as socialaccount_providers %}
 
@@ -28,11 +28,13 @@
             {% include "socialaccount/snippets/login_extra.html" %}
 
             {% else %}
-            <p>{% blocktrans %}If you have not created an account yet,<br> then please
-            <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-            {% endif %}
+            <div class="text-center">
+                <p>{% blocktrans %}If you have not created an account yet,<br> then please
+                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+                {% endif %}
+            </div>
         </div>
-
+    <div class="d-flex justify-content-center">
         <div class="auth-form">
             <form class="login px-5 py-5" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
@@ -45,4 +47,5 @@
             </form>
         </div>
     </div>
+</div>
 {% endblock %}

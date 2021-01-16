@@ -8,10 +8,11 @@
 {% block content %}
 <div class="auth-content">
     <div class="auth-text">
-        <h2 class="logo-font">{% trans "Sign Up" %}</h2>
-
-        <p>{% blocktrans %}Already have an account? Then please 
-        <a href="{{ login_url }}">log in</a>.{% endblocktrans %}</p>
+        <h2 class="logo-font text-center">{% trans "Sign Up" %}</h2>
+        <div class="text-center">
+            <p>{% blocktrans %}Already have an account? <br>Then please 
+            <a href="{{ login_url }}">log in</a>.{% endblocktrans %}</p>
+        </div>
     </div>
 
     <div class="auth-form">
