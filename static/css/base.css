@@ -132,8 +132,8 @@ h5 {
 }
 
 .fa-bars {
-    color: #7510f7;
-    font-size: 2.4rem;
+  color: #7510f7;
+  font-size: 2.4rem;
 }
 
 #carlet-nav {
@@ -257,9 +257,16 @@ h5 {
   min-height: calc(100vh - 10rem);
 }
 
+.howitworks-img-parent {
+  position: relative;
+}
+
 .howitworks-img {
   max-width: 100%;
-  max-height: 30vh;
+  max-height: 15vh;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* Style the tab buttons */
@@ -324,10 +331,10 @@ h5 {
 }
 
 .fa-map-marker-alt {
-    color: #7510f7;
-    font-size: 2rem;
-    cursor: pointer;
-    padding-bottom: 10px;
+  color: #7510f7;
+  font-size: 2rem;
+  cursor: pointer;
+  padding-bottom: 10px;
 }
 
 #map {
@@ -336,11 +343,11 @@ h5 {
 }
 
 .close {
-    color: #7510f7;
+  color: #7510f7;
 }
 
 .close:hover {
-    color: #7510f7;
+  color: #7510f7;
 }
 
 /* -------------------------------------- Dashboard */
@@ -463,6 +470,17 @@ h5 {
   #profile-card-btn {
     position: relative;
     top: 22px;
+  }
+
+  .howitworks-img-parent {
+    position: static;
+  }
+
+  .howitworks-img {
+    position: static;
+    max-height: 30vh;
+    top: 0;
+    transform: none;
   }
 }
 
