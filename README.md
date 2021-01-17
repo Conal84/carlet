@@ -173,7 +173,9 @@ Admin superusers can view all cars in the database and delete any specific car f
 ### Features to implement
 Futue featues to implement include a star rating system where users can allocate star ratings to the people they have hired cars from.
 
-An car add security feature would not immediatley allow users to upload their car infromation and photos to the site. Instead the new car details would be uploaded to an admin area for admin approval prior to uploading to the site.
+An car add security feature would not immediatley allow users to upload their car information and photos to the site. Instead the new car details would be uploaded to an admin area for admin approval prior to uploading to the site.
+
+Add some code to resize any car images uploaded by user so they are not too large.
 
 ## Testing
 Please see the TEST.md file at this link [TEST.md](TEST.md) to understand how the CarLet website was tested.

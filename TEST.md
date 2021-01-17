@@ -55,8 +55,3 @@ W3C CSS & HTML Validators and ICI accessibilty checker were used to check the va
 * **Implementation:** The website Dashboard provides links to forms which allow CRUD functionality. A boolean value is set in the car model when the normal user removes the car from the database, this way the previous order and booking information is not lost as the car is not deleted from the database. A superuser can permanently delete a car from the database.
 * **Result:** The users can add, edit, remove and delete cars from Carlet
 * **Verdict:** This section has passed the test.
-
-## Bugs
-Bug: When logged in and on small devices, Bootstrap breakpoint col-12, the id project-add requires a height in order to take a position on the page.
-Fix: This height has been estimated at 25rem but it does not exactly match the heights of the project cards which contain project images.
-Verdict: This bug still exists
