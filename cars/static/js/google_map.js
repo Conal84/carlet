@@ -14,7 +14,6 @@ function initMap() {
         var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location,
-            icon: 'https://maps.google.com/mapfiles/ms/micons/purple-dot.png',
             animation: google.maps.Animation.DROP
         });
         } else {
